@@ -32,7 +32,7 @@ body {
   padding: 0 24px;
 }
 
-/* Header & Flyout Dropdown Navigation */
+/* Header & Two-Tier Flyout Dropdowns */
 .site-header {
   position: sticky;
   top: 0;
@@ -82,7 +82,6 @@ body {
   color: var(--primary-blue);
 }
 
-/* Primary Dropdown Menu */
 .nav-item-dropdown {
   position: relative;
 }
@@ -116,9 +115,9 @@ body {
   align-items: center;
   padding: 11px 18px;
   color: var(--text-main);
-  text-decoration: none;
   font-size: 13px;
   font-weight: 600;
+  cursor: pointer;
   transition: all 0.2s;
 }
 
@@ -132,7 +131,6 @@ body {
   color: var(--text-muted);
 }
 
-/* Secondary Flyout Menu (Cascades to the Right) */
 .dropdown-secondary {
   display: none;
   position: absolute;
@@ -283,7 +281,7 @@ body {
 }
 
 /* Sections */
-.about-section, .arbitrage-section, .proof-section, .payments-section, .faq-section {
+.about-section, .experience-section, .arbitrage-section, .proof-section, .hubs-section, .payments-section, .faq-section {
   padding: 75px 0;
   border-top: 1px solid var(--border-color);
 }
@@ -304,9 +302,47 @@ body {
 /* About Section */
 .about-grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 40px;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 44px;
   align-items: center;
+}
+
+.about-image-wrapper {
+  text-align: center;
+}
+
+.founder-photo {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary-blue);
+  box-shadow: 0 12px 30px rgba(2, 132, 199, 0.3);
+  margin-bottom: 16px;
+}
+
+.founder-badge-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.founder-badge-card h4 {
+  font-size: 18px;
+  color: #fff;
+}
+
+.founder-badge-card p {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 4px 0 10px;
+}
+
+.status-pill {
+  font-size: 12px;
+  color: var(--accent-green);
+  font-weight: 700;
 }
 
 .section-badge {
@@ -337,60 +373,76 @@ body {
   margin-bottom: 14px;
 }
 
-.about-highlights {
-  display: flex;
-  gap: 24px;
-  margin-top: 24px;
-  padding-top: 20px;
-  border-top: 1px solid var(--border-color);
-}
-
-.highlight-item .hl-num {
-  display: block;
-  font-size: 26px;
-  font-weight: 800;
-  color: var(--primary-blue);
-}
-
-.highlight-item .hl-label {
-  font-size: 12px;
-  color: var(--text-muted);
-  font-weight: 600;
-}
-
-.philosophy-box {
+.academic-box {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: 14px;
-  padding: 30px;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.philosophy-box h3 {
-  font-size: 17px;
-  margin-bottom: 18px;
-  color: var(--accent-orange);
-  text-transform: uppercase;
+.academic-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
 }
 
-.principle {
-  margin-bottom: 16px;
+.academic-item .flag {
+  font-size: 22px;
 }
 
-.principle:last-child {
-  margin-bottom: 0;
-}
-
-.principle strong {
-  display: block;
+.academic-item strong {
   color: #fff;
   font-size: 14px;
-  margin-bottom: 3px;
 }
 
-.principle p {
+.academic-item p {
   font-size: 13px;
   color: var(--text-muted);
-  margin: 0;
+  margin: 2px 0 0;
+}
+
+/* Experience Timeline Grid */
+.experience-timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 22px;
+}
+
+.timeline-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 24px;
+  border-radius: 12px;
+}
+
+.company-badge {
+  font-size: 11px;
+  color: var(--accent-orange);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.timeline-box h3 {
+  font-size: 18px;
+  color: #fff;
+}
+
+.role-title {
+  font-size: 13px;
+  color: var(--primary-blue);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.exp-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
 }
 
 /* Arbitrage Grid */
@@ -546,6 +598,57 @@ body {
   margin: 6px 0 16px;
 }
 
+/* Global Hubs Grid */
+.hubs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.hub-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 28px;
+}
+
+.hub-card.primary-hub {
+  border: 2px solid var(--primary-blue);
+}
+
+.hub-flag {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.hub-card h3 {
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.hub-location {
+  font-size: 14px;
+  color: var(--primary-blue);
+  font-weight: 700;
+}
+
+.hub-tz {
+  display: inline-block;
+  font-size: 11px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin: 10px 0 14px;
+  color: var(--accent-orange);
+}
+
+.hub-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
 /* Payment Portal */
 .payment-tabs-wrapper {
   max-width: 780px;
@@ -655,7 +758,62 @@ body {
 
 .faq-item.active .faq-answer { display: block; }
 
-/* Document Modal (PDF / Images) */
+/* Dynamic Sub-Service View */
+.service-view-container {
+  padding: 40px 0 80px;
+}
+
+.back-btn {
+  margin-bottom: 30px;
+}
+
+.service-hero-box {
+  background: radial-gradient(circle at 50% 10%, rgba(2, 132, 199, 0.15) 0%, transparent 70%);
+  padding: 40px 20px;
+  border-radius: 14px;
+  text-align: center;
+  margin-bottom: 40px;
+  border: 1px solid var(--border-color);
+}
+
+.service-hero-box h1 {
+  font-size: 36px;
+  font-weight: 800;
+  margin: 12px 0;
+}
+
+.service-hero-box p {
+  color: var(--text-muted);
+  max-width: 700px;
+  margin: 0 auto 24px;
+}
+
+.service-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.detail-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 24px;
+  border-radius: 12px;
+}
+
+.detail-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.detail-card p {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Document Modal (PDF / Image) */
 .modal-backdrop {
   display: none;
   position: fixed;
@@ -778,6 +936,9 @@ body {
 .footer-links a:hover { color: var(--text-main); }
 
 @media (max-width: 850px) {
+  .about-grid, .comparison-grid {
+    grid-template-columns: 1fr;
+  }
   .dropdown-secondary {
     position: static;
     display: none;
@@ -787,9 +948,6 @@ body {
   }
   .has-flyout:hover > .dropdown-secondary {
     display: block;
-  }
-  .about-grid, .comparison-grid {
-    grid-template-columns: 1fr;
   }
   .nav-menu { display: none; }
 }
