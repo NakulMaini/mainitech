@@ -6,73 +6,367 @@
   <title>Career & Academic Journey | Nakul Maini — MainiTech Strategic Solutions</title>
   <meta name="description" content="Ascending chronological journey of Nakul Maini: Academic credentials from BCA to MSc DiCES (Austria) paired side-by-side with commercial leadership.">
   <link rel="canonical" href="https://nakulmaini.github.io/mainitech/career-roadmap.html">
-  <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-dark: #070d18;
+      --bg-card: #0b1220;
+      --bg-hover: #111c30;
+      --primary-blue: #0284c7;
+      --primary-blue-hover: #0369a1;
+      --accent-cyan: #38bdf8;
+      --accent-amber: #fbbf24;
+      --accent-orange: #f97316;
+      --accent-green: #10b981;
+      --text-main: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* Navigation */
+    .site-header {
+      position: sticky;
+      top: 0;
+      background: rgba(7, 13, 24, 0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+    }
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+    }
+    .brand-logo { height: 48px; width: auto; display: block; }
+    .nav-menu { display: flex; align-items: center; gap: 16px; }
+    .nav-link {
+      color: var(--text-main);
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      padding: 8px 10px;
+      transition: color 0.2s;
+    }
+    .nav-link:hover, .nav-link.active-nav { color: var(--accent-cyan); }
+    .btn {
+      display: inline-block;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      text-align: center;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-hover));
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
+    }
+    .btn-primary:hover { opacity: 0.95; transform: translateY(-1px); }
+    .btn-outline {
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      background: transparent;
+    }
+    .btn-outline:hover { background: rgba(255, 255, 255, 0.05); }
+    .btn-large { padding: 14px 28px; font-size: 15px; }
+
+    /* Header Section */
+    .hero-section {
+      padding: 70px 0 40px;
+      text-align: center;
+      background: radial-gradient(circle at 50% 15%, rgba(2, 132, 199, 0.16) 0%, transparent 65%);
+    }
+    .hero-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .hero-title {
+      font-size: 40px;
+      line-height: 1.2;
+      font-weight: 800;
+      max-width: 900px;
+      margin: 0 auto 16px;
+    }
+    .hero-subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 760px;
+      margin: 0 auto 28px;
+    }
+
+    /* Dual Track Legend */
+    .journey-legend {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .legend-item { display: flex; align-items: center; gap: 10px; }
+    .legend-dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+    .edu-dot { background: var(--accent-cyan); box-shadow: 0 0 10px rgba(56, 189, 248, 0.8); }
+    .career-dot { background: var(--accent-orange); box-shadow: 0 0 10px rgba(249, 115, 22, 0.8); }
+
+    /* =========================================
+       RE-ENGINEERED CSS GRID VINE TIMELINE
+       ========================================= */
+    .journey-section { padding: 40px 0 90px; }
+    .vine-container {
+      position: relative;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    /* Continuous Central Stem Line */
+    .vine-container::before {
+      content: '';
+      position: absolute;
+      top: 30px;
+      bottom: 30px;
+      left: 50%;
+      width: 4px;
+      transform: translateX(-50%);
+      background: linear-gradient(to top, #1e293b, var(--primary-blue), var(--accent-cyan));
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.4);
+      border-radius: 4px;
+      z-index: 1;
+    }
+
+    /* Grid Row: Left Card | Center Node | Right Card */
+    .vine-row {
+      display: grid;
+      grid-template-columns: 1fr 100px 1fr;
+      align-items: center;
+      margin-bottom: 44px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Center Year Node */
+    .vine-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .year-pill {
+      background: #0b1220;
+      border: 2px solid var(--primary-blue);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 800;
+      padding: 8px 14px;
+      border-radius: 24px;
+      white-space: nowrap;
+      box-shadow: 0 0 18px rgba(2, 132, 199, 0.6);
+      text-align: center;
+    }
+    .year-pill.active-pill {
+      border-color: var(--accent-cyan);
+      color: var(--accent-cyan);
+      background: #071529;
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.8);
+    }
+
+    /* Columns */
+    .vine-left-col {
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 28px;
+    }
+    .vine-right-col {
+      display: flex;
+      justify-content: flex-start;
+      padding-left: 28px;
+    }
+
+    /* Timeline Cards */
+    .timeline-card {
+      background: #0b1220;
+      border: 1px solid #1e293b;
+      border-radius: 16px;
+      padding: 24px 26px;
+      width: 100%;
+      max-width: 480px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .timeline-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 20px rgba(2, 132, 199, 0.2);
+    }
+
+    /* Left Card Accents (Academics) */
+    .academic-card {
+      border-right: 4px solid var(--accent-cyan);
+      text-align: right;
+    }
+    .academic-card .card-badge-track {
+      color: var(--accent-cyan);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    /* Right Card Accents (Career) */
+    .career-card {
+      border-left: 4px solid var(--accent-orange);
+      text-align: left;
+    }
+    .career-card .card-badge-track {
+      color: var(--accent-orange);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .timeline-card h3 {
+      font-size: 17px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+    .timeline-card .entity-subtitle {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-body);
+      margin-bottom: 10px;
+    }
+    .timeline-card p.card-detail {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Crown Cards for Present Stage */
+    .crown-academic {
+      border-right: 4px solid var(--accent-cyan);
+      border-top: 1px solid rgba(56, 189, 248, 0.4);
+      background: #08162b;
+      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
+    }
+    .crown-career {
+      border-left: 4px solid var(--accent-green);
+      border-top: 1px solid rgba(16, 185, 129, 0.4);
+      background: #081a1d;
+      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
+    }
+    .crown-career .card-badge-track { color: var(--accent-green); }
+
+    /* Bottom CTA Card */
+    .bottom-cta-box {
+      background: #0b1220;
+      border: 1px solid #1e293b;
+      border-radius: 20px;
+      padding: 46px 28px;
+      max-width: 860px;
+      margin: 40px auto 0;
+      text-align: center;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+    }
+    .bottom-cta-box h2 { font-size: 26px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+    .bottom-cta-box p { color: var(--text-muted); font-size: 15px; margin-bottom: 24px; }
+    .bottom-cta-actions { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+    /* Floating WhatsApp */
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #25D366;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+      z-index: 9999;
+    }
+    .wa-icon { width: 20px; height: 20px; }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid var(--border-color);
+      padding: 26px 0;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 60px;
+    }
+    .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; }
+    .footer-sub { font-size: 11px; color: #64748b; margin-top: 2px; }
+    .footer-links a { color: var(--text-muted); text-decoration: none; margin-left: 14px; }
+    .footer-links a:hover { color: var(--text-main); }
+
+    /* Responsive Mobile Fallback */
+    @media (max-width: 860px) {
+      .vine-container::before { left: 24px; }
+      .vine-row {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding-left: 54px;
+        margin-bottom: 36px;
+      }
+      .vine-center { justify-content: flex-start; }
+      .year-pill { position: absolute; left: -54px; top: 0; }
+      .vine-left-col, .vine-right-col { padding: 0; justify-content: flex-start; }
+      .academic-card { border-right: 1px solid #1e293b; border-left: 4px solid var(--accent-cyan); text-align: left; }
+    }
+  </style>
 </head>
 <body>
 
   <!-- Navigation -->
   <header class="site-header">
     <div class="nav-container">
-      <a href="index.html" class="brand">
-        <img src="logo.png" alt="MainiTech Strategic Solutions" class="brand-logo">
-      </a>
+      <a href="index.html" class="brand"><img src="logo.png" alt="MainiTech Strategic Solutions" class="brand-logo"></a>
       <nav class="nav-menu">
         <a href="about.html" class="nav-link">About</a>
         <a href="career-roadmap.html" class="nav-link active-nav">Career Roadmap</a>
-        <div class="nav-item-dropdown">
-          <a href="services.html" class="nav-link dropdown-toggle">Strategic Services <span class="arrow">▾</span></a>
-          <ul class="dropdown-primary">
-            <li class="has-flyout">
-              <span class="category-header">Business Strategy & Analysis <span class="chevron">›</span></span>
-              <ul class="dropdown-secondary">
-                <li><a href="services/business-growth-consultation.html">Business Growth Consultation</a></li>
-                <li><a href="services/web-business-profile-audits.html">Web & Business Profile Audits</a></li>
-                <li><a href="services/workflow-restructuring.html">Workflow & Operational Restructuring</a></li>
-                <li><a href="services/operational-cost-reduction.html">Operational Cost Reduction</a></li>
-                <li><a href="services/bookkeeping-account-management.html">Bookkeeping & Account Management</a></li>
-              </ul>
-            </li>
-            <li class="has-flyout">
-              <span class="category-header">Marketing & Acquisition <span class="chevron">›</span></span>
-              <ul class="dropdown-secondary">
-                <li><a href="services/digital-marketing.html">Digital & Performance Marketing</a></li>
-                <li><a href="services/search-engine-optimization.html">Search Engine Optimization (SEO/AEO)</a></li>
-                <li><a href="services/social-media-marketing.html">Social Media Marketing (SMM)</a></li>
-                <li><a href="services/social-media-management.html">Social Media Management & SMO</a></li>
-                <li><a href="services/email-marketing.html">Email Marketing & Management</a></li>
-                <li><a href="services/sms-marketing.html">SMS & Text Marketing</a></li>
-                <li><a href="services/content-marketing.html">Content Marketing Strategy</a></li>
-                <li><a href="services/b2b-lead-generation.html">Targeted B2B Lead Generation</a></li>
-              </ul>
-            </li>
-            <li class="has-flyout">
-              <span class="category-header">Local & Community Authority <span class="chevron">›</span></span>
-              <ul class="dropdown-secondary">
-                <li><a href="services/google-business-profile.html">Google Business Profile (GBP)</a></li>
-                <li><a href="services/yelp-mapquest-optimization.html">Yelp & MapQuest Optimization</a></li>
-                <li><a href="services/forum-authority-growth.html">Forum Growth (Reddit, Quora, Medium)</a></li>
-              </ul>
-            </li>
-            <li class="has-flyout">
-              <span class="category-header">Development Solutions <span class="chevron">›</span></span>
-              <ul class="dropdown-secondary">
-                <li><a href="services/conversion-web-development.html">High-Converting Web Development</a></li>
-                <li><a href="services/mobile-app-development.html">Mobile Application Development</a></li>
-              </ul>
-            </li>
-            <li class="has-flyout highlight-item">
-              <span class="category-header">Airbnb Growth Strategy <span class="chevron">›</span></span>
-              <ul class="dropdown-secondary">
-                <li><a href="services/airbnb-conversion-enhancement.html">Listing Conversion Rate Enhancement</a></li>
-                <li><a href="services/airbnb-marketing-strategy.html">Airbnb Marketing Strategy</a></li>
-                <li><a href="services/airbnb-management-strategy.html">Turnkey Airbnb Management</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
+        <a href="services.html" class="nav-link">Strategic Services</a>
         <a href="cost-advantage.html" class="nav-link">Cost Advantage</a>
         <a href="client-letters.html" class="nav-link">Client Letters</a>
         <a href="global-hubs.html" class="nav-link">Global Hubs</a>
@@ -85,12 +379,13 @@
     </div>
   </header>
 
-  <!-- Hero Header -->
+  <!-- Hero -->
   <section class="hero-section">
     <div class="container hero-content">
-      <div class="hero-badge">Dual-Track Progression • 2019 to Present</div>
+      <div class="hero-badge">Dual-Track Progression • 2019 to 2028</div>
       <h1 class="hero-title">The Ascending Journey of Nakul Maini</h1>
-      <p class="hero-subtitle">Visualizing the parallel progression of rigorous technical computer applications education on the left, advancing synchronously with commercial revenue leadership and operations on the right.</p>
+      <p class="hero-subtitle">Visualizing the parallel progression of technical computer applications education on the left, advancing synchronously with commercial revenue leadership and operations on the right.</p>
+      
       <div class="journey-legend">
         <span class="legend-item"><span class="legend-dot edu-dot"></span> Academic Degrees & Systems Rigor (Left)</span>
         <span class="legend-item"><span class="legend-dot career-dot"></span> Commercial Performance & Leadership (Right)</span>
@@ -98,171 +393,168 @@
     </div>
   </section>
 
-  <!-- Ascending Vine / Journey Timeline -->
+  <!-- Ascending Vine Grid -->
   <section class="journey-section">
     <div class="container">
-      <div class="vine-timeline-wrapper">
-        
-        <!-- Central Glowing Vine Trunk -->
-        <div class="vine-stem"></div>
+      <div class="vine-container">
 
-        <!-- STAGE 1: 2019 (Foundation) -->
-        <div class="vine-stage">
-          <div class="vine-node">
-            <span class="node-year">2019</span>
-          </div>
-          <div class="vine-branch branch-left">
-            <div class="journey-card academic-journey-card">
-              <span class="card-branch-tag">Academic Foundation</span>
+        <!-- Stage 1: 2019 -->
+        <div class="vine-row">
+          <div class="vine-left-col">
+            <div class="timeline-card academic-card">
+              <span class="card-badge-track">Academic Foundation</span>
               <h3>BCA Enrollment • Computer Science</h3>
-              <p class="journey-org">GGSIPU (VIPS), New Delhi</p>
-              <p class="journey-text">Commenced Bachelor of Computer Applications with an intensive curriculum in object-oriented programming, data structures, algorithms, and computational logic.</p>
+              <p class="entity-subtitle">GGSIPU (VIPS), New Delhi</p>
+              <p class="card-detail">Commenced Bachelor of Computer Applications with intensive training in object-oriented programming, data structures, algorithms, and computational logic.</p>
             </div>
           </div>
-          <div class="vine-branch branch-right">
-            <div class="journey-card career-journey-card">
-              <span class="card-branch-tag">Team Leadership</span>
+          <div class="vine-center">
+            <span class="year-pill">2019</span>
+          </div>
+          <div class="vine-right-col">
+            <div class="timeline-card career-card">
+              <span class="card-badge-track">Team Leadership</span>
               <h3>Project Manager • TSL</h3>
-              <p class="journey-org">The Speaking Library (Sep 2019 – Aug 2022)</p>
-              <p class="journey-text">Stepped into multi-functional operational management, coordinating 17 personnel across business development, digital campaigns, and research initiatives.</p>
+              <p class="entity-subtitle">The Speaking Library (Sep 2019 – Aug 2022)</p>
+              <p class="card-detail">Stepped into cross-functional operational management, directing 17 team members across business development, digital marketing, market research, and content execution.</p>
             </div>
           </div>
         </div>
 
-        <!-- STAGE 2: 2020 - 2021 (Execution & Scale) -->
-        <div class="vine-stage">
-          <div class="vine-node">
-            <span class="node-year">2020 – 2021</span>
-          </div>
-          <div class="vine-branch branch-left">
-            <div class="journey-card academic-journey-card">
-              <span class="card-branch-tag">Database & Web Engineering</span>
-              <h3>Advanced Systems Architecture</h3>
-              <p class="journey-org">VIPS Academic Curriculum</p>
-              <p class="journey-text">Mastered distributed database management systems (RDBMS), software lifecycle models, network protocols, and full-stack web technologies.</p>
+        <!-- Stage 2: 2020 - 2021 -->
+        <div class="vine-row">
+          <div class="vine-left-col">
+            <div class="timeline-card academic-card">
+              <span class="card-badge-track">Systems Architecture</span>
+              <h3>Database & Software Engineering</h3>
+              <p class="entity-subtitle">VIPS Academic Curriculum</p>
+              <p class="card-detail">Mastered distributed database management systems (RDBMS), software lifecycle models, network protocols, and full-stack web architectures.</p>
             </div>
           </div>
-          <div class="vine-branch branch-right">
-            <div class="journey-card career-journey-card">
-              <span class="card-branch-tag">Large-Scale Operations</span>
+          <div class="vine-center">
+            <span class="year-pill">2020 – 2021</span>
+          </div>
+          <div class="vine-right-col">
+            <div class="timeline-card career-card">
+              <span class="card-badge-track">Enterprise Operations</span>
               <h3>Project Manager • THREWS</h3>
-              <p class="journey-org">The Research World</p>
-              <p class="journey-text">Orchestrated workflows and standard operating delivery procedures for operational teams totaling 238 cross-functional employees under direct executive leadership.</p>
+              <p class="entity-subtitle">The Research World</p>
+              <p class="card-detail">Managed cross-functional operational teams totaling 238 employees directly under executive leadership, standardizing delivery workflows and global SOPs.</p>
             </div>
           </div>
         </div>
 
-        <!-- STAGE 3: 2022 (BCA Graduation & MCA Transition) -->
-        <div class="vine-stage">
-          <div class="vine-node">
-            <span class="node-year">2022</span>
-          </div>
-          <div class="vine-branch branch-left">
-            <div class="journey-card academic-journey-card highlight-academic">
-              <span class="card-branch-tag">BCA Degree Graduated</span>
+        <!-- Stage 3: 2022 -->
+        <div class="vine-row">
+          <div class="vine-left-col">
+            <div class="timeline-card academic-card">
+              <span class="card-badge-track">BCA Degree Conferred</span>
               <h3>9.4 / 10 CGPA • BCA Completed</h3>
-              <p class="journey-org">Guru Gobind Singh Indraprastha University (2019–2022)</p>
-              <p class="journey-text">Graduated top of class with a 9.4/10 CGPA. Simultaneously secured admission into the Master of Computer Applications (MCA) program with specialized focus in Mathematics & Computer Science.</p>
+              <p class="entity-subtitle">Guru Gobind Singh Indraprastha University (2019–2022)</p>
+              <p class="card-detail">Graduated top of class with a 9.4/10 CGPA. Concurrently gained admission into the Master of Computer Applications (MCA) program with specialized focus in Mathematics & Computer Science.</p>
             </div>
           </div>
-          <div class="vine-branch branch-right">
-            <div class="journey-card career-journey-card">
-              <span class="card-branch-tag">Digital Campaign Growth</span>
-              <h3>SOP Standardization & Velocity</h3>
-              <p class="journey-org">TSL / Client Delivery Operations</p>
-              <p class="journey-text">Consolidated operational metrics, transitioned campaigns into structured repeatable SOPs, and completed 3 continuous years of operational leadership.</p>
+          <div class="vine-center">
+            <span class="year-pill">2022</span>
+          </div>
+          <div class="vine-right-col">
+            <div class="timeline-card career-card">
+              <span class="card-badge-track">Operational Standardization</span>
+              <h3>Campaign Targeting & Performance</h3>
+              <p class="entity-subtitle">TSL Operational Delivery</p>
+              <p class="card-detail">Leveraged market research and performance metrics to optimize campaign messaging and team workload allocation across client deliverables.</p>
             </div>
           </div>
         </div>
 
-        <!-- STAGE 4: 2023 (InsurTech Engineering) -->
-        <div class="vine-stage">
-          <div class="vine-node">
-            <span class="node-year">2023</span>
-          </div>
-          <div class="vine-branch branch-left">
-            <div class="journey-card academic-journey-card">
-              <span class="card-branch-tag">Data Analytics & Simulation</span>
-              <h3>Python & Business Intelligence</h3>
-              <p class="journey-org">MCA Mathematics & Analytics</p>
-              <p class="journey-text">Advanced computational analysis, enterprise Power BI architecture, predictive modeling, and statistical algorithms applied to commercial datasets.</p>
+        <!-- Stage 4: 2023 -->
+        <div class="vine-row">
+          <div class="vine-left-col">
+            <div class="timeline-card academic-card">
+              <span class="card-badge-track">Analytics & Simulation</span>
+              <h3>Python & Power BI Data Systems</h3>
+              <p class="entity-subtitle">MCA Mathematics & Analytics</p>
+              <p class="card-detail">Advanced computational data analysis, enterprise Power BI architecture, predictive modeling, and statistical algorithms applied to commercial datasets.</p>
             </div>
           </div>
-          <div class="vine-branch branch-right">
-            <div class="journey-card career-journey-card">
-              <span class="card-branch-tag">Project Coordination</span>
+          <div class="vine-center">
+            <span class="year-pill">2023</span>
+          </div>
+          <div class="vine-right-col">
+            <div class="timeline-card career-card">
+              <span class="card-badge-track">Project Leadership</span>
               <h3>Business Development Manager</h3>
-              <p class="journey-org">Insurance Planet Pvt Ltd (Oct 2023 – Sep 2024)</p>
-              <p class="journey-text">Directed an intern engineering team through customer journey optimization and architected automated client communication platforms to eliminate manual tele-calling overhead.</p>
+              <p class="entity-subtitle">Insurance Planet Pvt Ltd (Oct 2023 – Sep 2024)</p>
+              <p class="card-detail">Directed a dedicated engineering team through website delivery and customer journey optimization, translating commercial needs into software automations.</p>
             </div>
           </div>
         </div>
 
-        <!-- STAGE 5: 2024 (MCA Completion & Financial Advisory) -->
-        <div class="vine-stage">
-          <div class="vine-node">
-            <span class="node-year">2024</span>
-          </div>
-          <div class="vine-branch branch-left">
-            <div class="journey-card academic-journey-card highlight-academic">
-              <span class="card-branch-tag">MCA Degree Completed</span>
-              <h3>8.67 / 10 CGPA • MCA Conferred</h3>
-              <p class="journey-org">Guru Gobind Singh Indraprastha University (2022–2024)</p>
-              <p class="journey-text">Successfully completed Master of Computer Applications (Mathematics & Computer Science) with distinction (8.67/10 CGPA).</p>
+        <!-- Stage 5: 2024 -->
+        <div class="vine-row">
+          <div class="vine-left-col">
+            <div class="timeline-card academic-card">
+              <span class="card-badge-track">MCA Degree Conferred</span>
+              <h3>8.67 / 10 CGPA • MCA Completed</h3>
+              <p class="entity-subtitle">Guru Gobind Singh Indraprastha University (2022–2024)</p>
+              <p class="card-detail">Successfully graduated with distinction in Master of Computer Applications (Mathematics & Computer Science) with an 8.67/10 CGPA.</p>
             </div>
           </div>
-          <div class="vine-branch branch-right">
-            <div class="journey-card career-journey-card">
-              <span class="card-branch-tag">High-Trust Advisory</span>
+          <div class="vine-center">
+            <span class="year-pill">2024</span>
+          </div>
+          <div class="vine-right-col">
+            <div class="timeline-card career-card">
+              <span class="card-badge-track">High-Trust Advisory</span>
               <h3>Financial Advisor • 9 Leadership Awards</h3>
-              <p class="journey-org">Policybazaar.com (Sep 2024 – May 2025)</p>
-              <p class="journey-text">Closed 83 high-volume financial advisory clients, conducting structured discovery on financial portfolios and earning 9 internal performance leadership awards.</p>
+              <p class="entity-subtitle">Policybazaar.com (Sep 2024 – May 2025)</p>
+              <p class="card-detail">Closed 83 high-volume financial advisory clients, conducting structured discovery on financial portfolios and risk parameters to earn 9 internal performance awards.</p>
             </div>
           </div>
         </div>
 
-        <!-- STAGE 6: 2025 (Global Enterprise Closings) -->
-        <div class="vine-stage">
-          <div class="vine-node">
-            <span class="node-year">2025</span>
-          </div>
-          <div class="vine-branch branch-left">
-            <div class="journey-card academic-journey-card">
-              <span class="card-branch-tag">Executive Immersion</span>
-              <h3>148 Executive Certifications</h3>
-              <p class="journey-org">LinkedIn Learning & Global Frameworks</p>
-              <p class="journey-text">Completed 148 industry certificates spanning consultative sales, account strategy, complex negotiation, financial modeling, and cross-border operational management.</p>
+        <!-- Stage 6: 2025 -->
+        <div class="vine-row">
+          <div class="vine-left-col">
+            <div class="timeline-card academic-card">
+              <span class="card-badge-track">Executive Certification</span>
+              <h3>148 Industry Certifications</h3>
+              <p class="entity-subtitle">LinkedIn Learning & Global Frameworks</p>
+              <p class="card-detail">Completed 148 industry certificates covering sales methodology, commercial negotiations, financial management, and advanced digital tools.</p>
             </div>
           </div>
-          <div class="vine-branch branch-right">
-            <div class="journey-card career-journey-card highlight-career">
-              <span class="card-branch-tag">Record Commercial Performance</span>
+          <div class="vine-center">
+            <span class="year-pill">2025</span>
+          </div>
+          <div class="vine-right-col">
+            <div class="timeline-card career-card">
+              <span class="card-badge-track">Record Commercial Performance</span>
               <h3>Best Salesperson of the Year 2025–26</h3>
-              <p class="journey-org">RCV Technologies (May 2025 – Sep 2026)</p>
-              <p class="journey-text">Promoted to Business Development Manager within 12 months. Awarded Best Salesperson across ~300 employees. Personally closed 64 international deals, supported 83 secondary closings, and delivered ~32% cost cuts.</p>
+              <p class="entity-subtitle">RCV Technologies (May 2025 – Sep 2026)</p>
+              <p class="card-detail">Promoted to Business Development Manager within 12 months. Personally closed 64 international deals, guided 83 secondary closings, and drove ~32% operational cost cuts across client businesses.</p>
             </div>
           </div>
         </div>
 
-        <!-- STAGE 7: 2026 – 2028 (European Systems Rigor & Active Fractional Model) -->
-        <div class="vine-stage stage-present">
-          <div class="vine-node current-node">
-            <span class="node-year">2026 – 2028</span>
-          </div>
-          <div class="vine-branch branch-left">
-            <div class="journey-card academic-journey-card crown-card">
-              <span class="card-branch-tag crown-tag">International Joint Master’s Degree</span>
+        <!-- Stage 7: 2026 – 2028 (Present) -->
+        <div class="vine-row">
+          <div class="vine-left-col">
+            <div class="timeline-card academic-card crown-academic">
+              <span class="card-badge-track">International Joint Master’s</span>
               <h3>MSc Digital Civil Engineering Science (DiCES)</h3>
-              <p class="journey-org">TU Wien & Montanuniversität Leoben, Austria</p>
-              <p class="journey-text">European scientific immersion in data-intensive complex engineered systems, mathematical simulation, BIM modeling, and industrial data architectures.</p>
+              <p class="entity-subtitle">TU Wien & Montanuniversität Leoben, Austria</p>
+              <p class="card-detail">European scientific immersion in data-intensive complex engineered systems, mathematical simulation, BIM modeling, and industrial data architectures.</p>
             </div>
           </div>
-          <div class="vine-branch branch-right">
-            <div class="journey-card career-journey-card crown-card">
-              <span class="card-branch-tag crown-tag-career">Fractional Executive Advisory</span>
+          <div class="vine-center">
+            <span class="year-pill active-pill">2026 – 2028</span>
+          </div>
+          <div class="vine-right-col">
+            <div class="timeline-card career-card crown-career">
+              <span class="card-badge-track">Active Fractional Advisory</span>
               <h3>MainiTech Strategic Solutions</h3>
-              <p class="journey-org">Austria • USA • Global Remote ($12 / €10 per Day)</p>
-              <p class="journey-text">Partnering directly with international business owners to engineer aggressive cost reductions, search engine dominance, and high-converting operational roadmaps.</p>
+              <p class="entity-subtitle">Austria • USA • Global Remote ($12 / €10 per Day)</p>
+              <p class="card-detail">Partnering directly with international business owners to engineer aggressive operational cost reduction, search engine dominance, and high-converting growth roadmaps.</p>
             </div>
           </div>
         </div>
@@ -270,15 +562,14 @@
       </div>
 
       <!-- Action Footer -->
-      <div class="roadmap-bottom-cta text-center">
+      <div class="bottom-cta-box">
         <h2>Put This Proven Track Record to Work For Your Business</h2>
         <p>Direct strategic execution by Nakul Maini starting from just $12 / €10 per day under guaranteed territorial exclusivity.</p>
-        <div class="hero-actions">
+        <div class="bottom-cta-actions">
           <a href="https://calendar.app.google/7iYHbqazTM81eosA7" target="_blank" rel="noopener" class="btn btn-primary btn-large">Book a Free Consultation</a>
           <a href="client-letters.html" class="btn btn-outline btn-large">View Signed Recommendation Letters</a>
         </div>
       </div>
-
     </div>
   </section>
 
