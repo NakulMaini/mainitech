@@ -1,104 +1,263 @@
-/* Side-by-Side Yearly Timeline Table */
-.timeline-table-container {
-  max-width: 1050px;
-  margin: 0 auto;
-  overflow-x: auto;
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
-  padding: 12px;
+/* ===================================================
+   ASCENDING VINE JOURNEY TIMELINE (CAREER & ACADEMICS)
+   =================================================== */
+.journey-section {
+  padding: 60px 0 100px;
+  background: radial-gradient(circle at 50% 10%, rgba(2, 132, 199, 0.08) 0%, transparent 70%);
 }
 
-.yearly-timeline-table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-}
-
-.yearly-timeline-table th {
-  padding: 16px 20px;
-  background: rgba(255, 255, 255, 0.03);
+.journey-legend {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 24px;
   font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--accent-cyan);
-  border-bottom: 1px solid var(--border-color);
+  font-weight: 700;
+  color: var(--text-body);
 }
 
-.yearly-timeline-table td {
-  padding: 20px;
-  vertical-align: top;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.yearly-timeline-table tr:last-child td {
-  border-bottom: none;
-}
-
-.year-cell {
-  vertical-align: top;
-  padding-top: 24px !important;
-}
-
-.year-badge {
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
   display: inline-block;
-  font-size: 14px;
-  font-weight: 800;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.06);
-  padding: 6px 12px;
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
 }
 
-.year-badge.current-year {
-  background: rgba(56, 189, 248, 0.15);
+.edu-dot {
+  background: var(--accent-cyan);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+}
+
+.career-dot {
+  background: var(--accent-orange);
+  box-shadow: 0 0 10px rgba(234, 88, 12, 0.6);
+}
+
+/* Central Trunk */
+.vine-timeline-wrapper {
+  position: relative;
+  max-width: 1140px;
+  margin: 40px auto 60px;
+  padding: 20px 0;
+}
+
+.vine-stem {
+  position: absolute;
+  top: 40px;
+  bottom: 40px;
+  left: 50%;
+  width: 4px;
+  transform: translateX(-50%);
+  background: linear-gradient(to top, #1e293b, var(--primary-blue), var(--accent-cyan));
+  box-shadow: 0 0 16px rgba(2, 132, 199, 0.4);
+  border-radius: 4px;
+  z-index: 1;
+}
+
+/* Individual Stage */
+.vine-stage {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+  z-index: 2;
+}
+
+/* Year Badge on Central Stem */
+.vine-node {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0b1220;
+  border: 2px solid var(--primary-blue);
+  padding: 8px 18px;
+  border-radius: 30px;
+  box-shadow: 0 0 18px rgba(2, 132, 199, 0.5);
+  z-index: 3;
+}
+
+.node-year {
+  font-size: 13px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.current-node {
   border-color: var(--accent-cyan);
+  background: #071529;
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.8);
+}
+
+.current-node .node-year {
   color: var(--accent-cyan);
 }
 
-.track-box {
-  background: rgba(255, 255, 255, 0.015);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 12px;
-  padding: 16px;
-  height: 100%;
+/* Left & Right Branches */
+.vine-branch {
+  width: 43%;
 }
 
-.track-tag {
+.branch-left {
+  text-align: right;
+  padding-right: 20px;
+}
+
+.branch-right {
+  text-align: left;
+  padding-left: 20px;
+}
+
+/* Cards */
+.journey-card {
+  background: #0b1220;
+  border: 1px solid #1e293b;
+  border-radius: 18px;
+  padding: 24px 26px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.journey-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 20px rgba(2, 132, 199, 0.2);
+}
+
+.academic-journey-card {
+  border-left: 4px solid var(--accent-cyan);
+}
+
+.branch-left .academic-journey-card {
+  border-left: 1px solid #1e293b;
+  border-right: 4px solid var(--accent-cyan);
+}
+
+.career-journey-card {
+  border-left: 4px solid var(--accent-orange);
+}
+
+.card-branch-tag {
   font-size: 11px;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.8px;
+  letter-spacing: 1px;
   display: block;
   margin-bottom: 6px;
 }
 
-.edu-box .track-tag { color: var(--accent-cyan); }
-.career-box .track-tag { color: var(--accent-orange); }
+.academic-journey-card .card-branch-tag {
+  color: var(--accent-cyan);
+}
 
-.track-box h4 {
-  font-size: 16px;
-  color: #fff;
+.career-journey-card .card-branch-tag {
+  color: var(--accent-orange);
+}
+
+.journey-card h3 {
+  font-size: 17px;
+  font-weight: 800;
+  color: #ffffff;
   margin-bottom: 4px;
+  line-height: 1.3;
 }
 
-.track-sub {
-  font-size: 12.5px;
-  color: #e2e8f0;
-  font-weight: 600;
-  margin-bottom: 8px;
+.journey-org {
+  font-size: 13px;
+  font-weight: 700;
+  color: #cbd5e1;
+  margin-bottom: 10px;
 }
 
-.track-detail {
+.journey-text {
   font-size: 13px;
   color: var(--text-muted);
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 0;
 }
 
-@media (max-width: 850px) {
-  .yearly-timeline-table th, .yearly-timeline-table td {
-    padding: 12px;
+/* Highlight Stages */
+.highlight-academic {
+  background: #0c1626;
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.highlight-career {
+  background: #141724;
+  border-color: rgba(234, 88, 12, 0.3);
+}
+
+.crown-card {
+  border: 2px solid var(--accent-cyan);
+  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.25);
+}
+
+.crown-tag {
+  color: var(--accent-cyan);
+  font-weight: 800;
+}
+
+.crown-tag-career {
+  color: var(--accent-green);
+  font-weight: 800;
+}
+
+.roadmap-bottom-cta {
+  background: #0b1220;
+  border: 1px solid #1e293b;
+  border-radius: 20px;
+  padding: 48px 28px;
+  max-width: 860px;
+  margin: 30px auto 0;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+}
+
+.roadmap-bottom-cta h2 {
+  font-size: 26px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.roadmap-bottom-cta p {
+  color: var(--text-muted);
+  font-size: 15px;
+  margin-bottom: 26px;
+}
+
+/* Responsive for Mobile */
+@media (max-width: 900px) {
+  .vine-stem {
+    left: 28px;
+  }
+  .vine-stage {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 65px;
+    margin-bottom: 40px;
+  }
+  .vine-node {
+    left: 28px;
+    transform: none;
+    top: 0;
+  }
+  .vine-branch {
+    width: 100%;
+    padding: 0;
+    text-align: left;
+    margin-top: 14px;
+  }
+  .branch-left .academic-journey-card {
+    border-right: 1px solid #1e293b;
+    border-left: 4px solid var(--accent-cyan);
   }
 }
