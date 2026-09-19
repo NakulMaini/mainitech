@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://nakulmaini.github.io/mainitech/</loc><priority>1.00</priority></url>
-  <url><loc>https://nakulmaini.github.io/mainitech/services/business-growth-consultation.html</loc><priority>0.85</priority></url>
-  <url><loc>https://nakulmaini.github.io/mainitech/services/web-business-profile-audits.html</loc><priority>0.85</priority></url>
-  <url><loc>https://nakulmaini.github.io/mainitech/services/workflow-restructuring.html</loc><priority>0.85</priority></url>
-  <url><loc>https://nakulmaini.github.io/mainitech/services/operational-cost-reduction.html</loc><priority>0.85</priority></url>
-  <url><loc>https://nakulmaini.github.io/mainitech/services/bookkeeping-account-management.html</loc><priority>0.85</priority></url>
+  <url><loc>https://nakulmaini.github.io/mainitech/about.html</loc><priority>0.90</priority></url>
+  <url><loc>https://nakulmaini.github.io/mainitech/career-roadmap.html</loc><priority>0.90</priority></url>
+  <url><loc>https://nakulmaini.github.io/mainitech/services.html</loc><priority>0.90</priority></url>
+  <url><loc>https://nakulmaini.github.io/mainitech/cost-advantage.html</loc><priority>0.85</priority></url>
+  <url><loc>https://nakulmaini.github.io/mainitech/client-letters.html</loc><priority>0.85</priority></url>
+  <url><loc>https://nakulmaini.github.io/mainitech/global-hubs.html</loc><priority>0.85</priority></url>
+  <url><loc>https://nakulmaini.github.io/mainitech/payments.html</loc><priority>0.85</priority></url>
+  <url><loc>https://nakulmaini.github.io/mainitech/faq.html</loc><priority>0.85</priority></url>
+  <url><loc>https://nakulmaini.github.io/mainitech/services/business-growth-consultation.html</loc><priority>0.80</priority></url>
+  <url><loc>https://nakulmaini.github.io/mainitech/services/web-business-profile-audits.html</loc><priority>0.80</priority></url>
+  <url><loc>https://nakulmaini.github.io/mainitech/services/workflow-restructuring.html</loc><priority>0.80</priority></url>
+  <url><loc>https://nakulmaini.github.io/mainitech/services/operational-cost-reduction.html</loc><priority>0.80</priority></url>
+  <url><loc>https://nakulmaini.github.io/mainitech/services/bookkeeping-account-management.html</loc><priority>0.80</priority></url>
   <url><loc>https://nakulmaini.github.io/mainitech/services/digital-marketing.html</loc><priority>0.80</priority></url>
   <url><loc>https://nakulmaini.github.io/mainitech/services/search-engine-optimization.html</loc><priority>0.80</priority></url>
   <url><loc>https://nakulmaini.github.io/mainitech/services/social-media-marketing.html</loc><priority>0.80</priority></url>
