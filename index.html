@@ -1,194 +1,912 @@
-<!-- Exact Screenshot Introduction Section -->
-<section id="about-intro" class="about-section">
-  <div class="container">
-    <div class="reference-intro-grid">
-      
-      <!-- Left Column: Vision & Austria Immersion Card -->
-      <div class="intro-left-content">
-        <h1 class="reference-main-title">A Business Strategist Who Understands Technology From the Inside Out</h1>
-        <p class="reference-main-p">I work as a dedicated <strong>Business Strategist</strong> helping companies build, optimize, and compound their digital ecosystems. Across more than 6 years of progressive professional experience and over 200 client engagements, I've observed that modern agencies often fail businesses because they sell isolated tactics—such as ranking for keywords that never convert, or driving expensive ad clicks to broken customer journeys.</p>
-        <p class="reference-main-p">My approach is different. I connect high-level commercial vision with disciplined execution. Rather than acting as a simple task executor, I evaluate your entire business model, identify high-friction bottlenecks, formulate a custom roadmap, and orchestrate the right technical and creative talent to get the job done right.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MainiTech Strategic Solutions | Nakul Maini — Fractional Business Strategist</title>
+  <meta name="description" content="Senior Business Strategist Nakul Maini. DiCES Fellow at TU Leoben & TU Wien (Austria). High-impact business audits, operational cost reduction, and growth operations starting at $12/day.">
+  <link rel="canonical" href="https://nakulmaini.github.io/mainitech/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-dark: #070d18;
+      --bg-card: #0b1220;
+      --bg-hover: #111c30;
+      --primary-blue: #0284c7;
+      --primary-blue-hover: #0369a1;
+      --accent-cyan: #38bdf8;
+      --accent-amber: #fbbf24;
+      --accent-orange: #ea580c;
+      --accent-green: #10b981;
+      --text-main: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    }
 
-        <div class="reference-austria-box">
-          <div class="eu-badge">EU</div>
-          <div class="austria-box-content">
-            <h4>International Master’s Program (Austria, 2026–2028)</h4>
-            <p class="austria-sub">DiCES Program • Montanuniversität Leoben (TU Leoben) & TU Wien</p>
-            <p class="austria-desc">I am attending the prestigious DiCES (Data Intensive Complex Engineered Systems) Joint Master's Program across TU Leoben and TU Wien (Vienna University of Technology) in Austria. This international academic immersion provides advanced training in mathematical modeling, large-scale industrial data systems, and systems engineering. It adds deep European scientific rigor to my commercial advisory work, giving my clients an unmatched analytical edge.</p>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* Header & Navigation */
+    .site-header {
+      position: sticky;
+      top: 0;
+      background: rgba(7, 13, 24, 0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+    }
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+    }
+    .brand-logo { height: 46px; width: auto; display: block; }
+    .nav-menu { display: flex; align-items: center; gap: 16px; }
+    .nav-link {
+      color: var(--text-main);
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      padding: 8px 10px;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--accent-cyan); }
+    .nav-item-dropdown { position: relative; }
+    .dropdown-primary {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 280px;
+      background: var(--bg-card);
+      border: 1px solid #1e293b;
+      border-radius: 10px;
+      padding: 8px 0;
+      list-style: none;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.6);
+      z-index: 9999;
+    }
+    .nav-item-dropdown:hover .dropdown-primary { display: block; }
+    .dropdown-primary li a {
+      display: block;
+      padding: 9px 18px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 13px;
+      transition: all 0.2s;
+    }
+    .dropdown-primary li a:hover {
+      background: var(--bg-hover);
+      color: #fff;
+      padding-left: 22px;
+    }
+
+    .btn {
+      display: inline-block;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      text-align: center;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-hover));
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
+    }
+    .btn-primary:hover { opacity: 0.95; transform: translateY(-1px); }
+    .btn-outline {
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      background: transparent;
+    }
+    .btn-outline:hover { background: rgba(255, 255, 255, 0.05); }
+    .btn-large { padding: 14px 28px; font-size: 15px; }
+    .btn-small { padding: 7px 14px; font-size: 12px; }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 70px 0 45px;
+      text-align: center;
+      background: radial-gradient(circle at 50% 15%, rgba(2, 132, 199, 0.16) 0%, transparent 65%);
+    }
+    .hero-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: rgba(16, 185, 129, 0.12);
+      color: var(--accent-green);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .hero-title {
+      font-size: 40px;
+      line-height: 1.2;
+      font-weight: 800;
+      max-width: 920px;
+      margin: 0 auto 16px;
+    }
+    .hero-subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 760px;
+      margin: 0 auto 28px;
+    }
+    .hero-actions { display: flex; justify-content: center; gap: 16px; margin-bottom: 28px; }
+    .trust-strip {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* Introduction Section (Exact Reference Screenshot Match) */
+    .about-section { padding: 60px 0; border-top: 1px solid var(--border-color); }
+    .reference-intro-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.85fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .reference-main-title {
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 1.22;
+      color: #ffffff;
+      margin-bottom: 22px;
+      letter-spacing: -0.5px;
+    }
+    .reference-main-p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-body);
+      margin-bottom: 18px;
+    }
+    .reference-main-p strong { color: #ffffff; }
+
+    /* Austria DiCES Card */
+    .reference-austria-box {
+      background: #0c1322;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 24px;
+      margin-top: 26px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .eu-badge {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #ffffff;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 800;
+      padding: 6px 14px;
+      letter-spacing: 1px;
+    }
+    .austria-box-content h4 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+    .austria-sub {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent-amber);
+      margin-bottom: 10px;
+    }
+    .austria-desc {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--text-body);
+      margin: 0;
+    }
+
+    /* Sidebar Profile Card */
+    .profile-card-container {
+      background: #0b1220;
+      border: 1px solid #1e293b;
+      border-radius: 24px;
+      padding: 36px 28px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(2, 132, 199, 0.15);
+    }
+    .profile-avatar-circle {
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      padding: 4px;
+      background: #0b1220;
+      border: 3px solid #38bdf8;
+      box-shadow: 0 0 30px rgba(56, 189, 248, 0.4);
+      overflow: hidden;
+    }
+    .founder-photo-screenshot {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
+    .profile-name {
+      font-size: 26px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+    .profile-title-tag {
+      font-size: 13px;
+      font-weight: 800;
+      color: #38bdf8;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 24px;
+    }
+    .sidebar-divider {
+      height: 1px;
+      background: #1e293b;
+      margin: 20px 0;
+    }
+    .profile-field-list {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .profile-field .meta-heading {
+      font-size: 11px;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .profile-field p {
+      font-size: 14px;
+      color: #f8fafc;
+      font-weight: 600;
+      line-height: 1.45;
+      margin: 0;
+    }
+    .profile-field p a {
+      color: #38bdf8;
+      text-decoration: underline;
+    }
+    .sidebar-consult-btn {
+      display: block;
+      width: 100%;
+      background: linear-gradient(135deg, #38bdf8, #3b82f6);
+      color: #ffffff;
+      padding: 15px 20px;
+      font-size: 15px;
+      font-weight: 800;
+      border-radius: 12px;
+      text-decoration: none;
+      text-align: center;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);
+    }
+    .sidebar-consult-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(56, 189, 248, 0.6);
+    }
+
+    /* Cards Grid */
+    .lor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+      margin-top: 28px;
+    }
+    .lor-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 24px;
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .lor-badge {
+      font-size: 11px;
+      color: var(--accent-cyan);
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .lor-card h4 { font-size: 16px; margin-bottom: 6px; }
+    .lor-author { font-size: 12px; color: var(--text-muted); margin-bottom: 12px; }
+    .lor-quote { font-size: 13px; color: #cbd5e1; font-style: italic; margin-bottom: 18px; flex-grow: 1; }
+
+    /* Comparison Arbitrage Grid */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+    .comparison-card {
+      background: var(--bg-card);
+      padding: 34px;
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .comparison-card.mainitech {
+      border: 2px solid var(--primary-blue);
+      position: relative;
+      box-shadow: 0 10px 30px rgba(2, 132, 199, 0.2);
+    }
+    .card-badge {
+      position: absolute;
+      top: -12px;
+      right: 24px;
+      background: var(--accent-orange);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+    .price-tag { font-size: 36px; font-weight: 800; color: #fff; margin: 14px 0 6px; }
+    .price-tag span { font-size: 15px; color: var(--text-muted); }
+    .price-sub { color: var(--text-muted); font-size: 13px; margin-bottom: 22px; }
+    .features { list-style: none; margin-bottom: 26px; flex-grow: 1; }
+    .features li { padding: 8px 0; font-size: 13px; color: var(--text-muted); }
+    .full-width { width: 100%; }
+
+    /* Currency Rails */
+    .currency-selector-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      max-width: 960px;
+      margin: 0 auto 28px;
+    }
+    .currency-chip {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 14px 10px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+    .currency-chip:hover { background: var(--bg-hover); border-color: var(--primary-blue); transform: translateY(-2px); }
+    .currency-chip.active { background: rgba(2, 132, 199, 0.12); border-color: var(--primary-blue); box-shadow: 0 4px 16px rgba(2, 132, 199, 0.25); }
+    .chip-flag { font-size: 24px; }
+    .chip-name { font-size: 15px; font-weight: 800; color: #fff; }
+    .chip-rail { font-size: 11px; color: var(--text-muted); font-weight: 600; }
+    .chip-paypal.active { border-color: #ffc439; background: rgba(255, 196, 57, 0.1); }
+
+    .payment-card-viewport { max-width: 820px; margin: 0 auto; }
+    .pay-panel { display: none; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 32px; }
+    .pay-panel.active { display: block; }
+    .panel-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; padding-bottom: 18px; border-bottom: 1px solid var(--border-color); }
+    .zero-fee-badge { background: rgba(16, 185, 129, 0.15); color: var(--accent-green); border: 1px solid rgba(16, 185, 129, 0.3); font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 20px; text-transform: uppercase; }
+    .account-data-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .data-box { background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-color); border-radius: 10px; padding: 12px 16px; }
+    .data-box.full-span { grid-column: span 2; }
+    .box-label { font-size: 11px; text-transform: uppercase; color: var(--text-muted); font-weight: 700; display: block; margin-bottom: 4px; }
+    .box-val { display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: #fff; }
+    .highlight-val { font-weight: 800; color: var(--accent-cyan); font-size: 15px; }
+    .copy-action { background: var(--border-color); border: none; color: var(--text-main); padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+    .copy-action:hover { background: var(--primary-blue); color: #fff; }
+
+    /* FAQ */
+    .faq-container { max-width: 800px; margin: 0 auto; }
+    .faq-accordion { display: flex; flex-direction: column; gap: 10px; }
+    .faq-item { border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-card); overflow: hidden; }
+    .faq-question { width: 100%; padding: 16px 18px; background: none; border: none; color: var(--text-main); font-size: 14px; font-weight: 700; text-align: left; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+    .faq-answer { display: none; padding: 0 18px 16px; color: var(--text-muted); font-size: 13px; line-height: 1.6; }
+    .faq-item.active .faq-answer { display: block; }
+
+    /* Modal */
+    .modal-backdrop { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); z-index: 10000; justify-content: center; align-items: center; }
+    .modal-dialog { background: var(--bg-card); border: 1px solid var(--border-color); width: 90%; max-width: 900px; height: 85vh; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden; }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; border-bottom: 1px solid var(--border-color); }
+    .modal-header h4 { font-size: 15px; color: var(--text-main); }
+    .modal-close { background: none; border: none; color: var(--text-muted); font-size: 24px; cursor: pointer; }
+    .modal-body { flex-grow: 1; padding: 16px; display: flex; justify-content: center; align-items: center; }
+    .modal-body iframe, .modal-body img { width: 100%; height: 100%; border: none; object-fit: contain; }
+
+    /* Floating WhatsApp */
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #25D366;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+      z-index: 9999;
+    }
+    .wa-icon { width: 20px; height: 20px; }
+
+    .site-footer { border-top: 1px solid var(--border-color); padding: 26px 0; font-size: 13px; color: var(--text-muted); margin-top: 60px; }
+    .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; }
+    .footer-links a { color: var(--text-muted); text-decoration: none; margin-left: 14px; }
+    .footer-links a:hover { color: var(--text-main); }
+
+    @media (max-width: 900px) {
+      .reference-intro-grid, .comparison-grid { grid-template-columns: 1fr; }
+      .nav-menu { display: none; }
+      .account-data-grid { grid-template-columns: 1fr; }
+      .data-box.full-span { grid-column: span 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <img src="logo.png" alt="MainiTech Strategic Solutions" class="brand-logo">
+      </a>
+      <nav class="nav-menu">
+        <a href="about.html" class="nav-link">About</a>
+        <a href="career-roadmap.html" class="nav-link">Career Roadmap</a>
+        <div class="nav-item-dropdown">
+          <a href="services.html" class="nav-link">Strategic Services ▾</a>
+          <ul class="dropdown-primary">
+            <li><a href="services/business-growth-consultation.html">Business Growth Consultation</a></li>
+            <li><a href="services/web-business-profile-audits.html">Web & Business Profile Audits</a></li>
+            <li><a href="services/workflow-restructuring.html">Workflow & Operational Restructuring</a></li>
+            <li><a href="services/operational-cost-reduction.html">Operational Cost Reduction</a></li>
+            <li><a href="services/bookkeeping-account-management.html">Bookkeeping & Account Management</a></li>
+            <li><a href="services/digital-marketing.html">Digital & Performance Marketing</a></li>
+            <li><a href="services/search-engine-optimization.html">SEO & AEO Architecture</a></li>
+            <li><a href="services/b2b-lead-generation.html">B2B Lead Generation</a></li>
+            <li><a href="services/conversion-web-development.html">Conversion Web Development</a></li>
+            <li><a href="services/airbnb-conversion-enhancement.html">Airbnb Strategy</a></li>
+          </ul>
+        </div>
+        <a href="cost-advantage.html" class="nav-link">Cost Advantage</a>
+        <a href="client-letters.html" class="nav-link">Client Letters</a>
+        <a href="global-hubs.html" class="nav-link">Global Hubs</a>
+        <a href="payments.html" class="nav-link">Payments</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="https://calendar.app.google/7iYHbqazTM81eosA7" target="_blank" rel="noopener" class="btn btn-primary">Book a Free Consultation</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Header -->
+  <section class="hero-section">
+    <div class="container hero-content">
+      <div class="hero-badge">Executive Strategy • Non-Compete Guaranteed • Starting at $12 / €10 per Day</div>
+      <h1 class="hero-title">Senior Business Strategy & Operational Optimization Without Full-Time Agency Overhead</h1>
+      <p class="hero-subtitle">MainiTech provides high-level business audits, aggressive operational cost reduction, and scalable customer acquisition pipelines for global enterprises at one of the market's most affordable rates starting from <strong>$12 / €10 per day</strong>.</p>
+      <div class="hero-actions">
+        <a href="https://calendar.app.google/7iYHbqazTM81eosA7" target="_blank" rel="noopener" class="btn btn-primary btn-large">Book a Free Consultation</a>
+        <a href="about.html" class="btn btn-outline btn-large">Meet the Founder</a>
+      </div>
+      <div class="trust-strip">
+        <span>✓ Guaranteed Territorial Exclusivity</span>
+        <span>✓ Average 32% Operational Cost Reduction</span>
+        <span>✓ 10+ Signed US Corporate Letterheads</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Introduction Block (Exact Screenshot Match) -->
+  <section id="about-intro" class="about-section">
+    <div class="container">
+      <div class="reference-intro-grid">
+        <div class="intro-left-content">
+          <h2 class="reference-main-title">A Business Strategist Who Understands Technology From the Inside Out</h2>
+          <p class="reference-main-p">I work as a dedicated <strong>Business Strategist</strong> helping companies build, optimize, and compound their digital ecosystems. Across more than 6 years of progressive professional experience and over 200 client engagements, I've observed that modern agencies often fail businesses because they sell isolated tactics—such as ranking for keywords that never convert, or driving expensive ad clicks to broken customer journeys.</p>
+          <p class="reference-main-p">My approach is different. I connect high-level commercial vision with disciplined execution. Rather than acting as a simple task executor, I evaluate your entire business model, identify high-friction bottlenecks, formulate a custom roadmap, and orchestrate the right technical and creative talent to get the job done right.</p>
+
+          <div class="reference-austria-box">
+            <div class="eu-badge">EU</div>
+            <div class="austria-box-content">
+              <h4>International Master’s Program (Austria, 2026–2028)</h4>
+              <p class="austria-sub">DiCES Program • Montanuniversität Leoben (TU Leoben) & TU Wien</p>
+              <p class="austria-desc">I am attending the prestigious DiCES (Data Intensive Complex Engineered Systems) Joint Master's Program across TU Leoben and TU Wien (Vienna University of Technology) in Austria[cite: 1, 7]. This international academic immersion provides advanced training in mathematical modeling, large-scale industrial data systems, and systems engineering[cite: 1, 7]. It adds deep European scientific rigor to my commercial advisory work, giving my clients an unmatched analytical edge.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="intro-right-sidebar">
+          <div class="profile-card-container">
+            <div class="profile-avatar-circle">
+              <img src="nakul.png" alt="Nakul Maini" class="founder-photo-screenshot">
+            </div>
+            <h2 class="profile-name">Nakul Maini</h2>
+            <span class="profile-title-tag">BUSINESS STRATEGIST</span>
+
+            <div class="sidebar-divider"></div>
+
+            <div class="profile-field-list">
+              <div class="profile-field">
+                <span class="meta-heading">ACADEMIC PROFILE:</span>
+                <p>DiCES at TU Leoben & TU Wien AT<br>MCA & BCA (VIPS, GGSIPU)</p>
+              </div>
+              <div class="profile-field">
+                <span class="meta-heading">CLIENT FOCUS:</span>
+                <p>United States, Europe, Global Remote</p>
+              </div>
+              <div class="profile-field">
+                <span class="meta-heading">OPERATING MODEL:</span>
+                <p>Curated Global Talent Network</p>
+              </div>
+              <div class="profile-field">
+                <span class="meta-heading">DIRECT WHATSAPP:</span>
+                <p><a href="https://wa.me/919811301467" target="_blank">+91 9811301467</a>[cite: 7]</p>
+              </div>
+              <div class="profile-field">
+                <span class="meta-heading">DIRECT EMAIL:</span>
+                <p><a href="mailto:nakulmaini8@gmail.com">nakulmaini8@gmail.com</a>[cite: 7]</p>
+              </div>
+            </div>
+
+            <div class="sidebar-divider"></div>
+
+            <a href="https://calendar.app.google/7iYHbqazTM81eosA7" target="_blank" rel="noopener" class="sidebar-consult-btn">
+              Free Consultation with Nakul Maini
+            </a>
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Right Column: Glowing Neon Portrait Card (Matching Screenshot CC1867) -->
-      <div class="intro-right-sidebar">
-        <div class="profile-card-container">
-          <div class="profile-avatar-circle">
-            <img src="nakul.png" alt="Nakul Maini" class="founder-photo-screenshot">
-          </div>
-          <h2 class="profile-name">Nakul Maini</h2>
-          <span class="profile-title-tag">BUSINESS STRATEGIST</span>
-
-          <div class="sidebar-divider"></div>
-
-          <div class="profile-field-list">
-            <div class="profile-field">
-              <span class="meta-heading">ACADEMIC PROFILE:</span>
-              <p>DiCES at TU Leoben & TU Wien AT<br>MCA & BCA (VIPS, GGSIPU)</p>
-            </div>
-            <div class="profile-field">
-              <span class="meta-heading">CLIENT FOCUS:</span>
-              <p>United States, Europe, Global Remote</p>
-            </div>
-            <div class="profile-field">
-              <span class="meta-heading">OPERATING MODEL:</span>
-              <p>Curated Global Talent Network</p>
-            </div>
-            <div class="profile-field">
-              <span class="meta-heading">DIRECT WHATSAPP:</span>
-              <p><a href="https://wa.me/919811301467" target="_blank">+91 9811301467</a></p>
-            </div>
-            <div class="profile-field">
-              <span class="meta-heading">DIRECT EMAIL:</span>
-              <p><a href="mailto:nakulmaini8@gmail.com">nakulmaini8@gmail.com</a></p>
-            </div>
-          </div>
-
-          <div class="sidebar-divider"></div>
-
-          <a href="https://calendar.app.google/7iYHbqazTM81eosA7" target="_blank" rel="noopener" class="sidebar-consult-btn">
-            Free Consultation with Nakul Maini
-          </a>
+  <!-- Service Categories Preview -->
+  <section class="about-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>Core Service Categories & Execution Model</h2>
+        <p>Unmatched fractional leadership: select the exact operational hours your business requires.</p>
+      </div>
+      <div class="lor-grid">
+        <div class="lor-card">
+          <div class="lor-badge">Category 1</div>
+          <h4>Business Strategy & Analysis</h4>
+          <p class="lor-quote">Comprehensive business and web profile audits, workflow standardization, and aggressive operational cost reduction to protect cash flow.</p>
+          <a href="services/business-growth-consultation.html" class="btn btn-outline btn-small">Explore Strategy Services</a>
+        </div>
+        <div class="lor-card">
+          <div class="lor-badge">Category 2</div>
+          <h4>Marketing & Acquisition</h4>
+          <p class="lor-quote">Modern organic and paid pipelines across Google SEO, Answer Engine Optimization (AEO), B2B lead generation, and social media marketing.</p>
+          <a href="services/digital-marketing.html" class="btn btn-outline btn-small">Explore Marketing Services</a>
+        </div>
+        <div class="lor-card">
+          <div class="lor-badge">Category 3</div>
+          <h4>Local & Community Authority</h4>
+          <p class="lor-quote">Dominate Google Business Profile Map Packs, Yelp, MapQuest, and high-intent buyer discussions on Reddit, Quora, and Medium.</p>
+          <a href="services/google-business-profile.html" class="btn btn-outline btn-small">Explore Authority Services</a>
+        </div>
+        <div class="lor-card">
+          <div class="lor-badge">Category 4</div>
+          <h4>Custom Development</h4>
+          <p class="lor-quote">High-converting, lightning-fast static websites and custom cross-platform mobile apps engineered for operational automation.</p>
+          <a href="services/conversion-web-development.html" class="btn btn-outline btn-small">Explore Development</a>
         </div>
       </div>
+    </div>
+  </section>
 
+  <!-- Rate Arbitrage Section -->
+  <section id="arbitrage" class="about-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>The Fractional Rate Advantage</h2>
+        <p>Why pay $5,000–$10,000 in monthly corporate agency retainers when you can secure senior strategy on-demand?</p>
+      </div>
+      <div class="comparison-grid">
+        <div class="comparison-card">
+          <div>
+            <h3>Traditional In-House / Agency</h3>
+            <div class="price-tag">$5,000 – $10,000 <span>/ month</span></div>
+            <p class="price-sub">European rates: €3,000 – €5,000/mo (before taxes)</p>
+          </div>
+          <ul class="features">
+            <li>✕ Inflexible payroll taxes and multi-month contract locks</li>
+            <li>✕ Strategy delegated down to junior account associates</li>
+            <li>✕ Slow turnaround times and bloated billing hours</li>
+            <li>✕ Inevitable conflicts of interest with local competitors</li>
+          </ul>
+        </div>
+        <div class="comparison-card mainitech">
+          <div class="card-badge">Senior Strategic ROI</div>
+          <div>
+            <h3>MainiTech Strategic Partnership</h3>
+            <div class="price-tag">$12 / €10 <span>/ day starting</span></div>
+            <p class="price-sub">Flexible operational hours configured directly for your workflow</p>
+          </div>
+          <ul class="features">
+            <li>✓ Direct execution by Nakul Maini (8+ years experience)</li>
+            <li>✓ Complete territorial exclusivity & binding NDA signed</li>
+            <li>✓ Proven track record: ~32% cost reduction & ~57% revenue growth[cite: 7]</li>
+            <li>✓ Referral program: Bring a partner, earn free strategy sprints</li>
+          </ul>
+          <a href="https://calendar.app.google/7iYHbqazTM81eosA7" target="_blank" rel="noopener" class="btn btn-primary full-width">Claim Your Strategy Slot</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Verified Recommendation Letters -->
+  <section id="proof" class="about-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>Verified Proof & Signed Corporate Letters</h2>
+        <p>Direct endorsements on corporate letterhead from businesses across the United States and international markets.</p>
+      </div>
+      <div class="lor-grid">
+        <div class="lor-card">
+          <div class="lor-badge">Letterhead • USA</div>
+          <h4>Matrix Credit Info</h4>
+          <p class="lor-author"><strong>Yuan Turk</strong>, CEO</p>
+          <p class="lor-quote">"Nakul has demonstrated strong technical knowledge, excellent problem-solving skills, and a professional approach... He understands the business side of technology to find practical solutions."</p>
+          <button class="btn btn-outline btn-small" onclick="openPdfModal('recommendations/matrix-credit-info.pdf', 'Matrix Credit Info')">View Official Letter (PDF)</button>
+        </div>
+        <div class="lor-card">
+          <div class="lor-badge">Letterhead • California, USA</div>
+          <h4>Arts Development Music</h4>
+          <p class="lor-author"><strong>Ardes A.</strong>, Director</p>
+          <p class="lor-quote">"Nakul made valuable contributions in business strategy, process improvement, and operational efficiency... What stood out was his ability to look beyond the immediate problem."</p>
+          <button class="btn btn-outline btn-small" onclick="openPdfModal('recommendations/arts-development-music.pdf', 'Arts Development School of Music')">View Official Letter (PDF)</button>
+        </div>
+        <div class="lor-card">
+          <div class="lor-badge">Letterhead • New York, USA</div>
+          <h4>Alayjiah Cleaning</h4>
+          <p class="lor-author"><strong>James Alcide</strong>, Owner</p>
+          <p class="lor-quote">"Nakul has a rare ability to break down ambiguous challenges, identify what truly matters, and craft clear, actionable strategies. He is thorough in research and sound in judgment."</p>
+          <button class="btn btn-outline btn-small" onclick="openPdfModal('recommendations/alayjiah-cleaning.pdf', 'Alayjiah Cleaning Services')">View Official Letter (PDF)</button>
+        </div>
+        <div class="lor-card">
+          <div class="lor-badge">Letterhead • Texas, USA</div>
+          <h4>Audio Clinic Hearing</h4>
+          <p class="lor-author"><strong>Alex Gomez</strong>, Owner</p>
+          <p class="lor-quote">"My extensive recommendation for Nakul Maini, who gave me great ideas on how to improve my business... Mr. Maini invests time to understand the idea I want to express."</p>
+          <button class="btn btn-outline btn-small" onclick="openPdfModal('recommendations/audio-clinic-hearing.pdf', 'Audio Clinic Hearing Aids')">View Official Letter (PDF)</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Multi-Currency Payment Rails -->
+  <section id="payments" class="about-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>Frictionless Global Settlement</h2>
+        <p>Pay locally in your native currency via domestic bank rails with zero international wire fees, or check out instantly via card/PayPal.</p>
+      </div>
+      <div class="currency-selector-grid">
+        <button class="currency-chip active" onclick="switchCurrency('usd', this)"><span class="chip-flag">🇺🇸</span><span class="chip-name">USD</span><span class="chip-rail">Domestic ACH / Wire</span></button>
+        <button class="currency-chip" onclick="switchCurrency('eur', this)"><span class="chip-flag">🇪🇺</span><span class="chip-name">EUR</span><span class="chip-rail">SEPA Transfer</span></button>
+        <button class="currency-chip" onclick="switchCurrency('gbp', this)"><span class="chip-flag">🇬🇧</span><span class="chip-name">GBP</span><span class="chip-rail">Faster Payments</span></button>
+        <button class="currency-chip" onclick="switchCurrency('nzd', this)"><span class="chip-flag">🇳🇿</span><span class="chip-name">NZD</span><span class="chip-rail">Domestic Wire</span></button>
+        <button class="currency-chip" onclick="switchCurrency('cad', this)"><span class="chip-flag">🇨🇦</span><span class="chip-name">CAD</span><span class="chip-rail">EFT / Direct Transfer</span></button>
+        <button class="currency-chip chip-paypal" onclick="switchCurrency('paypal', this)"><span class="chip-flag">💳</span><span class="chip-name">Card / PayPal</span><span class="chip-rail">Instant Settlement</span></button>
+      </div>
+
+      <div class="payment-card-viewport">
+        <!-- USD -->
+        <div id="pay-usd" class="pay-panel active">
+          <div class="panel-header"><div><h3>United States Dollar (USD)</h3><p>Direct domestic transfer through Column Bank & Wise US Inc.</p></div><span class="zero-fee-badge">Zero International Wire Fees</span></div>
+          <div class="account-data-grid">
+            <div class="data-box"><span class="box-label">Beneficiary Name</span><div class="box-val"><span>NAKUL MAINI</span><button class="copy-action" onclick="copyData('NAKUL MAINI', this)">Copy</button></div></div>
+            <div class="data-box"><span class="box-label">Account Type</span><div class="box-val"><span>Deposit</span></div></div>
+            <div class="data-box"><span class="box-label">Routing Number (ACH & Wire)</span><div class="box-val"><span class="highlight-val">084009519</span><button class="copy-action" onclick="copyData('084009519', this)">Copy</button></div></div>
+            <div class="data-box"><span class="box-label">Account Number</span><div class="box-val"><span class="highlight-val">911440587732700</span><button class="copy-action" onclick="copyData('911440587732700', this)">Copy</button></div></div>
+            <div class="data-box full-span"><span class="box-label">Swift / BIC</span><div class="box-val"><span>TRWIUS35XXX</span><button class="copy-action" onclick="copyData('TRWIUS35XXX', this)">Copy</button></div></div>
+          </div>
+        </div>
+
+        <!-- EUR -->
+        <div id="pay-eur" class="pay-panel">
+          <div class="panel-header"><div><h3>Eurozone (EUR)</h3><p>Direct SEPA transfer through Wise Europe (Brussels).</p></div><span class="zero-fee-badge">SEPA Instant Supported</span></div>
+          <div class="account-data-grid">
+            <div class="data-box full-span"><span class="box-label">Beneficiary Name</span><div class="box-val"><span>NAKUL MAINI</span><button class="copy-action" onclick="copyData('NAKUL MAINI', this)">Copy</button></div></div>
+            <div class="data-box full-span"><span class="box-label">IBAN</span><div class="box-val"><span class="highlight-val">BE08 9059 6519 9113</span><button class="copy-action" onclick="copyData('BE08 9059 6519 9113', this)">Copy</button></div></div>
+            <div class="data-box full-span"><span class="box-label">Swift / BIC</span><div class="box-val"><span>TRWIBEB1XXX</span><button class="copy-action" onclick="copyData('TRWIBEB1XXX', this)">Copy</button></div></div>
+          </div>
+        </div>
+
+        <!-- GBP -->
+        <div id="pay-gbp" class="pay-panel">
+          <div class="panel-header"><div><h3>British Pound (GBP)</h3><p>Direct UK transfer through Faster Payments & BACS.</p></div><span class="zero-fee-badge">Instant UK Transfer</span></div>
+          <div class="account-data-grid">
+            <div class="data-box"><span class="box-label">Beneficiary Name</span><div class="box-val"><span>NAKUL MAINI</span><button class="copy-action" onclick="copyData('NAKUL MAINI', this)">Copy</button></div></div>
+            <div class="data-box"><span class="box-label">Sort Code</span><div class="box-val"><span class="highlight-val">60-84-64</span><button class="copy-action" onclick="copyData('60-84-64', this)">Copy</button></div></div>
+            <div class="data-box"><span class="box-label">Account Number</span><div class="box-val"><span class="highlight-val">97301589</span><button class="copy-action" onclick="copyData('97301589', this)">Copy</button></div></div>
+          </div>
+        </div>
+
+        <!-- NZD -->
+        <div id="pay-nzd" class="pay-panel">
+          <div class="panel-header"><div><h3>New Zealand Dollar (NZD)</h3><p>Domestic New Zealand wire transfer via Wise Payments NZ.</p></div><span class="zero-fee-badge">Local NZ Banking</span></div>
+          <div class="account-data-grid">
+            <div class="data-box full-span"><span class="box-label">Beneficiary Name</span><div class="box-val"><span>NAKUL MAINI</span><button class="copy-action" onclick="copyData('NAKUL MAINI', this)">Copy</button></div></div>
+            <div class="data-box full-span"><span class="box-label">Account Number</span><div class="box-val"><span class="highlight-val">04-2021-0427096-18</span><button class="copy-action" onclick="copyData('04-2021-0427096-18', this)">Copy</button></div></div>
+          </div>
+        </div>
+
+        <!-- CAD -->
+        <div id="pay-cad" class="pay-panel">
+          <div class="panel-header"><div><h3>Canadian Dollar (CAD)</h3><p>Domestic Canadian direct transfer (EFT) via Wise Payments Canada.</p></div><span class="zero-fee-badge">Direct Canadian EFT</span></div>
+          <div class="account-data-grid">
+            <div class="data-box"><span class="box-label">Beneficiary Name</span><div class="box-val"><span>NAKUL MAINI</span><button class="copy-action" onclick="copyData('NAKUL MAINI', this)">Copy</button></div></div>
+            <div class="data-box"><span class="box-label">Account Number</span><div class="box-val"><span class="highlight-val">171375180</span><button class="copy-action" onclick="copyData('171375180', this)">Copy</button></div></div>
+            <div class="data-box"><span class="box-label">Institution Number</span><div class="box-val"><span>705</span></div></div>
+            <div class="data-box"><span class="box-label">Branch Number</span><div class="box-val"><span>00001</span></div></div>
+          </div>
+        </div>
+
+        <!-- PayPal -->
+        <div id="pay-paypal" class="pay-panel" style="text-align: center;">
+          <h3 style="font-size: 20px; color: #fff; margin-bottom: 8px;">Credit Card, Debit Card & PayPal</h3>
+          <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;">Instant checkout for advisory retainers, diagnostic audits, or fractional strategic sprints.</p>
+          <a href="https://paypal.me/mainitech" target="_blank" rel="noopener" class="btn" style="background: #ffc439; color: #111; font-weight: 800; padding: 14px 32px; border-radius: 50px;">Pay via PayPal.Me/mainitech ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Strategic FAQ -->
+  <section id="faq" class="about-section">
+    <div class="container faq-container">
+      <div class="section-header text-center">
+        <h2>Frequently Asked Questions</h2>
+        <p>Clear details on how our fractional strategy model and global network operate.</p>
+      </div>
+      <div class="faq-accordion">
+        <div class="faq-item">
+          <button class="faq-question">1. Why hire Nakul Maini over an agency or full-time strategist? <span>+</span></button>
+          <div class="faq-answer">
+            <p>Full-time corporate strategists in the US cost $5,000–$10,000/month, and European agencies charge €3,000–€5,000/month before taxes and benefits. With Nakul Maini, you secure senior-level strategy starting from $12 / €10 per day on flexible fractional hours, eliminating expensive agency bloat.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">2. How does MainiTech ensure complete territorial non-compete? <span>+</span></button>
+          <div class="faq-answer">
+            <p>We execute a legally binding Non-Disclosure Agreement (NDA) before initiating work. We strictly guarantee never to partner with or consult for direct competitors in your niche and regional territory during our active contract.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">3. How does having hubs in Austria, India, Dubai, and the Philippines benefit my business? <span>+</span></button>
+          <div class="faq-answer">
+            <p>It creates an unbeatable quality-to-cost ratio. High-level mathematical analysis, strategy formulation, and systems engineering are led directly by Nakul Maini in Austria (CET)[cite: 1, 7]. Meanwhile, technical execution and operations are handled across vetted delivery teams in India, Dubai, and the Philippines—delivering round-the-clock progress at optimal cost efficiency.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">4. How does the referral incentive program work? <span>+</span></button>
+          <div class="faq-answer">
+            <p>When you refer a fellow entrepreneur who books an ongoing strategy engagement with MainiTech, you receive complimentary strategic advisory sprints or audit extensions at zero cost.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/919811301467?text=Hello%20Nakul,%20I'd%20like%20to%20consult%20with%20your%20business%20strategist." target="_blank" rel="noopener" class="floating-whatsapp" aria-label="Chat with our business strategist">
+    <svg viewBox="0 0 32 32" class="wa-icon"><path fill="currentColor" d="M16 2a13.9 13.9 0 0 0-12 21L2 30l7.2-1.9A13.9 13.9 0 1 0 16 2zm0 25.4c-2.3 0-4.5-.6-6.4-1.8l-.5-.3-4.3 1.1 1.2-4.2-.3-.5A11.5 11.5 0 1 1 16 27.4zm6.3-8.6c-.3-.2-2-.9-2.3-1-.3-.2-.5-.3-.7.2-.2.4-.8 1-.9 1.2-.2.2-.4.2-.7 0-.3-.2-1.4-.5-2.6-1.6-.9-.8-1.6-1.9-1.8-2.2-.2-.3 0-.5.2-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6s-.7-1.7-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.2-1.2 2.9 1.2 3.4 1.4 3.6c.2.3 2.4 3.7 5.8 5.1.8.3 1.4.6 1.9.7.8.3 1.6.2 2.2.1.7-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.7-.1-.2-.3-.3-.6-.5z"/></svg>
+    <span>Chat with our business strategist</span>
+  </a>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <p>&copy; 2026 MainiTech Strategic Solutions. All rights reserved.</p>
+        <p class="footer-sub">Strategy Led from Austria • Operating Across USA (EST/CST/PST), Europe (CET), and Asia (IST/PHT/GST)</p>
+      </div>
+      <div class="footer-links">
+        <a href="about.html">About</a>
+        <a href="career-roadmap.html">Career Roadmap</a>
+        <a href="services.html">Services</a>
+        <a href="cost-advantage.html">Cost Advantage</a>
+        <a href="client-letters.html">Letters</a>
+        <a href="global-hubs.html">Hubs</a>
+        <a href="payments.html">Payments</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal for Letters -->
+  <div id="document-modal" class="modal-backdrop" onclick="closeModal(event)">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h4 id="modal-title">Verified Corporate Letterhead</h4>
+        <button class="modal-close" onclick="closeModalDirect()">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-body"></div>
     </div>
   </div>
-</section>
 
-<!-- Side-by-Side Synchronized Yearly Timeline (Academic vs. Professional) -->
-<section id="roadmap" class="roadmap-section">
-  <div class="container">
-    <div class="section-header text-center">
-      <h2>Academic Rigor & Career Progression Timeline</h2>
-      <p>A synchronized yearly record of technical academic degrees paired with commercial revenue leadership.</p>
-    </div>
-
-    <div class="timeline-table-container">
-      <table class="yearly-timeline-table">
-        <thead>
-          <tr>
-            <th style="width: 18%;">Year Span</th>
-            <th style="width: 41%;">Academic Qualifications & Data Systems</th>
-            <th style="width: 41%;">Professional Commercial & Operational Track</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- 2026 - 2028 -->
-          <tr class="timeline-row-active">
-            <td class="year-cell"><span class="year-badge current-year">2026 – 2028</span></td>
-            <td>
-              <div class="track-box edu-box">
-                <span class="track-tag">Joint Master of Science</span>
-                <h4>DiCES Joint MSc Degree (Austria)</h4>
-                <p class="track-sub">TU Wien & Montanuniversität Leoben</p>
-                <p class="track-detail">Data Intensive Complex Engineered Systems: Mathematical modeling, industrial data architectures, BIM, and systems engineering.</p>
-              </div>
-            </td>
-            <td>
-              <div class="track-box career-box">
-                <span class="track-tag">Executive Leadership</span>
-                <h4>RCV Technologies</h4>
-                <p class="track-sub">Promoted from BDE to Business Development Manager in 12 Months</p>
-                <p class="track-detail">Awarded <strong>Best Salesperson of the Year 2025–26</strong> across ~300 employees. 64 deals closed personally, 83 second-voice closings. Generated ~32% operational cost cuts and ~57% revenue growth across accounts.</p>
-              </div>
-            </td>
-          </tr>
-
-          <!-- 2024 - 2025 -->
-          <tr>
-            <td class="year-cell"><span class="year-badge">2024 – 2025</span></td>
-            <td>
-              <div class="track-box edu-box">
-                <span class="track-tag">Research & Analytics</span>
-                <h4>Advanced Statistical Modeling</h4>
-                <p class="track-sub">Applied Financial Systems Analysis</p>
-                <p class="track-detail">Deep-dive research into financial product structures, risk parameters, and algorithmic market discovery.</p>
-              </div>
-            </td>
-            <td>
-              <div class="track-box career-box">
-                <span class="track-tag">Financial Advisory</span>
-                <h4>Policybazaar.com</h4>
-                <p class="track-sub">Business Development Executive / Financial Advisor</p>
-                <p class="track-detail">Conducted structured customer discovery across high-volume portfolios. Successfully closed 83 client engagements and won <strong>9 internal performance awards</strong>.</p>
-              </div>
-            </td>
-          </tr>
-
-          <!-- 2023 - 2024 -->
-          <tr>
-            <td class="year-cell"><span class="year-badge">2023 – 2024</span></td>
-            <td>
-              <div class="track-box edu-box">
-                <span class="track-tag">Master's Degree</span>
-                <h4>Master of Computer Applications (MCA)</h4>
-                <p class="track-sub">GGSIPU (VIPS), New Delhi • 8.67 / 10 CGPA</p>
-                <p class="track-detail">Mathematics & Computer Science: Advanced data analytics, Python, Power BI, distributed systems, and modern database engineering.</p>
-              </div>
-            </td>
-            <td>
-              <div class="track-box career-box">
-                <span class="track-tag">Operations Management</span>
-                <h4>Insurance Planet Pvt Ltd</h4>
-                <p class="track-sub">Business Development Manager / Project Coordinator</p>
-                <p class="track-detail">Directed cross-functional engineering teams through website delivery, customer journey optimization, and custom automated communication platforms.</p>
-              </div>
-            </td>
-          </tr>
-
-          <!-- 2022 - 2023 -->
-          <tr>
-            <td class="year-cell"><span class="year-badge">2022 – 2023</span></td>
-            <td>
-              <div class="track-box edu-box">
-                <span class="track-tag">Software Architecture</span>
-                <h4>MCA Core Curriculum</h4>
-                <p class="track-sub">VIPS, New Delhi</p>
-                <p class="track-detail">Software Development Lifecycle (SDLC), algorithm design, systems analysis, and enterprise software frameworks.</p>
-              </div>
-            </td>
-            <td>
-              <div class="track-box career-box">
-                <span class="track-tag">Enterprise Coordination</span>
-                <h4>THREWS (The Research World)</h4>
-                <p class="track-sub">Project Manager (Cross-Functional Operations)</p>
-                <p class="track-detail">Orchestrated multi-tier project delivery workflows for 238 employees directly under executive leadership, standardizing operational SOPs.</p>
-              </div>
-            </td>
-          </tr>
-
-          <!-- 2019 - 2022 -->
-          <tr>
-            <td class="year-cell"><span class="year-badge">2019 – 2022</span></td>
-            <td>
-              <div class="track-box edu-box">
-                <span class="track-tag">Bachelor's Degree</span>
-                <h4>Bachelor of Computer Applications (BCA)</h4>
-                <p class="track-sub">GGSIPU (VIPS), New Delhi • 9.4 / 10 CGPA</p>
-                <p class="track-detail">Core computer science, data structures, object-oriented design, web technologies, and database architecture.</p>
-              </div>
-            </td>
-            <td>
-              <div class="track-box career-box">
-                <span class="track-tag">Team Leadership</span>
-                <h4>TSL (The Speaking Library)</h4>
-                <p class="track-sub">Project Manager</p>
-                <p class="track-detail">Directed 17 cross-functional team members across business development, digital marketing, market research, and content execution over 3 years.</p>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
+  <script>
+    function switchCurrency(currencyKey, buttonElement) {
+      document.querySelectorAll('.currency-chip').forEach(c => c.classList.remove('active'));
+      if (buttonElement) buttonElement.classList.add('active');
+      document.querySelectorAll('.pay-panel').forEach(p => p.classList.remove('active'));
+      const target = document.getElementById('pay-' + currencyKey);
+      if (target) target.classList.add('active');
+    }
+    function copyData(textToCopy, btn) {
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        const orig = btn.innerText;
+        btn.innerText = 'Copied!';
+        btn.style.background = '#10b981';
+        btn.style.color = '#fff';
+        setTimeout(() => { btn.innerText = orig; btn.style.background = ''; btn.style.color = ''; }, 2000);
+      });
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const parent = btn.parentElement;
+          parent.classList.toggle('active');
+          const span = btn.querySelector('span');
+          if (span) span.innerText = parent.classList.contains('active') ? '−' : '+';
+        });
+      });
+    });
+    function openPdfModal(fileUrl, title) {
+      const modal = document.getElementById('document-modal');
+      document.getElementById('modal-title').innerText = title;
+      document.getElementById('modal-body').innerHTML = `<iframe src="${fileUrl}" title="${title}"></iframe>`;
+      modal.style.display = 'flex';
+    }
+    function closeModalDirect() {
+      document.getElementById('document-modal').style.display = 'none';
+      document.getElementById('modal-body').innerHTML = '';
+    }
+    function closeModal(event) {
+      if (event.target.id === 'document-modal') closeModalDirect();
+    }
+  </script>
+</body>
+</html>
