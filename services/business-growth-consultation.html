@@ -13,14 +13,66 @@
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- Navigation (Standardized Path with ../) -->
   <header class="site-header">
     <div class="nav-container">
-      <a href="../index.html" class="brand"><img src="../logo.png" alt="MainiTech Strategic Solutions" class="brand-logo"></a>
+      <a href="../index.html" class="brand">
+        <img src="../logo.png" alt="MainiTech Strategic Solutions" class="brand-logo">
+      </a>
       <nav class="nav-menu">
         <a href="../about.html" class="nav-link">About</a>
         <a href="../career-roadmap.html" class="nav-link">Career Roadmap</a>
-        <a href="../services.html" class="nav-link">Strategic Services</a>
+        <div class="nav-item-dropdown">
+          <a href="../services.html" class="nav-link dropdown-toggle">Strategic Services <span class="arrow">▾</span></a>
+          <ul class="dropdown-primary">
+            <li class="has-flyout">
+              <span class="category-header">Business Strategy & Analysis <span class="chevron">›</span></span>
+              <ul class="dropdown-secondary">
+                <li><a href="business-growth-consultation.html">Business Growth Consultation</a></li>
+                <li><a href="web-business-profile-audits.html">Web & Business Profile Audits</a></li>
+                <li><a href="workflow-restructuring.html">Workflow & Operational Restructuring</a></li>
+                <li><a href="operational-cost-reduction.html">Operational Cost Reduction</a></li>
+                <li><a href="bookkeeping-account-management.html">Bookkeeping & Account Management</a></li>
+              </ul>
+            </li>
+            <li class="has-flyout">
+              <span class="category-header">Marketing & Acquisition <span class="chevron">›</span></span>
+              <ul class="dropdown-secondary">
+                <li><a href="digital-marketing.html">Digital & Performance Marketing</a></li>
+                <li><a href="search-engine-optimization.html">Search Engine Optimization (SEO/AEO)</a></li>
+                <li><a href="social-media-marketing.html">Social Media Marketing (SMM)</a></li>
+                <li><a href="social-media-management.html">Social Media Management & SMO</a></li>
+                <li><a href="email-marketing.html">Email Marketing & Management</a></li>
+                <li><a href="sms-marketing.html">SMS & Text Marketing</a></li>
+                <li><a href="content-marketing.html">Content Marketing Strategy</a></li>
+                <li><a href="b2b-lead-generation.html">Targeted B2B Lead Generation</a></li>
+              </ul>
+            </li>
+            <li class="has-flyout">
+              <span class="category-header">Local & Community Authority <span class="chevron">›</span></span>
+              <ul class="dropdown-secondary">
+                <li><a href="google-business-profile.html">Google Business Profile (GBP)</a></li>
+                <li><a href="yelp-mapquest-optimization.html">Yelp & MapQuest Optimization</a></li>
+                <li><a href="forum-authority-growth.html">Forum Growth (Reddit, Quora, Medium)</a></li>
+              </ul>
+            </li>
+            <li class="has-flyout">
+              <span class="category-header">Development Solutions <span class="chevron">›</span></span>
+              <ul class="dropdown-secondary">
+                <li><a href="conversion-web-development.html">High-Converting Web Development</a></li>
+                <li><a href="mobile-app-development.html">Mobile Application Development</a></li>
+              </ul>
+            </li>
+            <li class="has-flyout highlight-item">
+              <span class="category-header">Airbnb Growth Strategy <span class="chevron">›</span></span>
+              <ul class="dropdown-secondary">
+                <li><a href="airbnb-conversion-enhancement.html">Listing Conversion Rate Enhancement</a></li>
+                <li><a href="airbnb-marketing-strategy.html">Airbnb Marketing Strategy</a></li>
+                <li><a href="airbnb-management-strategy.html">Turnkey Airbnb Management</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
         <a href="../cost-advantage.html" class="nav-link">Cost Advantage</a>
         <a href="../client-letters.html" class="nav-link">Client Letters</a>
         <a href="../global-hubs.html" class="nav-link">Global Hubs</a>
@@ -33,7 +85,7 @@
     </div>
   </header>
 
-  <!-- 1. Name of the Service & 2. 4-5 Line In-Depth Description -->
+  <!-- 1. Service Title & 2. 4-5 Line In-Depth Description -->
   <section class="hero-section">
     <div class="container hero-content">
       <div class="hero-badge">Category: Business Strategy & Analysis • Starting at $12 / €10 per Day</div>
@@ -116,7 +168,7 @@
   </section>
 
   <!-- 5. Dedicated FAQ Section (Exactly 8 Bespoke FAQs) -->
-  <section id="faq" class="faq-section">
+  <section id="faq" class="about-section">
     <div class="container faq-container">
       <div class="section-header text-center">
         <h2>Dedicated Business Growth Consultation FAQ</h2>
@@ -175,7 +227,7 @@
     </div>
   </section>
 
-  <!-- 6. Option to "Get Started Today" (Reveals Settlement Rails on Click) -->
+  <!-- 6. "Get Started Today" Settlement Drawer -->
   <section class="start-today-section">
     <div class="container">
       <h2>Ready to Accelerate Growth?</h2>
@@ -201,8 +253,7 @@
               <div class="data-box"><span class="box-label">Account Type</span><div class="box-val"><span>Deposit</span></div></div>
               <div class="data-box"><span class="box-label">Routing Number (ACH & Wire)</span><div class="box-val"><span class="highlight-val">084009519</span><button class="copy-action" onclick="copyData('084009519', this)">Copy</button></div></div>
               <div class="data-box"><span class="box-label">Account Number</span><div class="box-val"><span class="highlight-val">911440587732700</span><button class="copy-action" onclick="copyData('911440587732700', this)">Copy</button></div></div>
-              <div class="data-box full-span"><span class="box-label">Swift / BIC (International Transfers)</span><div class="box-val"><span>TRWIUS35XXX</span><button class="copy-action" onclick="copyData('TRWIUS35XXX', this)">Copy</button></div></div>
-              <div class="data-box full-span"><span class="box-label">Bank Address</span><div class="box-val"><span>Wise US Inc, 108 W 13th St, Wilmington, DE, 19801, United States</span></div></div>
+              <div class="data-box full-span"><span class="box-label">Swift / BIC</span><div class="box-val"><span>TRWIUS35XXX</span><button class="copy-action" onclick="copyData('TRWIUS35XXX', this)">Copy</button></div></div>
             </div>
           </div>
 
@@ -213,7 +264,6 @@
               <div class="data-box full-span"><span class="box-label">Beneficiary Name</span><div class="box-val"><span>NAKUL MAINI</span><button class="copy-action" onclick="copyData('NAKUL MAINI', this)">Copy</button></div></div>
               <div class="data-box full-span"><span class="box-label">IBAN</span><div class="box-val"><span class="highlight-val">BE08 9059 6519 9113</span><button class="copy-action" onclick="copyData('BE08 9059 6519 9113', this)">Copy</button></div></div>
               <div class="data-box full-span"><span class="box-label">Swift / BIC</span><div class="box-val"><span>TRWIBEB1XXX</span><button class="copy-action" onclick="copyData('TRWIBEB1XXX', this)">Copy</button></div></div>
-              <div class="data-box full-span"><span class="box-label">Bank Address</span><div class="box-val"><span>Wise, Rue du Trône 100, 3rd floor, Brussels, 1050, Belgium</span></div></div>
             </div>
           </div>
 
@@ -224,8 +274,6 @@
               <div class="data-box"><span class="box-label">Beneficiary Name</span><div class="box-val"><span>NAKUL MAINI</span><button class="copy-action" onclick="copyData('NAKUL MAINI', this)">Copy</button></div></div>
               <div class="data-box"><span class="box-label">Sort Code</span><div class="box-val"><span class="highlight-val">60-84-64</span><button class="copy-action" onclick="copyData('60-84-64', this)">Copy</button></div></div>
               <div class="data-box"><span class="box-label">Account Number</span><div class="box-val"><span class="highlight-val">97301589</span><button class="copy-action" onclick="copyData('97301589', this)">Copy</button></div></div>
-              <div class="data-box"><span class="box-label">Swift / BIC</span><div class="box-val"><span>TRWIGB2LXXX</span><button class="copy-action" onclick="copyData('TRWIGB2LXXX', this)">Copy</button></div></div>
-              <div class="data-box full-span"><span class="box-label">IBAN</span><div class="box-val"><span>GB08 TRWI 6084 6497 3015 89</span><button class="copy-action" onclick="copyData('GB08 TRWI 6084 6497 3015 89', this)">Copy</button></div></div>
             </div>
           </div>
 
@@ -235,7 +283,6 @@
             <div class="account-data-grid">
               <div class="data-box full-span"><span class="box-label">Beneficiary Name</span><div class="box-val"><span>NAKUL MAINI</span><button class="copy-action" onclick="copyData('NAKUL MAINI', this)">Copy</button></div></div>
               <div class="data-box full-span"><span class="box-label">Account Number</span><div class="box-val"><span class="highlight-val">04-2021-0427096-18</span><button class="copy-action" onclick="copyData('04-2021-0427096-18', this)">Copy</button></div></div>
-              <div class="data-box full-span"><span class="box-label">Swift / BIC</span><div class="box-val"><span>TRWINZ21XXX</span><button class="copy-action" onclick="copyData('TRWINZ21XXX', this)">Copy</button></div></div>
             </div>
           </div>
 
@@ -247,26 +294,21 @@
               <div class="data-box"><span class="box-label">Account Number</span><div class="box-val"><span class="highlight-val">171375180</span><button class="copy-action" onclick="copyData('171375180', this)">Copy</button></div></div>
               <div class="data-box"><span class="box-label">Institution Number</span><div class="box-val"><span>705</span></div></div>
               <div class="data-box"><span class="box-label">Branch Number</span><div class="box-val"><span>00001</span></div></div>
-              <div class="data-box full-span"><span class="box-label">Swift / BIC</span><div class="box-val"><span>TRWICAW1XXX</span><button class="copy-action" onclick="copyData('TRWICAW1XXX', this)">Copy</button></div></div>
             </div>
           </div>
 
           <!-- PayPal -->
           <div id="pay-paypal" class="pay-panel text-center">
-            <div class="paypal-hero-box">
-              <div class="paypal-logo-badge">Instant Verification</div>
-              <h3>Credit Card, Debit Card & PayPal</h3>
-              <p>Instant checkout for advisory retainers, diagnostic audits, or fractional strategic sprints.</p>
-              <div class="paypal-cta-wrapper"><a href="https://paypal.me/mainitech" target="_blank" rel="noopener" class="btn btn-paypal">Pay Instantly via PayPal.Me/mainitech ↗</a></div>
-              <span class="secure-checkout-text">🔒 256-Bit SSL Encrypted Enterprise Checkout</span>
-            </div>
+            <h3 style="font-size: 20px; color: #fff; margin-bottom: 8px;">Credit Card, Debit Card & PayPal</h3>
+            <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;">Instant checkout for advisory retainers, diagnostic audits, or fractional strategic sprints.</p>
+            <a href="https://paypal.me/mainitech" target="_blank" rel="noopener" class="btn" style="background: #ffc439; color: #111; font-weight: 800; padding: 14px 32px; border-radius: 50px;">Pay via PayPal.Me/mainitech ↗</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Floating WhatsApp CTA -->
+  <!-- Floating WhatsApp -->
   <a href="https://wa.me/919811301467?text=Hello%20Nakul,%20I'd%20like%20to%20consult%20with%20your%20business%20strategist." target="_blank" rel="noopener" class="floating-whatsapp" aria-label="Chat with our business strategist">
     <svg viewBox="0 0 32 32" class="wa-icon"><path fill="currentColor" d="M16 2a13.9 13.9 0 0 0-12 21L2 30l7.2-1.9A13.9 13.9 0 1 0 16 2zm0 25.4c-2.3 0-4.5-.6-6.4-1.8l-.5-.3-4.3 1.1 1.2-4.2-.3-.5A11.5 11.5 0 1 1 16 27.4zm6.3-8.6c-.3-.2-2-.9-2.3-1-.3-.2-.5-.3-.7.2-.2.4-.8 1-.9 1.2-.2.2-.4.2-.7 0-.3-.2-1.4-.5-2.6-1.6-.9-.8-1.6-1.9-1.8-2.2-.2-.3 0-.5.2-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6s-.7-1.7-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.2-1.2 2.9 1.2 3.4 1.4 3.6c.2.3 2.4 3.7 5.8 5.1.8.3 1.4.6 1.9.7.8.3 1.6.2 2.2.1.7-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.7-.1-.2-.3-.3-.6-.5z"/></svg>
     <span>Chat with our business strategist</span>
