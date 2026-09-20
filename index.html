@@ -7,67 +7,631 @@
   <meta name="description" content="Senior Business Strategist and Growth Specialist Nakul Maini. DiCES Fellow at TU Leoben & TU Wien (Austria). Enterprise audits, customer acquisition systems, and commercial scaling.">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <link rel="canonical" href="https://nakulmaini.github.io/mainitech/">
-  <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    /* Inline Safety Overrides */
-    .sidebar-dual-actions {
+    :root {
+      --bg-dark: #070d18;
+      --bg-card: #0b1220;
+      --bg-card-glow: #0c1322;
+      --bg-hover: #16243b;
+      --primary-blue: #0284c7;
+      --primary-blue-hover: #0369a1;
+      --accent-cyan: #38bdf8;
+      --accent-amber: #fbbf24;
+      --accent-orange: #f97316;
+      --accent-green: #10b981;
+      --text-main: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* =========================================
+       UNIVERSAL NAVIGATION & DROPDOWN
+       ========================================= */
+    .site-header {
+      position: sticky;
+      top: 0;
+      background: rgba(7, 13, 24, 0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 10000;
+    }
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+    }
+    .brand-logo { height: 48px; width: auto; display: block; }
+    .nav-menu { display: flex; align-items: center; gap: 16px; }
+    .nav-link {
+      color: var(--text-main);
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      padding: 8px 10px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--accent-cyan); }
+
+    .nav-item-dropdown { position: relative; }
+    .dropdown-primary {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 290px;
+      background: #0b1220;
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      padding: 8px 0;
+      list-style: none;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.85);
+      z-index: 10001;
+    }
+    .nav-item-dropdown:hover .dropdown-primary { display: block; }
+    .has-flyout { position: relative; }
+    .category-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 18px;
+      color: var(--text-main);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: default;
+      transition: all 0.2s;
+    }
+    .has-flyout:hover > .category-header { background: var(--bg-hover); color: var(--accent-cyan); }
+    .chevron { font-size: 14px; color: var(--text-muted); }
+    .dropdown-secondary {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 100%;
+      width: 320px;
+      background: #0b1220;
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      padding: 8px 0;
+      list-style: none;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.85);
+    }
+    .has-flyout:hover > .dropdown-secondary { display: block; }
+    .dropdown-secondary li a {
+      display: block;
+      padding: 10px 18px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .dropdown-secondary li a:hover { background: var(--bg-hover); color: #ffffff; padding-left: 22px; }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      text-align: center;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-hover));
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
+    }
+    .btn-primary:hover { opacity: 0.95; transform: translateY(-1px); }
+    .btn-large { padding: 14px 28px; font-size: 15px; }
+    .btn-outline {
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      background: transparent;
+    }
+    .btn-outline:hover { background: rgba(255, 255, 255, 0.05); }
+    .btn-small { padding: 8px 16px; font-size: 13px; }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 75px 0 45px;
+      text-align: center;
+      background: radial-gradient(circle at 50% 15%, rgba(2, 132, 199, 0.16) 0%, transparent 65%);
+    }
+    .hero-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .hero-title {
+      font-size: 40px;
+      line-height: 1.2;
+      font-weight: 800;
+      max-width: 950px;
+      margin: 0 auto 16px;
+    }
+    .hero-subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 780px;
+      margin: 0 auto 28px;
+    }
+    .hero-actions { display: flex; justify-content: center; gap: 16px; margin-bottom: 28px; }
+    .trust-strip {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .about-section { padding: 60px 0; border-top: 1px solid var(--border-color); }
+    .section-header h2 { font-size: 32px; font-weight: 800; margin-bottom: 12px; }
+    .section-header p { color: var(--text-muted); margin-bottom: 36px; }
+    .text-center { text-align: center; }
+
+    /* Intro Profile Grid */
+    .reference-intro-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .reference-main-title {
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 1.22;
+      color: #ffffff;
+      margin-bottom: 22px;
+      letter-spacing: -0.5px;
+    }
+    .reference-main-p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-body);
+      margin-bottom: 18px;
+    }
+    .reference-main-p strong { color: #ffffff; }
+
+    .reference-austria-box {
+      background: linear-gradient(135deg, rgba(12, 19, 34, 0.9), rgba(20, 24, 18, 0.85));
+      border: 1.5px solid rgba(251, 191, 36, 0.35);
+      border-radius: 18px;
+      padding: 26px;
+      margin-top: 26px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6), 0 0 28px rgba(251, 191, 36, 0.12);
+    }
+    .eu-badge {
+      background: #1e293b;
+      border: 1px solid rgba(251, 191, 36, 0.4);
+      color: #fbbf24;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 800;
+      padding: 6px 14px;
+    }
+    .austria-box-content h4 { font-size: 18px; font-weight: 700; color: #ffffff; margin-bottom: 4px; }
+    .austria-sub { font-size: 14px; font-weight: 700; color: var(--accent-amber); margin-bottom: 10px; }
+    .austria-desc { font-size: 14px; line-height: 1.65; color: var(--text-body); margin: 0; }
+
+    /* Profile Card with Glowing Ring */
+    .profile-card-container {
+      background: #0b1220;
+      border: 1px solid #1e293b;
+      border-radius: 24px;
+      padding: 36px 28px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 30px rgba(2, 132, 199, 0.18);
+    }
+    .profile-avatar-circle {
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      padding: 4px;
+      background: #0b1220;
+      border: 3px solid #38bdf8;
+      box-shadow: 0 0 30px rgba(56, 189, 248, 0.45);
+      overflow: hidden;
+    }
+    .founder-photo-screenshot { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
+    .profile-name { font-size: 26px; font-weight: 800; color: #ffffff; margin-bottom: 6px; }
+    .profile-title-tag {
+      font-size: 13px;
+      font-weight: 800;
+      color: #38bdf8;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 24px;
+    }
+    .sidebar-divider { height: 1px; background: #1e293b; margin: 20px 0; }
+    .profile-field-list { text-align: left; display: flex; flex-direction: column; gap: 16px; }
+    .profile-field .meta-heading {
+      font-size: 11px;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .profile-field p { font-size: 14px; color: #f8fafc; font-weight: 600; line-height: 1.45; margin: 0; }
+    .profile-field p a { color: #38bdf8; text-decoration: underline; }
+
+    /* Dual Action Buttons (Fixed Proportions) */
+    .sidebar-dual-actions { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
+    .sidebar-btn-linkedin {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      height: 48px;
+      background: #2563eb;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 10px;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+      transition: all 0.2s ease;
+    }
+    .sidebar-btn-linkedin:hover { background: #1d4ed8; transform: translateY(-1px); }
+    .linkedin-svg-icon { width: 18px; height: 18px; min-width: 18px; fill: currentColor; }
+    .sidebar-btn-consult {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 48px;
+      background: linear-gradient(135deg, #38bdf8, #3b82f6);
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 800;
+      border-radius: 10px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);
+      transition: all 0.2s ease;
+    }
+    .sidebar-btn-consult:hover { transform: translateY(-1px); box-shadow: 0 6px 25px rgba(56, 189, 248, 0.6); }
+
+    /* Academic 4-Item Grid */
+    .edu-strict-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+      margin-top: 24px;
+    }
+    .edu-card {
+      background: #0b1220;
+      border: 1px solid #1e293b;
+      border-radius: 16px;
+      padding: 26px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .edu-card:hover { transform: translateY(-3px); border-color: var(--accent-cyan); }
+    .edu-badge-tag {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent-cyan);
+      display: block;
+      margin-bottom: 8px;
+    }
+    .edu-card h3 { font-size: 18px; font-weight: 800; color: #ffffff; margin-bottom: 6px; }
+    .edu-institution { font-size: 13.5px; font-weight: 700; color: var(--accent-amber); margin-bottom: 6px; }
+    .edu-score { font-size: 13px; font-weight: 600; color: var(--accent-green); }
+
+    /* Core Strategic Disciplines & Letters Grid */
+    .lor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 28px;
+    }
+    .lor-card {
+      background: var(--bg-card);
+      border: 1px solid #1e293b;
+      padding: 26px;
+      border-radius: 16px;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .lor-card:hover { transform: translateY(-3px); border-color: var(--accent-cyan); }
+    .lor-badge {
+      font-size: 11px;
+      color: var(--accent-cyan);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .lor-card h4 { font-size: 18px; font-weight: 800; color: #ffffff; margin-bottom: 6px; }
+    .lor-author { font-size: 13px; color: var(--text-muted); margin-bottom: 12px; }
+    .lor-quote { font-size: 13.5px; color: var(--text-body); line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
+
+    /* Comparison Arbitrage Grid */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+    .comparison-card {
+      background: var(--bg-card);
+      padding: 34px;
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .comparison-card.mainitech {
+      border: 2px solid var(--primary-blue);
+      box-shadow: 0 10px 30px rgba(2, 132, 199, 0.2);
+    }
+    .card-badge {
+      background: var(--accent-orange);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 20px;
+      align-self: flex-start;
+      margin-bottom: 10px;
+    }
+    .price-tag { font-size: 36px; font-weight: 800; color: #fff; margin: 14px 0 6px; }
+    .price-tag span { font-size: 15px; color: var(--text-muted); }
+    .price-sub { color: var(--text-muted); font-size: 13px; margin-bottom: 22px; }
+    .features { list-style: none; margin-bottom: 26px; flex-grow: 1; }
+    .features li { padding: 8px 0; font-size: 13px; color: var(--text-muted); }
+
+    /* Currency Rails & Settlement */
+    .currency-selector-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap: 12px;
-      margin-top: 20px;
+      max-width: 960px;
+      margin: 0 auto 28px;
     }
-    .sidebar-btn-linkedin {
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      gap: 10px !important;
-      width: 100% !important;
-      background: #2563eb !important;
-      color: #ffffff !important;
-      padding: 14px 18px !important;
-      font-size: 14px !important;
-      font-weight: 700 !important;
-      border-radius: 10px !important;
-      text-decoration: none !important;
-      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4) !important;
-      transition: all 0.2s ease !important;
-      box-sizing: border-box !important;
+    .currency-chip {
+      background: var(--bg-card);
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      padding: 14px 10px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s ease;
+      text-align: center;
+      color: #fff;
     }
-    .sidebar-btn-linkedin:hover {
-      background: #1d4ed8 !important;
-      transform: translateY(-1px) !important;
+    .currency-chip:hover { background: var(--bg-hover); border-color: var(--primary-blue); transform: translateY(-2px); }
+    .currency-chip.active { background: rgba(2, 132, 199, 0.12); border-color: var(--primary-blue); box-shadow: 0 4px 16px rgba(2, 132, 199, 0.25); }
+    .chip-flag { font-size: 24px; }
+    .chip-name { font-size: 15px; font-weight: 800; color: #fff; }
+    .chip-rail { font-size: 11px; color: var(--text-muted); font-weight: 600; }
+    .chip-paypal.active { border-color: #ffc439; background: rgba(255, 196, 57, 0.1); }
+
+    .payment-card-viewport { max-width: 820px; margin: 0 auto; }
+    .pay-panel {
+      display: none;
+      background: var(--bg-card);
+      border: 1px solid #1e293b;
+      border-radius: 16px;
+      padding: 32px;
+      text-align: left;
     }
-    .linkedin-svg-icon {
-      width: 20px !important;
-      height: 20px !important;
-      min-width: 20px !important;
-      min-height: 20px !important;
-      max-width: 20px !important;
-      max-height: 20px !important;
-      fill: #ffffff !important;
-      flex-shrink: 0 !important;
+    .pay-panel.active { display: block; }
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border-color);
     }
-    .sidebar-btn-consult {
-      display: block !important;
-      width: 100% !important;
-      background: linear-gradient(135deg, #38bdf8, #3b82f6) !important;
-      color: #ffffff !important;
-      padding: 14px 18px !important;
-      font-size: 14px !important;
-      font-weight: 800 !important;
-      border-radius: 10px !important;
-      text-decoration: none !important;
-      text-align: center !important;
-      box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4) !important;
-      transition: all 0.2s ease !important;
-      box-sizing: border-box !important;
+    .zero-fee-badge {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--accent-green);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
     }
-    .sidebar-btn-consult:hover {
-      transform: translateY(-1px) !important;
-      box-shadow: 0 6px 25px rgba(56, 189, 248, 0.6) !important;
+    .account-data-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .data-box {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 12px 16px;
+    }
+    .data-box.full-span { grid-column: span 2; }
+    .box-label { font-size: 11px; text-transform: uppercase; color: var(--text-muted); font-weight: 700; display: block; margin-bottom: 4px; }
+    .box-val { display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: #fff; }
+    .highlight-val { font-weight: 800; color: var(--accent-cyan); font-size: 15px; }
+    .copy-action {
+      background: var(--border-color);
+      border: none;
+      color: var(--text-main);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .copy-action:hover { background: var(--primary-blue); color: #fff; }
+
+    /* FAQ Accordion */
+    .faq-container { max-width: 800px; margin: 0 auto; }
+    .faq-accordion { display: flex; flex-direction: column; gap: 12px; }
+    .faq-item {
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      background: var(--bg-card);
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .faq-item.active { border-color: var(--accent-cyan); }
+    .faq-question {
+      width: 100%;
+      padding: 18px 20px;
+      background: none;
+      border: none;
+      color: var(--text-main);
+      font-size: 15px;
+      font-weight: 700;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .faq-icon { font-size: 18px; font-weight: 700; color: var(--accent-cyan); }
+    .faq-answer { display: none; padding: 0 20px 18px; color: var(--text-body); font-size: 14px; line-height: 1.65; }
+    .faq-item.active .faq-answer { display: block; }
+
+    /* Multi-Channel Floating Contact Widget */
+    .multi-channel-contact-bar {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0b1220;
+      border: 1.5px solid #1e293b;
+      border-radius: 50px;
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(56, 189, 248, 0.2);
+      z-index: 99999;
+    }
+    .contact-bar-label {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--accent-cyan);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding-left: 4px;
+      white-space: nowrap;
+    }
+    .contact-icons-row { display: flex; align-items: center; gap: 8px; }
+    .contact-action-icon {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .icon-wa { background: #25D366; }
+    .icon-ig { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+    .icon-fb { background: #1877F2; }
+    .contact-action-icon svg { width: 20px; height: 20px; fill: currentColor; }
+    .contact-action-icon:hover { transform: scale(1.12); }
+    .contact-action-icon::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 50px;
+      right: 0;
+      background: #081220;
+      border: 1px solid var(--accent-cyan);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 8px;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(6px);
+      transition: all 0.2s ease;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.8);
+      pointer-events: none;
+    }
+    .contact-action-icon:hover::after {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* Modal */
+    .modal-backdrop { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); z-index: 20000; justify-content: center; align-items: center; }
+    .modal-dialog { background: var(--bg-card); border: 1px solid var(--border-color); width: 90%; max-width: 900px; height: 85vh; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden; }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; border-bottom: 1px solid var(--border-color); }
+    .modal-header h4 { font-size: 15px; color: var(--text-main); }
+    .modal-close { background: none; border: none; color: var(--text-muted); font-size: 24px; cursor: pointer; }
+    .modal-body { flex-grow: 1; padding: 16px; display: flex; justify-content: center; align-items: center; }
+    .modal-body iframe { width: 100%; height: 100%; border: none; }
+
+    /* Footer */
+    .site-footer { border-top: 1px solid var(--border-color); padding: 26px 0; font-size: 13px; color: var(--text-muted); margin-top: 60px; }
+    .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; }
+    .footer-sub { font-size: 11px; color: #64748b; margin-top: 2px; }
+    .footer-links a { color: var(--text-muted); text-decoration: none; margin-left: 14px; }
+    .footer-links a:hover { color: var(--text-main); }
+
+    @media (max-width: 900px) {
+      .reference-intro-grid, .comparison-grid { grid-template-columns: 1fr; }
+      .dropdown-secondary { position: static; display: none; width: 100%; box-shadow: none; padding-left: 14px; }
+      .has-flyout:hover > .dropdown-secondary { display: block; }
     }
   </style>
 </head>
@@ -123,7 +687,7 @@
                 <li><a href="services/mobile-app-development.html">Mobile Application Development</a></li>
               </ul>
             </li>
-            <li class="has-flyout highlight-item">
+            <li class="has-flyout">
               <span class="category-header">Airbnb Growth Strategy <span class="chevron">›</span></span>
               <ul class="dropdown-secondary">
                 <li><a href="services/airbnb-conversion-enhancement.html">Listing Conversion Rate Enhancement</a></li>
@@ -177,7 +741,7 @@
             <div class="austria-box-content">
               <h4>International Master’s Program (Austria, 2026–2028)</h4>
               <p class="austria-sub">DiCES Program • Montanuniversität Leoben (TU Leoben) & TU Wien</p>
-              <p class="austria-desc">I am attending the prestigious DiCES (Data Intensive Complex Engineered Systems) Joint Master's Program across TU Leoben and TU Wien (Vienna University of Technology) in Austria[cite: 1, 5]. This international academic immersion provides advanced training in mathematical modeling, large-scale industrial data systems, and systems engineering[cite: 1, 5]. It adds deep European scientific rigor to my commercial advisory work, giving my clients an unmatched analytical edge.</p>
+              <p class="austria-desc">I am attending the prestigious DiCES (Data Intensive Complex Engineered Systems) Joint Master's Program across TU Leoben and TU Wien (Vienna University of Technology) in Austria. This international academic immersion provides advanced training in mathematical modeling, large-scale industrial data systems, and systems engineering. It adds deep European scientific rigor to my commercial advisory work, giving my clients an unmatched analytical edge.</p>
             </div>
           </div>
         </div>
@@ -208,11 +772,11 @@
               </div>
               <div class="profile-field">
                 <span class="meta-heading">DIRECT WHATSAPP:</span>
-                <p><a href="https://wa.me/919811301467" target="_blank" rel="noopener">+91 9811301467</a>[cite: 5]</p>
+                <p><a href="https://wa.me/919811301467" target="_blank" rel="noopener">+91 9811301467</a></p>
               </div>
               <div class="profile-field">
                 <span class="meta-heading">DIRECT EMAIL:</span>
-                <p><a href="mailto:nakulmaini8@gmail.com">nakulmaini8@gmail.com</a>[cite: 5]</p>
+                <p><a href="mailto:nakulmaini8@gmail.com">nakulmaini8@gmail.com</a></p>
               </div>
             </div>
 
@@ -244,26 +808,26 @@
         <div class="edu-card">
           <span class="edu-badge-tag">Bachelor's Degree</span>
           <h3>Bachelor of Computer Applications (BCA)</h3>
-          <p class="edu-institution">Guru Gobind Singh Indraprastha University (VIPS), New Delhi[cite: 5]</p>
-          <p class="edu-score">Graduated 2019 – 2022 • Score: 9.4 / 10 CGPA[cite: 5]</p>
+          <p class="edu-institution">Guru Gobind Singh Indraprastha University (VIPS), New Delhi</p>
+          <p class="edu-score">Graduated 2019 – 2022 • Score: 9.4 / 10 CGPA</p>
         </div>
         <div class="edu-card">
           <span class="edu-badge-tag">Master's Degree</span>
           <h3>Master of Computer Applications (MCA)</h3>
-          <p class="edu-institution">Guru Gobind Singh Indraprastha University (VIPS), New Delhi[cite: 5]</p>
-          <p class="edu-score">Graduated 2022 – 2024 • Score: 8.67 / 10 CGPA[cite: 5]</p>
+          <p class="edu-institution">Guru Gobind Singh Indraprastha University (VIPS), New Delhi</p>
+          <p class="edu-score">Graduated 2022 – 2024 • Score: 8.67 / 10 CGPA</p>
         </div>
         <div class="edu-card">
           <span class="edu-badge-tag">Executive Credentials</span>
           <h3>Professional Certifications</h3>
-          <p class="edu-institution">LinkedIn Learning & Global Frameworks[cite: 5]</p>
-          <p class="edu-score">148 Completed Certifications across Sales, Strategy & Digital Tools[cite: 5]</p>
+          <p class="edu-institution">LinkedIn Learning & Global Frameworks</p>
+          <p class="edu-score">148 Completed Certifications across Sales, Strategy & Digital Tools</p>
         </div>
         <div class="edu-card">
           <span class="edu-badge-tag">International Joint MSc</span>
           <h3>DiCES Program (2026–2028)</h3>
-          <p class="edu-institution">Montanuniversität Leoben & TU Wien (Austria)[cite: 5]</p>
-          <p class="edu-score">Digital Civil Engineering Science (Joint MSc Degree)[cite: 5]</p>
+          <p class="edu-institution">Montanuniversität Leoben & TU Wien (Austria)</p>
+          <p class="edu-score">Digital Civil Engineering Science (Joint MSc Degree)</p>
         </div>
       </div>
     </div>
@@ -336,7 +900,7 @@
           <ul class="features">
             <li>✓ Direct execution by Nakul Maini (6+ years experience)</li>
             <li>✓ Complete territorial exclusivity & binding NDA signed</li>
-            <li>✓ Proven track record: ~32% cost reduction & ~57% revenue growth[cite: 5]</li>
+            <li>✓ Proven track record: ~32% cost reduction & ~57% revenue growth</li>
             <li>✓ Referral program: Bring a partner, earn free strategy sprints</li>
           </ul>
           <a href="https://calendar.app.google/7iYHbqazTM81eosA7" target="_blank" rel="noopener" class="btn btn-primary full-width">Claim Your Strategy Slot</a>
@@ -481,7 +1045,7 @@
         <div class="faq-item">
           <button class="faq-question">3. How does having hubs in Austria, India, Dubai, and the Philippines benefit my business? <span class="faq-icon">+</span></button>
           <div class="faq-answer">
-            <p>It creates an unbeatable quality-to-cost ratio. High-level mathematical analysis, strategy formulation, and systems engineering are led directly by Nakul Maini in Austria (CET)[cite: 1, 5]. Meanwhile, technical execution and operations are handled across vetted delivery teams in India, Dubai, and the Philippines—delivering round-the-clock progress at optimal cost efficiency.</p>
+            <p>It creates an unbeatable quality-to-cost ratio. High-level mathematical analysis, strategy formulation, and systems engineering are led directly by Nakul Maini in Austria (CET). Meanwhile, technical execution and operations are handled across vetted delivery teams in India, Dubai, and the Philippines—delivering round-the-clock progress at optimal cost efficiency.</p>
           </div>
         </div>
         <div class="faq-item">
@@ -540,6 +1104,63 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.onclick = function() {
+          const parent = this.parentElement;
+          const isOpen = parent.classList.contains('active');
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+            const icon = item.querySelector('.faq-icon');
+            if (icon) icon.innerText = '+';
+          });
+          if (!isOpen) {
+            parent.classList.add('active');
+            const icon = this.querySelector('.faq-icon');
+            if (icon) icon.innerText = '−';
+          }
+        };
+      });
+    });
+
+    function switchCurrency(currencyKey, buttonElement) {
+      document.querySelectorAll('.currency-chip').forEach(c => c.classList.remove('active'));
+      if (buttonElement) buttonElement.classList.add('active');
+      document.querySelectorAll('.pay-panel').forEach(p => p.classList.remove('active'));
+      const target = document.getElementById('pay-' + currencyKey);
+      if (target) target.classList.add('active');
+    }
+
+    function copyData(textToCopy, btn) {
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        const orig = btn.innerText;
+        btn.innerText = 'Copied!';
+        btn.style.background = '#10b981';
+        btn.style.color = '#fff';
+        setTimeout(() => {
+          btn.innerText = orig;
+          btn.style.background = '';
+          btn.style.color = '';
+        }, 2000);
+      });
+    }
+
+    function openPdfModal(fileUrl, title) {
+      const modal = document.getElementById('document-modal');
+      document.getElementById('modal-title').innerText = title;
+      document.getElementById('modal-body').innerHTML = `<iframe src="${fileUrl}" title="${title}"></iframe>`;
+      modal.style.display = 'flex';
+    }
+
+    function closeModalDirect() {
+      document.getElementById('document-modal').style.display = 'none';
+      document.getElementById('modal-body').innerHTML = '';
+    }
+
+    function closeModal(event) {
+      if (event.target.id === 'document-modal') closeModalDirect();
+    }
+  </script>
 </body>
 </html>
