@@ -37,7 +37,7 @@ body {
 }
 
 /* =========================================
-   WORKING TWO-TIER CASCADING DROPDOWN
+   UNIVERSAL TWO-TIER CASCADING NAVIGATION
    ========================================= */
 .site-header {
   position: sticky;
@@ -92,7 +92,7 @@ body {
   position: relative;
 }
 
-/* Primary Menu */
+/* Tier 1: Primary Category List */
 .dropdown-primary {
   display: none;
   position: absolute;
@@ -138,7 +138,7 @@ body {
   color: var(--text-muted);
 }
 
-/* Secondary Flyout Menu */
+/* Tier 2: Sub-Services Flyout */
 .dropdown-secondary {
   display: none;
   position: absolute;
@@ -274,15 +274,25 @@ body {
   font-weight: 600;
 }
 
-/* Sections */
 .about-section {
   padding: 60px 0;
   border-top: 1px solid var(--border-color);
 }
 
-/* =========================================
-   SCREENSHOT-MATCHED HERO PROFILE SECTION
-   ========================================= */
+.section-header h2 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.section-header p {
+  color: var(--text-muted);
+  margin-bottom: 36px;
+}
+
+.text-center { text-align: center; }
+
+/* Introduction Block (Left/Right Grid) */
 .reference-intro-grid {
   display: grid;
   grid-template-columns: 1.3fr 0.9fr;
@@ -355,7 +365,7 @@ body {
   margin: 0;
 }
 
-/* Profile Card with Glowing Cyan Portrait Ring */
+/* Sidebar Profile Card */
 .profile-card-container {
   background: #0b1220;
   border: 1px solid #1e293b;
@@ -438,9 +448,7 @@ body {
   text-decoration: underline;
 }
 
-/* =========================================
-   DUAL ACTION BUTTONS (SCREENSHOT CE52A3)
-   ========================================= */
+/* Dual CTAs in Sidebar */
 .sidebar-dual-actions {
   display: flex;
   flex-direction: column;
@@ -634,6 +642,333 @@ body {
   display: block;
 }
 
+/* Arbitrage Grid */
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.comparison-card {
+  background: var(--bg-card);
+  padding: 34px;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.comparison-card.mainitech {
+  border: 2px solid var(--primary-blue);
+  position: relative;
+  box-shadow: 0 10px 30px rgba(2, 132, 199, 0.2);
+}
+
+.card-badge {
+  position: absolute;
+  top: -12px;
+  right: 24px;
+  background: var(--accent-orange);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.price-tag {
+  font-size: 36px;
+  font-weight: 800;
+  color: #fff;
+  margin: 14px 0 6px;
+}
+
+.price-tag span {
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+.price-sub {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin-bottom: 22px;
+}
+
+.features {
+  list-style: none;
+  margin-bottom: 26px;
+  flex-grow: 1;
+}
+
+.features li {
+  padding: 8px 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.full-width { width: 100%; }
+
+/* Letters of Recommendation Grid */
+.nda-banner {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: 12px;
+  padding: 22px;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto 36px;
+}
+
+.nda-icon { font-size: 32px; }
+
+.nda-text h3 {
+  font-size: 16px;
+  color: var(--accent-green);
+  margin-bottom: 4px;
+}
+
+.nda-text p {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.lor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+  margin-top: 28px;
+}
+
+.lor-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 24px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.lor-badge {
+  font-size: 11px;
+  color: var(--accent-cyan);
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.lor-card h4 {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.lor-author {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.lor-quote {
+  font-size: 13px;
+  color: #cbd5e1;
+  font-style: italic;
+  margin-bottom: 18px;
+  flex-grow: 1;
+}
+
+.reviews-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 28px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 40px auto 0;
+}
+
+.reviews-box p {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin: 6px 0 16px;
+}
+
+/* Global Hubs Grid */
+.hubs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.hub-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 28px;
+}
+
+.hub-card.primary-hub { border: 2px solid var(--primary-blue); }
+.hub-flag { font-size: 32px; margin-bottom: 10px; }
+.hub-card h3 { font-size: 18px; color: #fff; margin-bottom: 4px; }
+.hub-location { font-size: 14px; color: var(--primary-blue); font-weight: 700; }
+
+.hub-tz {
+  display: inline-block;
+  font-size: 11px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin: 10px 0 14px;
+  color: var(--accent-orange);
+}
+
+.hub-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+/* Payments Viewport & Currency Chips */
+.currency-selector-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  max-width: 960px;
+  margin: 0 auto 28px;
+}
+
+.currency-chip {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 14px 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.currency-chip:hover { background: var(--bg-hover); border-color: var(--primary-blue); transform: translateY(-2px); }
+.currency-chip.active { background: rgba(2, 132, 199, 0.12); border-color: var(--primary-blue); box-shadow: 0 4px 16px rgba(2, 132, 199, 0.25); }
+.chip-flag { font-size: 24px; }
+.chip-name { font-size: 15px; font-weight: 800; color: #fff; }
+.chip-rail { font-size: 11px; color: var(--text-muted); font-weight: 600; }
+.chip-paypal.active { border-color: #ffc439; background: rgba(255, 196, 57, 0.1); }
+
+.payment-card-viewport { max-width: 820px; margin: 0 auto; }
+
+.pay-panel {
+  display: none;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.pay-panel.active { display: block; }
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.zero-fee-badge {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--accent-green);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.account-data-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.data-box { background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-color); border-radius: 10px; padding: 12px 16px; }
+.data-box.full-span { grid-column: span 2; }
+.box-label { font-size: 11px; text-transform: uppercase; color: var(--text-muted); font-weight: 700; display: block; margin-bottom: 4px; }
+.box-val { display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: #fff; }
+.highlight-val { font-weight: 800; color: var(--accent-cyan); font-size: 15px; }
+
+.copy-action {
+  background: var(--border-color);
+  border: none;
+  color: var(--text-main);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.copy-action:hover { background: var(--primary-blue); color: #fff; }
+
+/* =========================================
+   WORKING FAQ ACCORDION STYLES
+   ========================================= */
+.faq-container { max-width: 800px; margin: 0 auto; }
+.faq-accordion { display: flex; flex-direction: column; gap: 12px; }
+.faq-item {
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background: var(--bg-card);
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.faq-item.active {
+  border-color: var(--accent-cyan);
+}
+.faq-question {
+  width: 100%;
+  padding: 18px 20px;
+  background: none;
+  border: none;
+  color: var(--text-main);
+  font-size: 15px;
+  font-weight: 700;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+.faq-icon {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  transition: transform 0.2s;
+}
+.faq-answer {
+  display: none;
+  padding: 0 20px 18px;
+  color: var(--text-body);
+  font-size: 14px;
+  line-height: 1.65;
+}
+.faq-item.active .faq-answer {
+  display: block;
+}
+
+/* Modals */
+.modal-backdrop { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); z-index: 20000; justify-content: center; align-items: center; }
+.modal-dialog { background: var(--bg-card); border: 1px solid var(--border-color); width: 90%; max-width: 900px; height: 85vh; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden; }
+.modal-header { display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; border-bottom: 1px solid var(--border-color); }
+.modal-header h4 { font-size: 15px; color: var(--text-main); }
+.modal-close { background: none; border: none; color: var(--text-muted); font-size: 24px; cursor: pointer; }
+.modal-body { flex-grow: 1; padding: 16px; display: flex; justify-content: center; align-items: center; }
+.modal-body iframe, .modal-body img { width: 100%; height: 100%; border: none; object-fit: contain; }
+
 /* Floating WhatsApp Button */
 .floating-whatsapp {
   position: fixed;
@@ -692,7 +1027,7 @@ body {
 }
 
 @media (max-width: 900px) {
-  .reference-intro-grid {
+  .reference-intro-grid, .comparison-grid {
     grid-template-columns: 1fr;
   }
   .dropdown-secondary {
