@@ -11,6 +11,215 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* Direct Subpage CSS Assurance */
+    :root {
+      --bg-dark: #070d18;
+      --bg-card: #0b1220;
+      --primary-blue: #0284c7;
+      --accent-cyan: #38bdf8;
+      --accent-amber: #fbbf24;
+      --text-main: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+      --border-color: rgba(255, 255, 255, 0.08);
+    }
+    .service-table-wrapper {
+      max-width: 1060px;
+      margin: 30px auto 0;
+      overflow-x: auto;
+      background: #0b1220;
+      border: 1px solid #1e293b;
+      border-radius: 18px;
+      padding: 12px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+    }
+    .service-matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    .service-matrix-table th {
+      padding: 18px 24px;
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 2px solid #1e293b;
+    }
+    .th-benefits { color: var(--accent-cyan); background: rgba(56, 189, 248, 0.05); }
+    .th-usecases { color: var(--accent-amber); background: rgba(251, 191, 36, 0.05); }
+    .service-matrix-table td {
+      padding: 22px 24px;
+      vertical-align: top;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .service-matrix-table tr:last-child td { border-bottom: none; }
+    .table-block h4 { font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 6px; }
+    .table-block p { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; margin: 0; }
+
+    .highlight-meeting-banner {
+      background: radial-gradient(circle at 50% 0%, rgba(2, 132, 199, 0.28) 0%, rgba(11, 18, 32, 0.98) 75%);
+      border: 2px solid var(--accent-cyan);
+      border-radius: 24px;
+      padding: 50px 32px;
+      text-align: center;
+      margin: 50px auto;
+      max-width: 960px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(56, 189, 248, 0.3);
+      position: relative;
+    }
+    .highlight-meeting-banner h3 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+    .highlight-meeting-banner p {
+      color: var(--text-body);
+      font-size: 16px;
+      max-width: 680px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+    }
+    .highlight-cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #38bdf8, #2563eb);
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 800;
+      padding: 16px 36px;
+      border-radius: 12px;
+      text-decoration: none;
+      box-shadow: 0 6px 25px rgba(56, 189, 248, 0.5);
+      transition: all 0.25s ease;
+    }
+    .highlight-cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 35px rgba(56, 189, 248, 0.7);
+    }
+
+    /* Settlement Section Restored */
+    .start-today-section {
+      text-align: center;
+      padding: 50px 0;
+      background: rgba(255, 255, 255, 0.01);
+      border-top: 1px solid var(--border-color);
+    }
+    .start-today-btn {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #fff;
+      padding: 16px 36px;
+      font-size: 16px;
+      font-weight: 800;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 6px 24px rgba(16, 185, 129, 0.35);
+    }
+    .settlement-drawer {
+      display: none;
+      margin-top: 36px;
+    }
+    .settlement-drawer.is-open {
+      display: block;
+    }
+    .currency-selector-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      max-width: 960px;
+      margin: 0 auto 28px;
+    }
+    .currency-chip {
+      background: var(--bg-card);
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      padding: 14px 10px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s ease;
+      text-align: center;
+      color: #fff;
+    }
+    .currency-chip:hover {
+      background: #16243b;
+      border-color: var(--primary-blue);
+      transform: translateY(-2px);
+    }
+    .currency-chip.active {
+      background: rgba(2, 132, 199, 0.12);
+      border-color: var(--primary-blue);
+      box-shadow: 0 4px 16px rgba(2, 132, 199, 0.25);
+    }
+    .chip-flag { font-size: 24px; }
+    .chip-name { font-size: 15px; font-weight: 800; color: #fff; }
+    .chip-rail { font-size: 11px; color: var(--text-muted); font-weight: 600; }
+    .payment-card-viewport { max-width: 820px; margin: 0 auto; }
+    .pay-panel {
+      display: none;
+      background: var(--bg-card);
+      border: 1px solid #1e293b;
+      border-radius: 16px;
+      padding: 32px;
+      text-align: left;
+    }
+    .pay-panel.active { display: block; }
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .zero-fee-badge {
+      background: rgba(16, 185, 129, 0.15);
+      color: #10b981;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+    }
+    .account-data-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .data-box {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 12px 16px;
+    }
+    .data-box.full-span { grid-column: span 2; }
+    .box-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 700;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .box-val { display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: #fff; }
+    .highlight-val { font-weight: 800; color: var(--accent-cyan); font-size: 15px; }
+    .copy-action {
+      background: var(--border-color);
+      border: none;
+      color: var(--text-main);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .copy-action:hover { background: var(--primary-blue); color: #fff; }
+  </style>
 </head>
 <body>
 
@@ -74,7 +283,6 @@
         </div>
         <a href="../cost-advantage.html" class="nav-link">Cost Advantage</a>
         <a href="../client-letters.html" class="nav-link">Client Letters</a>
-        <a href="../engagement-models.html" class="nav-link">Compounding Retainers</a>
         <a href="../global-hubs.html" class="nav-link">Global Hubs</a>
         <a href="../payments.html" class="nav-link">Payments</a>
         <a href="../faq.html" class="nav-link">FAQ</a>
@@ -85,7 +293,7 @@
     </div>
   </header>
 
-  <!-- 1. Name & 2. 4-5 Line Description -->
+  <!-- 1. Name & 2. Description -->
   <section class="hero-section">
     <div class="container hero-content">
       <div class="hero-badge">Category: Business Strategy & Analysis • Commercial Scaling</div>
@@ -206,28 +414,55 @@
         </div>
         <div class="faq-item">
           <button class="faq-question">3. What measurable outcomes have your growth strategies achieved? <span class="faq-icon">+</span></button>
-          <div class="faq-answer"><p>Across my active advisory portfolio, more than 80% of businesses applying my strategic direction reported an average reduction of approximately 32% in operational costs, alongside approximately 57% revenue growth over a 6 to 12-month period.</p></div>
+          <div class="faq-answer"><p>Across my active advisory portfolio, more than 80% of businesses applying my strategic direction reported an average reduction of approximately 32% in operational costs, alongside approximately 57% revenue growth over a 6 to 12-month period[cite: 5].</p></div>
         </div>
         <div class="faq-item">
           <button class="faq-question">4. Can you assist my sales team with closing high-ticket deals? <span class="faq-icon">+</span></button>
-          <div class="faq-answer"><p>Yes. Having personally closed 64 international deals and supported 83 additional closings as a strategic second voice across diverse B2B and B2C industries, I provide consultative objection-handling frameworks that immediately elevate closing rates.</p></div>
+          <div class="faq-answer"><p>Yes. Having personally closed 64 international deals and supported 83 additional closings as a strategic second voice across diverse B2B and B2C industries, I provide consultative objection-handling frameworks that immediately elevate closing rates[cite: 5].</p></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 6. "Get Started Today" Settlement Drawer -->
+  <!-- 6. "Get Started Today" Settlement Drawer (CSS Completely Protected) -->
   <section class="start-today-section">
     <div class="container">
       <h2>Ready to Activate Growth?</h2>
       <button class="start-today-btn" onclick="toggleSettlementDrawer()">Get Started Today — View Settlement Rails ▾</button>
       <div id="settlement-drawer" class="settlement-drawer">
         <div class="currency-selector-grid">
-          <button class="currency-chip active" onclick="switchCurrency('usd', this)"><span class="chip-flag">🇺🇸</span><span class="chip-name">USD</span><span class="chip-rail">Domestic ACH / Wire</span></button>
-          <button class="currency-chip" onclick="switchCurrency('eur', this)"><span class="chip-flag">🇪🇺</span><span class="chip-name">EUR</span><span class="chip-rail">SEPA Transfer</span></button>
-          <button class="currency-chip" onclick="switchCurrency('gbp', this)"><span class="chip-flag">🇬🇧</span><span class="chip-name">GBP</span><span class="chip-rail">Faster Payments</span></button>
-          <button class="currency-chip chip-paypal" onclick="switchCurrency('paypal', this)"><span class="chip-flag">💳</span><span class="chip-name">Card / PayPal</span><span class="chip-rail">Instant Settlement</span></button>
+          <button class="currency-chip active" onclick="switchCurrency('usd', this)">
+            <span class="chip-flag">🇺🇸</span>
+            <span class="chip-name">USD</span>
+            <span class="chip-rail">Domestic ACH / Wire</span>
+          </button>
+          <button class="currency-chip" onclick="switchCurrency('eur', this)">
+            <span class="chip-flag">🇪🇺</span>
+            <span class="chip-name">EUR</span>
+            <span class="chip-rail">SEPA Transfer</span>
+          </button>
+          <button class="currency-chip" onclick="switchCurrency('gbp', this)">
+            <span class="chip-flag">🇬🇧</span>
+            <span class="chip-name">GBP</span>
+            <span class="chip-rail">Faster Payments</span>
+          </button>
+          <button class="currency-chip" onclick="switchCurrency('nzd', this)">
+            <span class="chip-flag">🇳🇿</span>
+            <span class="chip-name">NZD</span>
+            <span class="chip-rail">Domestic Wire</span>
+          </button>
+          <button class="currency-chip" onclick="switchCurrency('cad', this)">
+            <span class="chip-flag">🇨🇦</span>
+            <span class="chip-name">CAD</span>
+            <span class="chip-rail">EFT / Direct</span>
+          </button>
+          <button class="currency-chip" onclick="switchCurrency('paypal', this)">
+            <span class="chip-flag">💳</span>
+            <span class="chip-name">Card / PayPal</span>
+            <span class="chip-rail">Instant Checkout</span>
+          </button>
         </div>
+
         <div class="payment-card-viewport">
           <div id="pay-usd" class="pay-panel active">
             <div class="panel-header"><div><h3>United States Dollar (USD)</h3><p>Direct domestic transfer through Column Bank & Wise US Inc.</p></div><span class="zero-fee-badge">Zero Wire Fees</span></div>
@@ -235,12 +470,14 @@
               <div class="data-box"><span class="box-label">Beneficiary</span><div class="box-val"><span>NAKUL MAINI</span><button class="copy-action" onclick="copyData('NAKUL MAINI', this)">Copy</button></div></div>
               <div class="data-box"><span class="box-label">Routing Number</span><div class="box-val"><span class="highlight-val">084009519</span><button class="copy-action" onclick="copyData('084009519', this)">Copy</button></div></div>
               <div class="data-box"><span class="box-label">Account Number</span><div class="box-val"><span class="highlight-val">911440587732700</span><button class="copy-action" onclick="copyData('911440587732700', this)">Copy</button></div></div>
+              <div class="data-box"><span class="box-label">Swift / BIC</span><div class="box-val"><span>TRWIUS35XXX</span><button class="copy-action" onclick="copyData('TRWIUS35XXX', this)">Copy</button></div></div>
             </div>
           </div>
           <div id="pay-eur" class="pay-panel">
             <div class="panel-header"><div><h3>Eurozone (EUR)</h3><p>Direct SEPA transfer through Wise Europe (Brussels).</p></div></div>
             <div class="account-data-grid">
               <div class="data-box full-span"><span class="box-label">IBAN</span><div class="box-val"><span class="highlight-val">BE08 9059 6519 9113</span><button class="copy-action" onclick="copyData('BE08 9059 6519 9113', this)">Copy</button></div></div>
+              <div class="data-box full-span"><span class="box-label">Swift / BIC</span><div class="box-val"><span>TRWIBEB1XXX</span><button class="copy-action" onclick="copyData('TRWIBEB1XXX', this)">Copy</button></div></div>
             </div>
           </div>
           <div id="pay-gbp" class="pay-panel">
@@ -248,6 +485,18 @@
             <div class="account-data-grid">
               <div class="data-box"><span class="box-label">Sort Code</span><div class="box-val"><span class="highlight-val">60-84-64</span><button class="copy-action" onclick="copyData('60-84-64', this)">Copy</button></div></div>
               <div class="data-box"><span class="box-label">Account Number</span><div class="box-val"><span class="highlight-val">97301589</span><button class="copy-action" onclick="copyData('97301589', this)">Copy</button></div></div>
+            </div>
+          </div>
+          <div id="pay-nzd" class="pay-panel">
+            <div class="panel-header"><div><h3>New Zealand Dollar (NZD)</h3><p>Domestic New Zealand wire transfer via Wise Payments NZ.</p></div></div>
+            <div class="account-data-grid">
+              <div class="data-box full-span"><span class="box-label">Account Number</span><div class="box-val"><span class="highlight-val">04-2021-0427096-18</span><button class="copy-action" onclick="copyData('04-2021-0427096-18', this)">Copy</button></div></div>
+            </div>
+          </div>
+          <div id="pay-cad" class="pay-panel">
+            <div class="panel-header"><div><h3>Canadian Dollar (CAD)</h3><p>Domestic Canadian direct transfer (EFT).</p></div></div>
+            <div class="account-data-grid">
+              <div class="data-box full-span"><span class="box-label">Account Number</span><div class="box-val"><span class="highlight-val">171375180</span><button class="copy-action" onclick="copyData('171375180', this)">Copy</button></div></div>
             </div>
           </div>
           <div id="pay-paypal" class="pay-panel text-center">
@@ -280,6 +529,7 @@
       <div class="footer-links"><a href="../about.html">About</a><a href="../services.html">Services</a><a href="../payments.html">Payments</a></div>
     </div>
   </footer>
+
   <script src="../script.js"></script>
 </body>
 </html>
