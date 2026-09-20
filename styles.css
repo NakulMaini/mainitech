@@ -1,263 +1,708 @@
-/* ===================================================
-   ASCENDING VINE JOURNEY TIMELINE (CAREER & ACADEMICS)
-   =================================================== */
-.journey-section {
-  padding: 60px 0 100px;
-  background: radial-gradient(circle at 50% 10%, rgba(2, 132, 199, 0.08) 0%, transparent 70%);
+:root {
+  --bg-dark: #070d18;
+  --bg-card: #0b1220;
+  --bg-card-glow: #0c1322;
+  --bg-hover: #16243b;
+  --primary-blue: #0284c7;
+  --primary-blue-hover: #0369a1;
+  --accent-cyan: #38bdf8;
+  --accent-amber: #fbbf24;
+  --accent-orange: #f97316;
+  --accent-green: #10b981;
+  --text-main: #f8fafc;
+  --text-body: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 }
 
-.journey-legend {
-  display: flex;
-  justify-content: center;
-  gap: 28px;
-  margin-top: 24px;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--text-body);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
-.legend-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  display: inline-block;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
-.edu-dot {
-  background: var(--accent-cyan);
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+/* =========================================
+   WORKING TWO-TIER CASCADING DROPDOWN
+   ========================================= */
+.site-header {
+  position: sticky;
+  top: 0;
+  background: rgba(7, 13, 24, 0.98);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 10000;
 }
 
-.career-dot {
-  background: var(--accent-orange);
-  box-shadow: 0 0 10px rgba(234, 88, 12, 0.6);
-}
-
-/* Central Trunk */
-.vine-timeline-wrapper {
-  position: relative;
-  max-width: 1140px;
-  margin: 40px auto 60px;
-  padding: 20px 0;
-}
-
-.vine-stem {
-  position: absolute;
-  top: 40px;
-  bottom: 40px;
-  left: 50%;
-  width: 4px;
-  transform: translateX(-50%);
-  background: linear-gradient(to top, #1e293b, var(--primary-blue), var(--accent-cyan));
-  box-shadow: 0 0 16px rgba(2, 132, 199, 0.4);
-  border-radius: 4px;
-  z-index: 1;
-}
-
-/* Individual Stage */
-.vine-stage {
-  position: relative;
+.nav-container {
+  max-width: 1280px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 50px;
-  z-index: 2;
+  padding: 12px 24px;
 }
 
-/* Year Badge on Central Stem */
-.vine-node {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #0b1220;
-  border: 2px solid var(--primary-blue);
-  padding: 8px 18px;
-  border-radius: 30px;
-  box-shadow: 0 0 18px rgba(2, 132, 199, 0.5);
-  z-index: 3;
+.brand-logo {
+  height: 48px;
+  width: auto;
+  display: block;
 }
 
-.node-year {
-  font-size: 13px;
-  font-weight: 800;
-  color: #ffffff;
-  letter-spacing: 0.5px;
-  white-space: nowrap;
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
-.current-node {
-  border-color: var(--accent-cyan);
-  background: #071529;
-  box-shadow: 0 0 25px rgba(56, 189, 248, 0.8);
+.nav-link {
+  color: var(--text-main);
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
 }
 
-.current-node .node-year {
+.nav-link:hover, .nav-link.active-nav {
   color: var(--accent-cyan);
 }
 
-/* Left & Right Branches */
-.vine-branch {
-  width: 43%;
-}
-
-.branch-left {
-  text-align: right;
-  padding-right: 20px;
-}
-
-.branch-right {
-  text-align: left;
-  padding-left: 20px;
-}
-
-/* Cards */
-.journey-card {
-  background: #0b1220;
-  border: 1px solid #1e293b;
-  border-radius: 18px;
-  padding: 24px 26px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
-  transition: all 0.25s ease;
+.nav-item-dropdown {
   position: relative;
 }
 
-.journey-card:hover {
+/* Primary Menu */
+.dropdown-primary {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 290px;
+  background: #0b1220;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 8px 0;
+  list-style: none;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.85);
+  z-index: 10001;
+}
+
+.nav-item-dropdown:hover .dropdown-primary {
+  display: block;
+}
+
+.has-flyout {
+  position: relative;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  color: var(--text-main);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: default;
+  transition: all 0.2s;
+}
+
+.has-flyout:hover > .category-header {
+  background: var(--bg-hover);
+  color: var(--accent-cyan);
+}
+
+.chevron {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* Secondary Flyout Menu */
+.dropdown-secondary {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 320px;
+  background: #0b1220;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 8px 0;
+  list-style: none;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.85);
+}
+
+.has-flyout:hover > .dropdown-secondary {
+  display: block;
+}
+
+.dropdown-secondary li a {
+  display: block;
+  padding: 10px 18px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.dropdown-secondary li a:hover {
+  background: var(--bg-hover);
+  color: #ffffff;
+  padding-left: 22px;
+}
+
+.highlight-item .category-header {
+  color: var(--accent-green);
+}
+
+/* Global Buttons */
+.btn {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  text-align: center;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-hover));
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
+}
+
+.btn-primary:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+.btn-large {
+  padding: 14px 28px;
+  font-size: 15px;
+}
+
+.btn-outline {
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  border-color: var(--text-main);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.btn-small {
+  padding: 7px 14px;
+  font-size: 12px;
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 70px 0 45px;
+  text-align: center;
+  background: radial-gradient(circle at 50% 15%, rgba(2, 132, 199, 0.16) 0%, transparent 65%);
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(56, 189, 248, 0.12);
+  color: var(--accent-cyan);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.hero-title {
+  font-size: 40px;
+  line-height: 1.2;
+  font-weight: 800;
+  max-width: 950px;
+  margin: 0 auto 16px;
+}
+
+.hero-subtitle {
+  font-size: 16px;
+  color: var(--text-muted);
+  max-width: 780px;
+  margin: 0 auto 28px;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.trust-strip {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* Sections */
+.about-section {
+  padding: 60px 0;
+  border-top: 1px solid var(--border-color);
+}
+
+/* =========================================
+   SCREENSHOT-MATCHED HERO PROFILE SECTION
+   ========================================= */
+.reference-intro-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.reference-main-title {
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.22;
+  color: #ffffff;
+  margin-bottom: 22px;
+  letter-spacing: -0.5px;
+}
+
+.reference-main-p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-body);
+  margin-bottom: 18px;
+}
+
+.reference-main-p strong {
+  color: #ffffff;
+}
+
+/* Atmospheric Glowing Austria Box */
+.reference-austria-box {
+  background: var(--bg-card-glow);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 26px;
+  margin-top: 26px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 24px rgba(2, 132, 199, 0.15);
+}
+
+.eu-badge {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #ffffff;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 800;
+  padding: 6px 14px;
+  letter-spacing: 1px;
+}
+
+.austria-box-content h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.austria-sub {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent-amber);
+  margin-bottom: 10px;
+}
+
+.austria-desc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-body);
+  margin: 0;
+}
+
+/* Profile Card with Glowing Cyan Portrait Ring */
+.profile-card-container {
+  background: #0b1220;
+  border: 1px solid #1e293b;
+  border-radius: 24px;
+  padding: 36px 28px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 30px rgba(2, 132, 199, 0.18);
+}
+
+.profile-avatar-circle {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  padding: 4px;
+  background: #0b1220;
+  border: 3px solid #38bdf8;
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.45);
+  overflow: hidden;
+}
+
+.founder-photo-screenshot {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.profile-name {
+  font-size: 26px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.profile-title-tag {
+  font-size: 13px;
+  font-weight: 800;
+  color: #38bdf8;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 24px;
+}
+
+.sidebar-divider {
+  height: 1px;
+  background: #1e293b;
+  margin: 20px 0;
+}
+
+.profile-field-list {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.profile-field .meta-heading {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.profile-field p {
+  font-size: 14px;
+  color: #f8fafc;
+  font-weight: 600;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.profile-field p a {
+  color: #38bdf8;
+  text-decoration: underline;
+}
+
+/* =========================================
+   DUAL ACTION BUTTONS (SCREENSHOT CE52A3)
+   ========================================= */
+.sidebar-dual-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.sidebar-btn-linkedin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  background: #2563eb;
+  color: #ffffff;
+  padding: 13px 18px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+}
+
+.sidebar-btn-linkedin:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.6);
+}
+
+.linkedin-svg-icon {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.sidebar-btn-consult {
+  display: block;
+  width: 100%;
+  background: linear-gradient(135deg, #38bdf8, #3b82f6);
+  color: #ffffff;
+  padding: 14px 18px;
+  font-size: 14px;
+  font-weight: 800;
+  border-radius: 10px;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);
+}
+
+.sidebar-btn-consult:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 25px rgba(56, 189, 248, 0.6);
+}
+
+/* Strict 4 Education Qualifications Grid */
+.edu-strict-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+  margin-top: 24px;
+}
+
+.edu-card {
+  background: #0b1220;
+  border: 1px solid #1e293b;
+  border-radius: 16px;
+  padding: 26px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.edu-card:hover {
   transform: translateY(-3px);
-  border-color: rgba(56, 189, 248, 0.4);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 20px rgba(2, 132, 199, 0.2);
+  border-color: var(--accent-cyan);
 }
 
-.academic-journey-card {
-  border-left: 4px solid var(--accent-cyan);
-}
-
-.branch-left .academic-journey-card {
-  border-left: 1px solid #1e293b;
-  border-right: 4px solid var(--accent-cyan);
-}
-
-.career-journey-card {
-  border-left: 4px solid var(--accent-orange);
-}
-
-.card-branch-tag {
+.edu-badge-tag {
   font-size: 11px;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 1px;
+  color: var(--accent-cyan);
   display: block;
+  margin-bottom: 8px;
+}
+
+.edu-card h3 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffffff;
   margin-bottom: 6px;
 }
 
-.academic-journey-card .card-branch-tag {
-  color: var(--accent-cyan);
-}
-
-.career-journey-card .card-branch-tag {
-  color: var(--accent-orange);
-}
-
-.journey-card h3 {
-  font-size: 17px;
-  font-weight: 800;
-  color: #ffffff;
-  margin-bottom: 4px;
-  line-height: 1.3;
-}
-
-.journey-org {
-  font-size: 13px;
+.edu-institution {
+  font-size: 13.5px;
   font-weight: 700;
-  color: #cbd5e1;
-  margin-bottom: 10px;
+  color: var(--accent-amber);
+  margin-bottom: 6px;
 }
 
-.journey-text {
+.edu-score {
   font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-green);
+}
+
+/* Service Benefits & Use Cases */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 28px;
+}
+
+.benefit-card {
+  background: var(--bg-card);
+  border: 1px solid #1e293b;
+  border-radius: 14px;
+  padding: 26px;
+}
+
+.benefit-card h4 {
+  font-size: 17px;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.benefit-card p {
+  font-size: 13.5px;
   color: var(--text-muted);
   line-height: 1.6;
-  margin: 0;
 }
 
-/* Highlight Stages */
-.highlight-academic {
-  background: #0c1626;
-  border-color: rgba(56, 189, 248, 0.3);
-}
-
-.highlight-career {
-  background: #141724;
-  border-color: rgba(234, 88, 12, 0.3);
-}
-
-.crown-card {
-  border: 2px solid var(--accent-cyan);
-  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.25);
-}
-
-.crown-tag {
-  color: var(--accent-cyan);
-  font-weight: 800;
-}
-
-.crown-tag-career {
-  color: var(--accent-green);
-  font-weight: 800;
-}
-
-.roadmap-bottom-cta {
-  background: #0b1220;
-  border: 1px solid #1e293b;
-  border-radius: 20px;
-  padding: 48px 28px;
+.meeting-cta-banner {
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.15), rgba(56, 189, 248, 0.08));
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 16px;
+  padding: 40px 24px;
+  text-align: center;
+  margin: 40px auto;
   max-width: 860px;
-  margin: 30px auto 0;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
 }
 
-.roadmap-bottom-cta h2 {
-  font-size: 26px;
+.meeting-cta-banner h3 {
+  font-size: 24px;
   font-weight: 800;
   color: #fff;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
-.roadmap-bottom-cta p {
+.meeting-cta-banner p {
   color: var(--text-muted);
   font-size: 15px;
-  margin-bottom: 26px;
+  max-width: 620px;
+  margin: 0 auto 24px;
 }
 
-/* Responsive for Mobile */
+.start-today-section {
+  text-align: center;
+  padding: 50px 0;
+  background: rgba(255, 255, 255, 0.01);
+  border-top: 1px solid var(--border-color);
+}
+
+.start-today-btn {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #fff;
+  padding: 16px 36px;
+  font-size: 16px;
+  font-weight: 800;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 6px 24px rgba(16, 185, 129, 0.35);
+}
+
+.start-today-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(16, 185, 129, 0.5);
+}
+
+.settlement-drawer {
+  display: none;
+  margin-top: 36px;
+}
+
+.settlement-drawer.is-open {
+  display: block;
+}
+
+/* Floating WhatsApp Button */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #25D366;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  z-index: 9999;
+}
+
+.wa-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--border-color);
+  padding: 26px 0;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 60px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.footer-sub {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-left: 14px;
+}
+
+.footer-links a:hover {
+  color: var(--text-main);
+}
+
 @media (max-width: 900px) {
-  .vine-stem {
-    left: 28px;
+  .reference-intro-grid {
+    grid-template-columns: 1fr;
   }
-  .vine-stage {
-    flex-direction: column;
-    align-items: flex-start;
-    padding-left: 65px;
-    margin-bottom: 40px;
-  }
-  .vine-node {
-    left: 28px;
-    transform: none;
-    top: 0;
-  }
-  .vine-branch {
+  .dropdown-secondary {
+    position: static;
+    display: none;
     width: 100%;
-    padding: 0;
-    text-align: left;
-    margin-top: 14px;
+    box-shadow: none;
+    padding-left: 14px;
   }
-  .branch-left .academic-journey-card {
-    border-right: 1px solid #1e293b;
-    border-left: 4px solid var(--accent-cyan);
+  .has-flyout:hover > .dropdown-secondary {
+    display: block;
   }
 }

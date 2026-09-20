@@ -6,417 +6,10 @@
   <title>About Nakul Maini | Business Strategist & Systems Analyst</title>
   <meta name="description" content="Academic credentials (DiCES, MCA, BCA, Certifications) and executive business strategy background of Nakul Maini.">
   <link rel="canonical" href="https://nakulmaini.github.io/mainitech/about.html">
+  <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <style>
-    :root {
-      --bg-dark: #070d18;
-      --bg-card: #0b1220;
-      --bg-card-glow: #0c1322;
-      --bg-hover: #16243b;
-      --primary-blue: #0284c7;
-      --primary-blue-hover: #0369a1;
-      --accent-cyan: #38bdf8;
-      --accent-amber: #fbbf24;
-      --accent-green: #10b981;
-      --text-main: #f8fafc;
-      --text-body: #cbd5e1;
-      --text-muted: #94a3b8;
-      --border-color: rgba(255, 255, 255, 0.08);
-      --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: var(--font-main);
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-
-    /* Header & Working Cascading Dropdown */
-    .site-header {
-      position: sticky;
-      top: 0;
-      background: rgba(7, 13, 24, 0.98);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-color);
-      z-index: 1000;
-    }
-    .nav-container {
-      max-width: 1280px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 24px;
-    }
-    .brand-logo { height: 48px; width: auto; display: block; }
-    .nav-menu { display: flex; align-items: center; gap: 16px; }
-    .nav-link {
-      color: var(--text-main);
-      font-weight: 600;
-      font-size: 14px;
-      text-decoration: none;
-      padding: 8px 10px;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      transition: color 0.2s;
-    }
-    .nav-link:hover, .nav-link.active-nav { color: var(--accent-cyan); }
-
-    /* Cascading Dropdown */
-    .nav-item-dropdown { position: relative; }
-    .dropdown-primary {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 290px;
-      background: var(--bg-card);
-      border: 1px solid #1e293b;
-      border-radius: 12px;
-      padding: 8px 0;
-      list-style: none;
-      box-shadow: 0 16px 36px rgba(0,0,0,0.7);
-      z-index: 9999;
-    }
-    .nav-item-dropdown:hover .dropdown-primary { display: block; }
-    .has-flyout { position: relative; }
-    .category-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 18px;
-      color: var(--text-main);
-      font-size: 13px;
-      font-weight: 700;
-      cursor: default;
-      transition: all 0.2s;
-    }
-    .has-flyout:hover > .category-header { background: var(--bg-hover); color: var(--accent-cyan); }
-    .chevron { font-size: 14px; color: var(--text-muted); }
-    .dropdown-secondary {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 100%;
-      width: 320px;
-      background: var(--bg-card);
-      border: 1px solid #1e293b;
-      border-radius: 12px;
-      padding: 8px 0;
-      list-style: none;
-      box-shadow: 0 16px 36px rgba(0,0,0,0.7);
-    }
-    .has-flyout:hover > .dropdown-secondary { display: block; }
-    .dropdown-secondary li a {
-      display: block;
-      padding: 9px 18px;
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 13px;
-      transition: all 0.2s;
-    }
-    .dropdown-secondary li a:hover { background: var(--bg-hover); color: #fff; padding-left: 22px; }
-
-    .btn {
-      display: inline-block;
-      font-weight: 700;
-      font-size: 14px;
-      padding: 10px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      text-align: center;
-      cursor: pointer;
-      border: none;
-      transition: all 0.2s;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-hover));
-      color: #fff;
-      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
-    }
-    .btn-primary:hover { opacity: 0.95; transform: translateY(-1px); }
-
-    /* Hero */
-    .hero-section {
-      padding: 60px 0 40px;
-      text-align: center;
-      background: radial-gradient(circle at 50% 15%, rgba(2, 132, 199, 0.16) 0%, transparent 65%);
-    }
-    .hero-badge {
-      display: inline-block;
-      padding: 6px 14px;
-      background: rgba(56, 189, 248, 0.12);
-      color: var(--accent-cyan);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      border-radius: 30px;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-    .hero-title { font-size: 38px; font-weight: 800; margin-bottom: 12px; }
-    .hero-subtitle { font-size: 16px; color: var(--text-muted); max-width: 760px; margin: 0 auto; }
-
-    /* Screenshot-Matched Atmospheric Introduction */
-    .about-section { padding: 60px 0; border-top: 1px solid var(--border-color); }
-    .reference-intro-grid {
-      display: grid;
-      grid-template-columns: 1.35fr 0.85fr;
-      gap: 48px;
-      align-items: start;
-    }
-    .reference-main-title {
-      font-size: 36px;
-      font-weight: 800;
-      line-height: 1.22;
-      color: #ffffff;
-      margin-bottom: 22px;
-      letter-spacing: -0.5px;
-    }
-    .reference-main-p {
-      font-size: 15px;
-      line-height: 1.7;
-      color: var(--text-body);
-      margin-bottom: 18px;
-    }
-    .reference-main-p strong { color: #ffffff; }
-
-    /* Austria DiCES Atmospheric Glowing Box */
-    .reference-austria-box {
-      background: var(--bg-card-glow);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 16px;
-      padding: 26px;
-      margin-top: 26px;
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(2, 132, 199, 0.12);
-    }
-    .eu-badge {
-      background: #1e293b;
-      border: 1px solid #334155;
-      color: #ffffff;
-      border-radius: 8px;
-      font-size: 15px;
-      font-weight: 800;
-      padding: 6px 14px;
-      letter-spacing: 1px;
-    }
-    .austria-box-content h4 {
-      font-size: 18px;
-      font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 4px;
-    }
-    .austria-sub {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--accent-amber);
-      margin-bottom: 10px;
-    }
-    .austria-desc {
-      font-size: 14px;
-      line-height: 1.65;
-      color: var(--text-body);
-      text-shadow: 0 0 1px rgba(255, 255, 255, 0.2);
-      margin: 0;
-    }
-
-    /* Sidebar Profile Card with Glowing Cyan Ring */
-    .profile-card-container {
-      background: #0b1220;
-      border: 1px solid #1e293b;
-      border-radius: 24px;
-      padding: 36px 28px;
-      text-align: center;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(2, 132, 199, 0.15);
-    }
-    .profile-avatar-circle {
-      width: 180px;
-      height: 180px;
-      margin: 0 auto 20px;
-      border-radius: 50%;
-      padding: 4px;
-      background: #0b1220;
-      border: 3px solid #38bdf8;
-      box-shadow: 0 0 30px rgba(56, 189, 248, 0.45);
-      overflow: hidden;
-    }
-    .founder-photo-screenshot {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      display: block;
-    }
-    .profile-name {
-      font-size: 26px;
-      font-weight: 800;
-      color: #ffffff;
-      margin-bottom: 6px;
-    }
-    .profile-title-tag {
-      font-size: 13px;
-      font-weight: 800;
-      color: #38bdf8;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      display: block;
-      margin-bottom: 24px;
-    }
-    .sidebar-divider {
-      height: 1px;
-      background: #1e293b;
-      margin: 20px 0;
-    }
-    .profile-field-list {
-      text-align: left;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .profile-field .meta-heading {
-      font-size: 11px;
-      font-weight: 700;
-      color: #64748b;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      display: block;
-      margin-bottom: 4px;
-    }
-    .profile-field p {
-      font-size: 14px;
-      color: #f8fafc;
-      font-weight: 600;
-      line-height: 1.45;
-      margin: 0;
-    }
-    .profile-field p a {
-      color: #38bdf8;
-      text-decoration: underline;
-    }
-    .sidebar-consult-btn {
-      display: block;
-      width: 100%;
-      background: linear-gradient(135deg, #38bdf8, #3b82f6);
-      color: #ffffff;
-      padding: 15px 20px;
-      font-size: 15px;
-      font-weight: 800;
-      border-radius: 12px;
-      text-decoration: none;
-      text-align: center;
-      transition: all 0.2s ease;
-      box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);
-    }
-    .sidebar-consult-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 25px rgba(56, 189, 248, 0.6);
-    }
-
-    /* Strict 4 Education Cards Only */
-    .edu-section-title {
-      font-size: 28px;
-      font-weight: 800;
-      color: #ffffff;
-      margin-bottom: 8px;
-    }
-    .edu-section-sub {
-      color: var(--text-muted);
-      font-size: 14px;
-      margin-bottom: 30px;
-    }
-    .edu-strict-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 22px;
-    }
-    .edu-card {
-      background: #0b1220;
-      border: 1px solid #1e293b;
-      border-radius: 16px;
-      padding: 26px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-      transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-    .edu-card:hover {
-      transform: translateY(-3px);
-      border-color: var(--accent-cyan);
-    }
-    .edu-badge-tag {
-      font-size: 11px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--accent-cyan);
-      display: block;
-      margin-bottom: 8px;
-    }
-    .edu-card h3 {
-      font-size: 18px;
-      font-weight: 800;
-      color: #ffffff;
-      margin-bottom: 6px;
-    }
-    .edu-institution {
-      font-size: 13.5px;
-      font-weight: 700;
-      color: var(--accent-amber);
-      margin-bottom: 6px;
-    }
-    .edu-score {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--accent-green);
-    }
-
-    /* Floating WhatsApp */
-    .floating-whatsapp {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      background: #25D366;
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 50px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 14px;
-      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-      z-index: 9999;
-    }
-    .wa-icon { width: 20px; height: 20px; }
-
-    .site-footer {
-      border-top: 1px solid var(--border-color);
-      padding: 26px 0;
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-top: 60px;
-    }
-    .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; }
-    .footer-sub { font-size: 11px; color: #64748b; margin-top: 2px; }
-    .footer-links a { color: var(--text-muted); text-decoration: none; margin-left: 14px; }
-    .footer-links a:hover { color: var(--text-main); }
-
-    @media (max-width: 900px) {
-      .reference-intro-grid { grid-template-columns: 1fr; }
-      .dropdown-secondary { position: static; display: none; width: 100%; box-shadow: none; padding-left: 14px; }
-      .has-flyout:hover > .dropdown-secondary { display: block; }
-    }
-  </style>
 </head>
 <body>
 
@@ -430,7 +23,7 @@
         <a href="about.html" class="nav-link active-nav">About</a>
         <a href="career-roadmap.html" class="nav-link">Career Roadmap</a>
         
-        <!-- Two-Tier Flyout Dropdown -->
+        <!-- Two-Tier Cascading Dropdown -->
         <div class="nav-item-dropdown">
           <a href="services.html" class="nav-link dropdown-toggle">Strategic Services <span class="arrow">▾</span></a>
           <ul class="dropdown-primary">
@@ -472,7 +65,7 @@
                 <li><a href="services/mobile-app-development.html">Mobile Application Development</a></li>
               </ul>
             </li>
-            <li class="has-flyout">
+            <li class="has-flyout highlight-item">
               <span class="category-header">Airbnb Growth Strategy <span class="chevron">›</span></span>
               <ul class="dropdown-secondary">
                 <li><a href="services/airbnb-conversion-enhancement.html">Listing Conversion Rate Enhancement</a></li>
@@ -504,7 +97,7 @@
     </div>
   </section>
 
-  <!-- Screenshot-Matched Atmospheric Introduction -->
+  <!-- Screenshot-Matched Introduction Section -->
   <section id="about-intro" class="about-section">
     <div class="container">
       <div class="reference-intro-grid">
@@ -518,11 +111,12 @@
             <div class="austria-box-content">
               <h4>International Master’s Program (Austria, 2026–2028)</h4>
               <p class="austria-sub">DiCES Program • Montanuniversität Leoben (TU Leoben) & TU Wien</p>
-              <p class="austria-desc">I am attending the prestigious DiCES (Data Intensive Complex Engineered Systems) Joint Master's Program across TU Leoben and TU Wien (Vienna University of Technology) in Austria[cite: 6]. This international academic immersion provides advanced training in mathematical modeling, large-scale industrial data systems, and systems engineering[cite: 6]. It adds deep European scientific rigor to my commercial advisory work, giving my clients an unmatched analytical edge.</p>
+              <p class="austria-desc">I am attending the prestigious DiCES (Data Intensive Complex Engineered Systems) Joint Master's Program across TU Leoben and TU Wien (Vienna University of Technology) in Austria. This international academic immersion provides advanced training in mathematical modeling, large-scale industrial data systems, and systems engineering. It adds deep European scientific rigor to my commercial advisory work, giving my clients an unmatched analytical edge.</p>
             </div>
           </div>
         </div>
 
+        <!-- Sidebar Card with Glowing Avatar Ring and Dual Action Buttons -->
         <div class="intro-right-sidebar">
           <div class="profile-card-container">
             <div class="profile-avatar-circle">
@@ -558,9 +152,19 @@
 
             <div class="sidebar-divider"></div>
 
-            <a href="https://calendar.app.google/7iYHbqazTM81eosA7" target="_blank" rel="noopener" class="sidebar-consult-btn">
-              Free Consultation with Nakul Maini
-            </a>
+            <!-- Dual CTAs: LinkedIn & Consultation -->
+            <div class="sidebar-dual-actions">
+              <a href="https://linkedin.com/in/nakul-maini-97b228190" target="_blank" rel="noopener" class="sidebar-btn-linkedin">
+                <svg class="linkedin-svg-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.25c-.95 0-1.72.78-1.72 1.73s.77 1.73 1.72 1.73 1.73-.78 1.73-1.73-.78-1.73-1.73-1.73Z"/>
+                </svg>
+                <span>Connect with Nakul Maini on LinkedIn ↗</span>
+              </a>
+
+              <a href="https://calendar.app.google/7iYHbqazTM81eosA7" target="_blank" rel="noopener" class="sidebar-btn-consult">
+                Free Consultation with Nakul Maini
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -570,40 +174,40 @@
   <!-- Strict 4 Education Qualifications Only -->
   <section class="about-section">
     <div class="container">
-      <h2 class="edu-section-title">Academic Foundations & Credentials</h2>
-      <p class="edu-section-sub">Strict record of academic degree milestones and professional certifications.</p>
+      <h2 style="font-size: 28px; font-weight: 800; color: #ffffff; margin-bottom: 8px;">Academic Foundations & Credentials</h2>
+      <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 24px;">Strict record of academic degree milestones and professional certifications.</p>
 
       <div class="edu-strict-grid">
         <!-- 1. BCA -->
         <div class="edu-card">
           <span class="edu-badge-tag">Bachelor's Degree</span>
           <h3>Bachelor of Computer Applications (BCA)</h3>
-          <p class="edu-institution">Guru Gobind Singh Indraprastha University (VIPS), New Delhi[cite: 6]</p>
-          <p class="edu-score">Graduated 2019 – 2022 • Score: 9.4 / 10 CGPA[cite: 6]</p>
+          <p class="edu-institution">Guru Gobind Singh Indraprastha University (VIPS), New Delhi</p>
+          <p class="edu-score">Graduated 2019 – 2022 • Score: 9.4 / 10 CGPA</p>
         </div>
 
         <!-- 2. MCA -->
         <div class="edu-card">
           <span class="edu-badge-tag">Master's Degree</span>
           <h3>Master of Computer Applications (MCA)</h3>
-          <p class="edu-institution">Guru Gobind Singh Indraprastha University (VIPS), New Delhi[cite: 6]</p>
-          <p class="edu-score">Graduated 2022 – 2024 • Score: 8.67 / 10 CGPA[cite: 6]</p>
+          <p class="edu-institution">Guru Gobind Singh Indraprastha University (VIPS), New Delhi</p>
+          <p class="edu-score">Graduated 2022 – 2024 • Score: 8.67 / 10 CGPA</p>
         </div>
 
         <!-- 3. Certifications -->
         <div class="edu-card">
           <span class="edu-badge-tag">Executive Credentials</span>
           <h3>Professional Certifications</h3>
-          <p class="edu-institution">LinkedIn Learning & Global Frameworks[cite: 6]</p>
-          <p class="edu-score">148 Completed Certifications across Sales, Strategy & Digital Tools[cite: 6]</p>
+          <p class="edu-institution">LinkedIn Learning & Global Frameworks</p>
+          <p class="edu-score">148 Completed Certifications across Sales, Strategy & Digital Tools</p>
         </div>
 
         <!-- 4. DiCES Program -->
         <div class="edu-card">
           <span class="edu-badge-tag">International Joint MSc</span>
           <h3>DiCES Program (2026–2028)</h3>
-          <p class="edu-institution">Montanuniversität Leoben & TU Wien (Austria)[cite: 6]</p>
-          <p class="edu-score">Digital Civil Engineering Science (Joint MSc Degree)[cite: 6]</p>
+          <p class="edu-institution">Montanuniversität Leoben & TU Wien (Austria)</p>
+          <p class="edu-score">Digital Civil Engineering Science (Joint MSc Degree)</p>
         </div>
       </div>
     </div>
