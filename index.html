@@ -7,76 +7,253 @@
   <meta name="description" content="Senior Business Strategist and Growth Specialist Nakul Maini. DiCES Fellow at TU Leoben & TU Wien (Austria). Enterprise audits, customer acquisition systems, and commercial scaling.">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <link rel="canonical" href="https://nakulmaini.github.io/mainitech/">
-  <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #070d18;
+      --bg-card: #0b1220;
+      --primary-blue: #0284c7;
+      --primary-blue-hover: #0369a1;
+      --accent-cyan: #38bdf8;
+      --accent-amber: #fbbf24;
+      --accent-orange: #f97316;
+      --accent-green: #10b981;
+      --text-main: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+      --border-color: rgba(255, 255, 255, 0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    
+    .site-header {
+      position: sticky;
+      top: 0;
+      background: rgba(7, 13, 24, 0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 10000;
+    }
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+    }
+    .brand-logo { height: 44px; width: auto; display: block; }
+    .nav-menu { display: flex; align-items: center; gap: 14px; }
+    .nav-link {
+      color: var(--text-main);
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      padding: 8px 10px;
+      transition: color 0.2s;
+    }
+    .nav-link:hover, .nav-link.active-nav { color: var(--accent-cyan); }
+    
+    .btn {
+      display: inline-block;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+    .btn-primary { background: linear-gradient(135deg, #0284c7, #0369a1); color: #fff; }
+    .btn-outline { border: 1px solid var(--border-color); color: var(--text-main); background: transparent; }
+    .btn-small { padding: 8px 14px; font-size: 12.5px; }
+    .btn-large { padding: 14px 28px; font-size: 15px; }
+    .btn-outline:hover { background: rgba(255, 255, 255, 0.05); }
+
+    .hero-section {
+      padding: 70px 0 40px;
+      text-align: center;
+      background: radial-gradient(circle at 50% 15%, rgba(2, 132, 199, 0.16) 0%, transparent 65%);
+    }
+    .hero-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .hero-title { font-size: 38px; font-weight: 800; margin-bottom: 12px; }
+    .hero-subtitle { font-size: 15.5px; color: var(--text-muted); max-width: 760px; margin: 0 auto; }
+    .hero-actions { display: flex; justify-content: center; gap: 16px; margin: 24px 0; }
+    .trust-strip { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; font-size: 13px; color: var(--text-muted); font-weight: 600; }
+
+    .about-section { padding: 50px 0; border-top: 1px solid var(--border-color); }
+    .section-header h2 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+    .section-header p { color: var(--text-muted); font-size: 14px; margin-bottom: 30px; }
+    .text-center { text-align: center; }
+
+    .reference-intro-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .reference-main-title { font-size: 32px; font-weight: 800; margin-bottom: 18px; color: #fff; }
+    .reference-main-p { font-size: 15px; color: var(--text-body); margin-bottom: 16px; }
+
+    .reference-austria-box {
+      background: linear-gradient(135deg, rgba(12, 19, 34, 0.95), rgba(28, 22, 14, 0.9));
+      border: 1.5px solid rgba(251, 191, 36, 0.45);
+      border-radius: 16px;
+      padding: 24px;
+      margin-top: 24px;
+      display: flex;
+      gap: 18px;
+    }
+    .eu-badge { background: #1e293b; border: 1px solid rgba(251, 191, 36, 0.5); color: #fbbf24; border-radius: 8px; font-size: 14px; font-weight: 800; padding: 6px 12px; height: fit-content; }
+    .austria-box-content h4 { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .austria-sub { font-size: 13.5px; font-weight: 700; color: var(--accent-amber); margin-bottom: 8px; }
+    .austria-desc { font-size: 13.5px; color: var(--text-body); margin: 0; }
+
+    .profile-card-container {
+      background: #0b1220;
+      border: 1px solid #1e293b;
+      border-radius: 20px;
+      padding: 30px 24px;
+      text-align: center;
+    }
+    .profile-avatar-circle {
+      width: 160px;
+      height: 160px;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      border: 3px solid #38bdf8;
+      overflow: hidden;
+    }
+    .founder-photo-screenshot { width: 100%; height: 100%; object-fit: cover; }
+    .profile-name { font-size: 24px; font-weight: 800; color: #fff; margin-bottom: 4px; }
+    .profile-title-tag { font-size: 12px; font-weight: 800; color: #38bdf8; letter-spacing: 1.5px; margin-bottom: 20px; display: block; }
+    .sidebar-divider { height: 1px; background: #1e293b; margin: 16px 0; }
+    .profile-field-list { text-align: left; display: flex; flex-direction: column; gap: 14px; }
+    .profile-field .meta-heading { font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; }
+    .profile-field p { font-size: 13.5px; color: #f8fafc; font-weight: 600; margin: 2px 0 0; }
+    .profile-field p a { color: #38bdf8; text-decoration: underline; }
+
+    .sidebar-dual-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+    .sidebar-btn-linkedin {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 44px;
+      background: #2563eb;
+      color: #fff;
+      font-size: 13.5px;
+      font-weight: 700;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    .linkedin-svg-icon { width: 18px; height: 18px; fill: #fff; flex-shrink: 0; }
+    .sidebar-btn-consult {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 44px;
+      background: linear-gradient(135deg, #38bdf8, #3b82f6);
+      color: #fff;
+      font-size: 13.5px;
+      font-weight: 800;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    .lor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+    }
+    .lor-card {
+      background: var(--bg-card);
+      border: 1px solid #1e293b;
+      padding: 24px;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+    .lor-badge { font-size: 11px; color: var(--accent-cyan); font-weight: 800; text-transform: uppercase; margin-bottom: 8px; }
+    .lor-card h4 { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 4px; }
+    .lor-author { font-size: 13px; color: var(--text-muted); margin-bottom: 10px; }
+    .lor-quote { font-size: 13.5px; color: var(--text-body); line-height: 1.6; margin-bottom: 18px; flex-grow: 1; }
+
+    .multi-channel-contact-bar {
+      position: fixed !important;
+      bottom: 24px !important;
+      right: 24px !important;
+      background: #0b1220 !important;
+      border: 1.5px solid #1e293b !important;
+      border-radius: 50px !important;
+      padding: 6px 12px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8) !important;
+      z-index: 99999 !important;
+      height: 52px !important;
+    }
+    .contact-bar-label { font-size: 12px; font-weight: 800; color: var(--accent-cyan); text-transform: uppercase; white-space: nowrap; }
+    .contact-icons-row { display: inline-flex; gap: 8px; }
+    .contact-action-icon { width: 38px; height: 38px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; flex-shrink: 0; }
+    .icon-wa { background: #25D366; }
+    .icon-ig { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+    .icon-fb { background: #1877F2; }
+    .contact-action-icon svg { width: 20px; height: 20px; fill: #fff; display: block; }
+
+    .modal-backdrop { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); z-index: 20000; justify-content: center; align-items: center; }
+    .modal-dialog { background: var(--bg-card); border: 1px solid var(--border-color); width: 90%; max-width: 900px; height: 85vh; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden; }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; border-bottom: 1px solid var(--border-color); }
+    .modal-header h4 { font-size: 15px; color: var(--text-main); }
+    .modal-close { background: none; border: none; color: var(--text-muted); font-size: 24px; cursor: pointer; }
+    .modal-body { flex-grow: 1; padding: 16px; display: flex; justify-content: center; align-items: center; }
+    .modal-body iframe, .modal-body img { width: 100%; height: 100%; border: none; object-fit: contain; }
+
+    .site-footer { border-top: 1px solid var(--border-color); padding: 26px 0; font-size: 13px; color: var(--text-muted); margin-top: 60px; }
+    .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; }
+    .footer-links a { color: var(--text-muted); text-decoration: none; margin-left: 14px; }
+    .footer-links a:hover { color: var(--text-main); }
+
+    @media (max-width: 900px) {
+      .reference-intro-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Universal Navigation -->
+  <!-- Navigation -->
   <header class="site-header">
     <div class="nav-container">
-      <a href="index.html" class="brand">
-        <img src="logo.png" alt="MainiTech Strategic Solutions" class="brand-logo">
-      </a>
+      <a href="index.html" class="brand"><img src="logo.png" alt="MainiTech Strategic Solutions" class="brand-logo"></a>
       <nav class="nav-menu">
         <a href="about.html" class="nav-link">About</a>
         <a href="career-roadmap.html" class="nav-link">Career Roadmap</a>
-        <div class="nav-item-dropdown">
-          <a href="services.html" class="nav-link dropdown-toggle">Strategic Services <span class="chevron">▾</span></a>
-          <ul class="dropdown-primary">
-            <li class="has-flyout">
-              <span class="category-header">Business Strategy & Analysis <span class="chevron">›</span></span>
-              <ul class="dropdown-secondary">
-                <li><a href="services/business-growth-consultation.html">Business Growth Consultation</a></li>
-                <li><a href="services/web-business-profile-audits.html">Web & Business Profile Audits</a></li>
-                <li><a href="services/workflow-restructuring.html">Workflow & Operational Restructuring</a></li>
-                <li><a href="services/operational-cost-reduction.html">Operational Cost Reduction</a></li>
-                <li><a href="services/bookkeeping-account-management.html">Bookkeeping & Account Management</a></li>
-              </ul>
-            </li>
-            <li class="has-flyout">
-              <span class="category-header">Marketing & Acquisition <span class="chevron">›</span></span>
-              <ul class="dropdown-secondary">
-                <li><a href="services/digital-marketing.html">Digital & Performance Marketing</a></li>
-                <li><a href="services/search-engine-optimization.html">Search Engine Optimization (SEO/AEO)</a></li>
-                <li><a href="services/social-media-marketing.html">Social Media Marketing (SMM)</a></li>
-                <li><a href="services/social-media-management.html">Social Media Management & SMO</a></li>
-                <li><a href="services/email-marketing.html">Email Marketing & Management</a></li>
-                <li><a href="services/sms-marketing.html">SMS & Text Marketing</a></li>
-                <li><a href="services/content-marketing.html">Content Marketing Strategy</a></li>
-                <li><a href="services/b2b-lead-generation.html">Targeted B2B Lead Generation</a></li>
-              </ul>
-            </li>
-            <li class="has-flyout">
-              <span class="category-header">Local & Community Authority <span class="chevron">›</span></span>
-              <ul class="dropdown-secondary">
-                <li><a href="services/google-business-profile.html">Google Business Profile (GBP)</a></li>
-                <li><a href="services/yelp-mapquest-optimization.html">Yelp & MapQuest Optimization</a></li>
-                <li><a href="services/forum-authority-growth.html">Forum Growth (Reddit, Quora, Medium)</a></li>
-              </ul>
-            </li>
-            <li class="has-flyout">
-              <span class="category-header">Development Solutions <span class="chevron">›</span></span>
-              <ul class="dropdown-secondary">
-                <li><a href="services/conversion-web-development.html">High-Converting Web Development</a></li>
-                <li><a href="services/mobile-app-development.html">Mobile Application Development</a></li>
-              </ul>
-            </li>
-            <li class="has-flyout highlight-item">
-              <span class="category-header">Airbnb Growth Strategy <span class="chevron">›</span></span>
-              <ul class="dropdown-secondary">
-                <li><a href="services/airbnb-conversion-enhancement.html">Listing Conversion Rate Enhancement</a></li>
-                <li><a href="services/airbnb-marketing-strategy.html">Airbnb Marketing Strategy</a></li>
-                <li><a href="services/airbnb-management-strategy.html">Turnkey Airbnb Management</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
+        <a href="services.html" class="nav-link">Strategic Services</a>
         <a href="cost-advantage.html" class="nav-link">Cost Advantage</a>
         <a href="client-letters.html" class="nav-link">Client Letters</a>
-        <a href="how-to-hire.html" class="nav-link">How to Hire</a>
         <a href="global-hubs.html" class="nav-link">Global Hubs</a>
         <a href="payments.html" class="nav-link">Payments</a>
         <a href="faq.html" class="nav-link">FAQ</a>
@@ -87,9 +264,9 @@
     </div>
   </header>
 
-  <!-- Hero Header -->
+  <!-- Hero -->
   <section class="hero-section">
-    <div class="container hero-content">
+    <div class="container">
       <div class="hero-badge">Executive Strategy • Non-Compete Guaranteed</div>
       <h1 class="hero-title">Senior Business Strategy & Operational Optimization Without Full-Time Agency Overhead</h1>
       <p class="hero-subtitle">MainiTech provides high-level business audits, aggressive operational cost reduction, and scalable customer acquisition pipelines for global enterprises at an agile fractional rate starting from <strong>$12 / €10 per day</strong>.</p>
@@ -109,7 +286,7 @@
   <section id="about-intro" class="about-section">
     <div class="container">
       <div class="reference-intro-grid">
-        <div class="intro-left-content">
+        <div>
           <h2 class="reference-main-title">A Business Strategist Who Understands Technology From the Inside Out</h2>
           <p class="reference-main-p">I work as a dedicated <strong>Business Strategist</strong> helping companies build, optimize, and compound their digital ecosystems. Across more than 6 years of progressive professional experience and over 200 client engagements, I've observed that modern agencies often fail businesses because they sell isolated tactics—such as ranking for keywords that never convert, or driving expensive ad clicks to broken customer journeys.</p>
           <p class="reference-main-p">My approach is different. I connect high-level commercial vision with disciplined execution. Rather than acting as a simple task executor, I evaluate your entire business model, identify high-friction bottlenecks, formulate a custom roadmap, and orchestrate the right technical and creative talent to get the job done right.</p>
@@ -124,17 +301,14 @@
           </div>
         </div>
 
-        <!-- Sidebar Card -->
-        <div class="intro-right-sidebar">
+        <div>
           <div class="profile-card-container">
             <div class="profile-avatar-circle">
               <img src="nakul.png" alt="Nakul Maini" class="founder-photo-screenshot">
             </div>
             <h2 class="profile-name">Nakul Maini</h2>
             <span class="profile-title-tag">BUSINESS STRATEGIST</span>
-
             <div class="sidebar-divider"></div>
-
             <div class="profile-field-list">
               <div class="profile-field">
                 <span class="meta-heading">ACADEMIC PROFILE:</span>
@@ -157,16 +331,14 @@
                 <p><a href="mailto:nakulmaini8@gmail.com">nakulmaini8@gmail.com</a></p>
               </div>
             </div>
-
             <div class="sidebar-divider"></div>
-
             <div class="sidebar-dual-actions">
               <a href="https://linkedin.com/in/nakul-maini-97b228190" target="_blank" rel="noopener" class="sidebar-btn-linkedin">
-                <svg class="linkedin-svg-icon" viewBox="0 0 24 24" width="18" height="18"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.25c-.95 0-1.72.78-1.72 1.73s.77 1.73 1.72 1.73 1.73-.78 1.73-1.73-.78-1.73-1.73Z"/></svg>
-                <span>Connect with Nakul Maini on LinkedIn ↗</span>
+                <svg class="linkedin-svg-icon" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.25c-.95 0-1.72.78-1.72 1.73s.77 1.73 1.72 1.73 1.73-.78 1.73-1.73-.78-1.73-1.73Z"/></svg>
+                <span>Connect on LinkedIn ↗</span>
               </a>
               <a href="https://calendar.app.google/7iYHbqazTM81eosA7" target="_blank" rel="noopener" class="sidebar-btn-consult">
-                Free Consultation with Nakul Maini
+                Free Consultation
               </a>
             </div>
           </div>
@@ -175,43 +347,7 @@
     </div>
   </section>
 
-  <!-- Service Categories -->
-  <section id="services-overview" class="about-section">
-    <div class="container">
-      <div class="section-header text-center">
-        <h2>Core Strategic Disciplines</h2>
-        <p>Choose your operational focus: high-impact audits, full-funnel acquisition, or custom development.</p>
-      </div>
-      <div class="lor-grid">
-        <div class="lor-card">
-          <span class="lor-badge">Category 1</span>
-          <h4>Business Strategy & Analysis</h4>
-          <p class="lor-quote">Comprehensive business and web profile audits, workflow standardization, and aggressive operational cost reduction to protect cash flow.</p>
-          <a href="services/business-growth-consultation.html" class="btn btn-outline btn-small">Explore Strategy Services</a>
-        </div>
-        <div class="lor-card">
-          <span class="lor-badge">Category 2</span>
-          <h4>Marketing & Acquisition</h4>
-          <p class="lor-quote">Modern organic and paid pipelines across Google SEO, Answer Engine Optimization (AEO), B2B lead generation, and social media marketing.</p>
-          <a href="services/digital-marketing.html" class="btn btn-outline btn-small">Explore Marketing Services</a>
-        </div>
-        <div class="lor-card">
-          <span class="lor-badge">Category 3</span>
-          <h4>Local & Community Authority</h4>
-          <p class="lor-quote">Dominate Google Business Profile Map Packs, Yelp, MapQuest, and high-intent buyer discussions on Reddit, Quora, and Medium.</p>
-          <a href="services/google-business-profile.html" class="btn btn-outline btn-small">Explore Authority Services</a>
-        </div>
-        <div class="lor-card">
-          <span class="lor-badge">Category 4</span>
-          <h4>Custom Development</h4>
-          <p class="lor-quote">High-converting, lightning-fast static websites and custom cross-platform mobile apps engineered for operational automation.</p>
-          <a href="services/conversion-web-development.html" class="btn btn-outline btn-small">Explore Development</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Verified Proof: 6 Letters (2 Rows of 3) -->
+  <!-- 6 Letters Grid -->
   <section id="proof" class="about-section">
     <div class="container">
       <div class="section-header text-center">
@@ -273,18 +409,18 @@
     </div>
   </section>
 
-  <!-- Multi-Channel Floating Contact Widget -->
+  <!-- Floating Contact Widget -->
   <div class="multi-channel-contact-bar">
     <span class="contact-bar-label">Contact Us</span>
     <div class="contact-icons-row">
-      <a href="https://wa.me/919811301467" target="_blank" rel="noopener" class="contact-action-icon icon-wa" data-tooltip="Connect with Nakul Maini on WhatsApp" aria-label="WhatsApp">
-        <svg viewBox="0 0 32 32" width="20" height="20"><path d="M16 2a13.9 13.9 0 0 0-12 21L2 30l7.2-1.9A13.9 13.9 0 1 0 16 2zm0 25.4c-2.3 0-4.5-.6-6.4-1.8l-.5-.3-4.3 1.1 1.2-4.2-.3-.5A11.5 11.5 0 1 1 16 27.4zm6.3-8.6c-.3-.2-2-.9-2.3-1-.3-.2-.5-.3-.7.2-.2.4-.8 1-.9 1.2-.2.2-.4.2-.7 0-.3-.2-1.4-.5-2.6-1.6-.9-.8-1.6-1.9-1.8-2.2-.2-.3 0-.5.2-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6s-.7-1.7-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.2-1.2 2.9 1.2 3.4 1.4 3.6c.2.3 2.4 3.7 5.8 5.1.8.3 1.4.6 1.9.7.8.3 1.6.2 2.2.1.7-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.7-.1-.2-.3-.3-.6-.5z"/></svg>
+      <a href="https://wa.me/919811301467" target="_blank" rel="noopener" class="contact-action-icon icon-wa" aria-label="WhatsApp">
+        <svg viewBox="0 0 32 32"><path d="M16 2a13.9 13.9 0 0 0-12 21L2 30l7.2-1.9A13.9 13.9 0 1 0 16 2zm0 25.4c-2.3 0-4.5-.6-6.4-1.8l-.5-.3-4.3 1.1 1.2-4.2-.3-.5A11.5 11.5 0 1 1 16 27.4zm6.3-8.6c-.3-.2-2-.9-2.3-1-.3-.2-.5-.3-.7.2-.2.4-.8 1-.9 1.2-.2.2-.4.2-.7 0-.3-.2-1.4-.5-2.6-1.6-.9-.8-1.6-1.9-1.8-2.2-.2-.3 0-.5.2-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6s-.7-1.7-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.2-1.2 2.9 1.2 3.4 1.4 3.6c.2.3 2.4 3.7 5.8 5.1.8.3 1.4.6 1.9.7.8.3 1.6.2 2.2.1.7-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.7-.1-.2-.3-.3-.6-.5z"/></svg>
       </a>
-      <a href="https://www.instagram.com/nkul_maini/" target="_blank" rel="noopener" class="contact-action-icon icon-ig" data-tooltip="Connect with Nakul Maini on Instagram" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      <a href="https://www.instagram.com/nkul_maini/" target="_blank" rel="noopener" class="contact-action-icon icon-ig" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
       </a>
-      <a href="https://www.facebook.com/nakul.maini.7" target="_blank" rel="noopener" class="contact-action-icon icon-fb" data-tooltip="Connect with Nakul Maini on Facebook" aria-label="Facebook">
-        <svg viewBox="0 0 24 24" width="20" height="20"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      <a href="https://www.facebook.com/nakul.maini.7" target="_blank" rel="noopener" class="contact-action-icon icon-fb" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
       </a>
     </div>
   </div>
@@ -300,7 +436,6 @@
     </div>
   </div>
 
-  <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-content">
       <div class="footer-left"><p>&copy; 2026 MainiTech Strategic Solutions. All rights reserved.</p></div>
@@ -309,12 +444,26 @@
         <a href="career-roadmap.html">Roadmap</a>
         <a href="services.html">Services</a>
         <a href="cost-advantage.html">Advantage</a>
-        <a href="how-to-hire.html">How to Hire</a>
+        <a href="client-letters.html">Client Letters</a>
         <a href="payments.html">Payments</a>
       </div>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    function openPdfModal(fileUrl, title) {
+      const modal = document.getElementById('document-modal');
+      document.getElementById('modal-title').innerText = title;
+      document.getElementById('modal-body').innerHTML = `<iframe src="${fileUrl}" title="${title}"></iframe>`;
+      modal.style.display = 'flex';
+    }
+    function closeModalDirect() {
+      document.getElementById('document-modal').style.display = 'none';
+      document.getElementById('modal-body').innerHTML = '';
+    }
+    function closeModal(event) {
+      if (event.target.id === 'document-modal') closeModalDirect();
+    }
+  </script>
 </body>
 </html>
