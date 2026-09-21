@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Global Footprint & Synchronized Delivery Hubs | MainiTech Strategic Solutions</title>
-  <meta name="description" content="Worldwide strategic footprint: Leadership anchored in Austria, serving enterprise clients across North America, Europe, the Middle East, and Asia-Pacific.">
+  <title>Global Hubs & Geographic Locations | MainiTech Strategic Solutions</title>
+  <meta name="description" content="Worldwide strategic locations: Primary leadership anchored in Austria, serving enterprise clients across North America, Europe, Middle East, and Asia.">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <link rel="canonical" href="https://nakulmaini.github.io/mainitech/global-hubs.html">
-  <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -17,8 +16,6 @@
       --bg-card: #0b1220;
       --primary-blue: #0284c7;
       --accent-cyan: #38bdf8;
-      --accent-amber: #fbbf24;
-      --accent-orange: #f97316;
       --accent-green: #10b981;
       --text-main: #f8fafc;
       --text-body: #cbd5e1;
@@ -75,7 +72,6 @@
       transition: all 0.2s;
     }
     .btn-primary { background: linear-gradient(135deg, #0284c7, #0369a1); color: #fff; }
-    .btn-large { padding: 14px 28px; font-size: 15px; }
 
     .hero-section {
       padding: 70px 0 40px;
@@ -97,36 +93,71 @@
     .hero-subtitle { font-size: 15.5px; color: var(--text-muted); max-width: 760px; margin: 0 auto; }
 
     .about-section { padding: 50px 0; border-top: 1px solid var(--border-color); }
+    .section-header h2 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+    .section-header p { color: var(--text-muted); font-size: 14px; margin-bottom: 30px; }
     .text-center { text-align: center; }
 
-    .map-visual-container {
-      max-width: 1000px;
-      margin: 30px auto 20px;
-      background: radial-gradient(circle at 50% 50%, rgba(2, 132, 199, 0.15) 0%, rgba(11, 18, 32, 0.95) 75%);
-      border: 1.5px solid rgba(56, 189, 248, 0.25);
-      border-radius: 24px;
-      padding: 36px 24px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+    /* Clean Image Container */
+    .map-img-container {
+      max-width: 1040px;
+      margin: 0 auto 40px;
+      background: #0b1220;
+      border: 1px solid #1e293b;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.5);
       text-align: center;
     }
-    .world-map-svg-glowing {
+    .clean-map-image {
       width: 100%;
-      max-height: 480px;
-      display: block;
+      height: auto;
+      max-height: 420px;
+      object-fit: contain;
+      border-radius: 12px;
+      opacity: 0.9;
+    }
+
+    /* Tabular Locations */
+    .table-container {
+      max-width: 1040px;
       margin: 0 auto;
+      background: #0b1220;
+      border: 1px solid #1e293b;
+      border-radius: 18px;
+      overflow-x: auto;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
     }
-    .map-land {
-      fill: #132238;
-      stroke: #2563eb;
-      stroke-width: 1.2;
+    .locations-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
     }
-    .hub-radar {
-      animation: radarPing 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
-      transform-origin: center;
+    .locations-table th {
+      padding: 18px 22px;
+      font-size: 13.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 2px solid #1e293b;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.02);
     }
-    @keyframes radarPing {
-      0% { r: 5; opacity: 1; }
-      75%, 100% { r: 24; opacity: 0; }
+    .locations-table td {
+      padding: 18px 22px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-body);
+      font-size: 14px;
+      vertical-align: middle;
+    }
+    .locations-table tr:last-child td { border-bottom: none; }
+    .region-badge {
+      display: inline-block;
+      font-size: 11.5px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--accent-cyan);
     }
 
     .multi-channel-contact-bar {
@@ -183,59 +214,86 @@
   <!-- Hero Header -->
   <section class="hero-section">
     <div class="container">
-      <div class="hero-badge">Worldwide Execution Network</div>
-      <h1 class="hero-title">Global Presence & Synchronized Hubs</h1>
-      <p class="hero-subtitle">High-level strategic governance anchored in Austria, synchronized with delivery teams and domestic clearing rails across four continents.</p>
+      <div class="hero-badge">Worldwide Footprint</div>
+      <h1 class="hero-title">Global Hubs & Geographic Locations</h1>
+      <p class="hero-subtitle">High-level strategy led directly from Austria (CET), synchronized with regional delivery teams and domestic clearing rails across four continents.</p>
     </div>
   </section>
 
-  <!-- World Map Visual -->
-  <section class="about-section" style="padding-top: 10px;">
+  <!-- Clean Global Map Graphic -->
+  <section class="about-section" style="padding-top: 20px;">
     <div class="container">
-      <div class="map-visual-container">
-        <svg class="world-map-svg-glowing" viewBox="0 0 1000 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path class="map-land" d="M150,110 Q190,80 270,100 Q310,130 290,200 Q250,230 220,200 Q170,210 150,150 Z" />
-          <path class="map-land" d="M230,260 Q290,260 310,330 Q290,420 240,440 Q210,390 220,310 Z" />
-          <path class="map-land" d="M450,100 Q530,70 570,130 Q530,180 470,160 Q440,130 450,100 Z" />
-          <path class="map-land" d="M450,190 Q530,180 550,260 Q530,370 470,380 Q420,290 440,210 Z" />
-          <path class="map-land" d="M590,90 Q770,70 870,140 Q840,250 730,250 Q650,230 610,170 Z" />
-          <path class="map-land" d="M770,320 Q860,310 880,370 Q840,430 770,410 Q740,360 770,320 Z" />
-
-          <path d="M510,140 Q365,150 220,160" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.6" />
-          <path d="M510,140 Q560,170 610,205" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.6" />
-          <path d="M510,140 Q595,180 685,220" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.6" />
-          <path d="M685,220 Q740,230 795,245" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.6" />
-
-          <g>
-            <circle cx="510" cy="140" r="16" fill="#fbbf24" class="hub-radar" />
-            <circle cx="510" cy="140" r="6" fill="#fbbf24" stroke="#ffffff" stroke-width="2" />
-            <text x="522" y="136" fill="#fbbf24" font-size="12" font-weight="800">Austria (HQ)</text>
-          </g>
-          <g>
-            <circle cx="220" cy="160" r="14" fill="#38bdf8" class="hub-radar" />
-            <circle cx="220" cy="160" r="5" fill="#38bdf8" stroke="#ffffff" stroke-width="2" />
-            <text x="140" y="152" fill="#38bdf8" font-size="11" font-weight="700">North America</text>
-          </g>
-          <g>
-            <circle cx="610" cy="205" r="12" fill="#f97316" class="hub-radar" />
-            <circle cx="610" cy="205" r="5" fill="#f97316" stroke="#ffffff" stroke-width="2" />
-            <text x="585" y="228" fill="#f97316" font-size="11" font-weight="700">Dubai</text>
-          </g>
-          <g>
-            <circle cx="685" cy="220" r="14" fill="#10b981" class="hub-radar" />
-            <circle cx="685" cy="220" r="5" fill="#10b981" stroke="#ffffff" stroke-width="2" />
-            <text x="698" y="224" fill="#10b981" font-size="11" font-weight="700">India Ops</text>
-          </g>
-          <g>
-            <circle cx="795" cy="245" r="12" fill="#38bdf8" class="hub-radar" />
-            <circle cx="795" cy="245" r="5" fill="#38bdf8" stroke="#ffffff" stroke-width="2" />
-            <text x="808" y="250" fill="#cbd5e1" font-size="11" font-weight="700">Asia-Pacific</text>
-          </g>
+      <div class="map-img-container">
+        <svg class="clean-map-image" viewBox="0 0 1000 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="1000" height="480" fill="#0b1220" rx="12"/>
+          <!-- Continental Landmasses -->
+          <path d="M150,100 Q200,70 280,90 Q310,130 290,190 Q240,220 210,190 Q160,200 140,140 Z" fill="#16253b" stroke="#1e3a5f" stroke-width="1.5"/>
+          <path d="M230,240 Q290,240 310,310 Q290,400 240,420 Q200,370 210,290 Z" fill="#16253b" stroke="#1e3a5f" stroke-width="1.5"/>
+          <path d="M450,90 Q530,60 570,120 Q530,170 470,150 Q440,120 450,90 Z" fill="#16253b" stroke="#1e3a5f" stroke-width="1.5"/>
+          <path d="M450,180 Q530,170 550,250 Q530,350 470,360 Q420,270 440,190 Z" fill="#16253b" stroke="#1e3a5f" stroke-width="1.5"/>
+          <path d="M590,80 Q770,60 870,130 Q840,240 730,240 Q650,220 610,160 Z" fill="#16253b" stroke="#1e3a5f" stroke-width="1.5"/>
+          <path d="M770,300 Q860,290 880,350 Q840,410 770,390 Q740,340 770,300 Z" fill="#16253b" stroke="#1e3a5f" stroke-width="1.5"/>
+          <!-- Hub Dots -->
+          <circle cx="510" cy="130" r="7" fill="#fbbf24"/>
+          <circle cx="210" cy="150" r="6" fill="#38bdf8"/>
+          <circle cx="610" cy="195" r="6" fill="#f97316"/>
+          <circle cx="685" cy="210" r="6" fill="#10b981"/>
+          <circle cx="795" cy="235" r="6" fill="#38bdf8"/>
         </svg>
       </div>
 
-      <div class="text-center" style="margin-top: 40px;">
-        <a href="https://calendar.app.google/7iYHbqazTM81eosA7" target="_blank" rel="noopener" class="btn btn-primary btn-large">Schedule a Strategic Call ↗</a>
+      <!-- Tabular Global Locations -->
+      <div class="section-header text-center">
+        <h2>Operating Regions & Capabilities</h2>
+        <p>A structured breakdown of our active operational hubs, local time zones, and native currency settlement.</p>
+      </div>
+
+      <div class="table-container">
+        <table class="locations-table">
+          <thead>
+            <tr>
+              <th>Continent / Region</th>
+              <th>Primary Hubs</th>
+              <th>Time Zone</th>
+              <th>Operational Function</th>
+              <th>Supported Local Rail</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="region-badge">Europe</span></td>
+              <td><strong>Austria (HQ), Germany, UK</strong></td>
+              <td>CET / GMT</td>
+              <td>Strategic leadership, mathematical data systems, and client governance</td>
+              <td>SEPA & Faster Payments</td>
+            </tr>
+            <tr>
+              <td><span class="region-badge">North America</span></td>
+              <td><strong>United States & Canada</strong></td>
+              <td>EST / CST / PST</td>
+              <td>Primary client operations, market expansion, and business audits</td>
+              <td>Domestic ACH & Wire (Column Bank)</td>
+            </tr>
+            <tr>
+              <td><span class="region-badge">Middle East</span></td>
+              <td><strong>Dubai (UAE) & Saudi Arabia</strong></td>
+              <td>GST (UTC+4)</td>
+              <td>Regional B2B growth and enterprise partnerships</td>
+              <td>Direct Domestic Wire & Card</td>
+            </tr>
+            <tr>
+              <td><span class="region-badge">Asia-Pacific</span></td>
+              <td><strong>India, Philippines, New Zealand</strong></td>
+              <td>IST / PHT / NZD</td>
+              <td>Continuous technical engineering, SOP automation, and client delivery</td>
+              <td>Local Banking & NZD Clearing</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="text-center" style="margin-top: 36px;">
+        <a href="https://calendar.app.google/7iYHbqazTM81eosA7" target="_blank" rel="noopener" class="btn btn-primary">Schedule a Consultation Call ↗</a>
       </div>
     </div>
   </section>
