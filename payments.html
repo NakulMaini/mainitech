@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zero-Fee International Payment Rails | MainiTech Strategic Solutions</title>
-  <meta name="description" content="Settle strategy engagements and diagnostic audits in your native currency with zero international wire deductions via domestic bank rails or instant checkout.">
+  <title>Zero-Fee International Settlement Rails | MainiTech Strategic Solutions</title>
+  <meta name="description" content="Settle advisory sprints and strategic retainers natively in your domestic currency with zero international wire deductions via local clearing rails or instant checkout.">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <link rel="canonical" href="https://nakulmaini.github.io/mainitech/payments.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -72,6 +72,7 @@
       transition: all 0.2s;
     }
     .btn-primary { background: linear-gradient(135deg, #0284c7, #0369a1); color: #fff; }
+    .btn-large { padding: 14px 28px; font-size: 15px; }
 
     .hero-section {
       padding: 70px 0 40px;
@@ -97,93 +98,86 @@
     .section-header p { color: var(--text-muted); font-size: 14px; margin-bottom: 30px; }
     .text-center { text-align: center; }
 
-    /* Currency Rails */
-    .currency-selector-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 12px;
-      max-width: 960px;
-      margin: 0 auto 28px;
+    /* Security Notice */
+    .security-notice-box {
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 14px;
+      padding: 20px 24px;
+      max-width: 980px;
+      margin: 0 auto 36px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
     }
-    .currency-chip {
+    .security-icon { font-size: 24px; flex-shrink: 0; }
+    .security-notice-box p { font-size: 13.5px; color: var(--text-body); margin: 0; }
+
+    /* Rails Grid */
+    .rails-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      max-width: 1040px;
+      margin: 0 auto 40px;
+    }
+    .rail-card {
       background: var(--bg-card);
       border: 1px solid #1e293b;
-      border-radius: 12px;
-      padding: 14px 10px;
-      cursor: pointer;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      transition: all 0.2s ease;
-      text-align: center;
-      color: #fff;
-    }
-    .currency-chip:hover { background: #16243b; border-color: var(--primary-blue); transform: translateY(-2px); }
-    .currency-chip.active { background: rgba(2, 132, 199, 0.12); border-color: var(--primary-blue); box-shadow: 0 4px 16px rgba(2, 132, 199, 0.25); }
-    .chip-flag { font-size: 24px; }
-    .chip-name { font-size: 15px; font-weight: 800; color: #fff; }
-    .chip-rail { font-size: 11px; color: var(--text-muted); font-weight: 600; }
-    .chip-paypal.active { border-color: #ffc439; background: rgba(255, 196, 57, 0.1); }
-
-    .payment-card-viewport { max-width: 840px; margin: 0 auto; }
-    .pay-panel {
-      display: none;
-      background: var(--bg-card);
-      border: 1px solid #1e293b;
-      border-radius: 18px;
-      padding: 30px;
-      text-align: left;
-      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.5);
-    }
-    .pay-panel.active { display: block; }
-    .panel-header {
-      display: flex;
       justify-content: space-between;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 20px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--border-color);
+      transition: transform 0.2s ease, border-color 0.2s ease;
     }
-    .panel-header h3 { font-size: 18px; color: #fff; margin-bottom: 2px; }
-    .panel-header p { font-size: 13px; color: var(--text-muted); }
-    .zero-fee-badge {
-      background: rgba(16, 185, 129, 0.15);
-      color: #10b981;
-      border: 1px solid rgba(16, 185, 129, 0.3);
+    .rail-card:hover { transform: translateY(-3px); border-color: var(--accent-cyan); }
+    .rail-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .rail-flag-wrap { display: flex; align-items: center; gap: 10px; }
+    .rail-flag { font-size: 24px; }
+    .rail-name { font-size: 16px; font-weight: 800; color: #fff; }
+    .rail-tag {
       font-size: 11px;
       font-weight: 800;
-      padding: 4px 10px;
-      border-radius: 20px;
+      color: var(--accent-green);
+      background: rgba(16, 185, 129, 0.12);
+      padding: 3px 8px;
+      border-radius: 6px;
       text-transform: uppercase;
     }
-    .account-data-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-    .data-box {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      padding: 12px 16px;
+    .rail-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.5; margin-bottom: 14px; }
+    .rail-specs { list-style: none; padding: 0; margin: 0; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 12px; }
+    .rail-specs li { font-size: 12.5px; color: var(--text-body); display: flex; justify-content: space-between; padding: 4px 0; }
+    .spec-label { color: var(--text-muted); }
+    .spec-val { font-weight: 700; color: #fff; }
+
+    /* Instant Checkout Highlight */
+    .instant-checkout-card {
+      max-width: 1040px;
+      margin: 0 auto;
+      background: radial-gradient(circle at 50% 0%, rgba(255, 196, 57, 0.1) 0%, #0b1220 70%);
+      border: 1.5px solid rgba(255, 196, 57, 0.35);
+      border-radius: 20px;
+      padding: 36px 28px;
+      text-align: center;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.6);
     }
-    .data-box.full-span { grid-column: span 2; }
-    .box-label { font-size: 11px; text-transform: uppercase; color: var(--text-muted); font-weight: 700; display: block; margin-bottom: 4px; }
-    .box-val { display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: #fff; }
-    .highlight-val { font-weight: 800; color: var(--accent-cyan); font-size: 15px; }
-    .copy-action {
-      background: var(--border-color);
-      border: none;
-      color: var(--text-main);
-      padding: 4px 10px;
-      border-radius: 6px;
-      font-size: 11px;
-      font-weight: 700;
-      cursor: pointer;
+    .instant-checkout-card h3 { font-size: 24px; color: #fff; margin-bottom: 8px; }
+    .instant-checkout-card p { font-size: 14.5px; color: var(--text-body); max-width: 680px; margin: 0 auto 24px; }
+    .paypal-btn {
+      background: #ffc439;
+      color: #111;
+      font-weight: 800;
+      font-size: 15px;
+      padding: 15px 36px;
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-block;
       transition: all 0.2s;
     }
-    .copy-action:hover { background: var(--primary-blue); color: #fff; }
+    .paypal-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255, 196, 57, 0.35); }
 
-    /* Floating Multi-Channel Widget */
     .multi-channel-contact-bar {
       position: fixed !important;
       bottom: 24px !important;
@@ -211,12 +205,6 @@
     .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; }
     .footer-links a { color: var(--text-muted); text-decoration: none; margin-left: 14px; }
     .footer-links a:hover { color: var(--text-main); }
-
-    @media (max-width: 768px) {
-      .account-data-grid { grid-template-columns: 1fr; }
-      .data-box.full-span { grid-column: span 1; }
-      .nav-menu { display: none; }
-    }
   </style>
 </head>
 <body>
@@ -244,213 +232,140 @@
   <!-- Hero -->
   <section class="hero-section">
     <div class="container hero-content">
-      <div class="hero-badge">Multi-Currency Domestic Banking Rails</div>
-      <h1 class="hero-title">Zero-Fee International Payment Rails</h1>
-      <p class="hero-subtitle">Pay directly in your native currency via domestic clearing systems with zero international wire deductions, or check out instantly via credit card and PayPal.</p>
+      <div class="hero-badge">Zero International Deduction Rails</div>
+      <h1 class="hero-title">Accepted Currencies & Settlement Rails</h1>
+      <p class="hero-subtitle">Settle retainers and strategic sprint milestones directly through domestic banking clearing systems without international wire fees or foreign exchange markups.</p>
     </div>
   </section>
 
-  <!-- Settlement Viewport -->
-  <section class="about-section">
+  <!-- Enterprise Security Protocol Banner -->
+  <section class="about-section" style="padding-top: 10px;">
     <div class="container">
+      <div class="security-notice-box">
+        <div class="security-icon">🔒</div>
+        <p><strong>Enterprise Security & Invoicing Protocol:</strong> To safeguard client accounts from automated scraping and unauthorized direct debits, full domestic clearing numbers and routing instructions are issued exclusively on official contract agreements and PDF invoices upon project authorization.</p>
+      </div>
+
       <div class="section-header text-center">
-        <h2>Frictionless Global Settlement</h2>
-        <p>Select your native operational currency to view direct domestic routing details and instant settlement links.</p>
+        <h2>Supported Sovereign Currencies & Clearing Rails</h2>
+        <p>Clients can remit local transfers directly across the following domestic clearing systems:</p>
       </div>
 
-      <div class="currency-selector-grid">
-        <button class="currency-chip active" onclick="switchCurrency('usd', this)">
-          <span class="chip-flag">🇺🇸</span>
-          <span class="chip-name">USD</span>
-          <span class="chip-rail">Domestic ACH / Wire</span>
-        </button>
-        <button class="currency-chip" onclick="switchCurrency('eur', this)">
-          <span class="chip-flag">🇪🇺</span>
-          <span class="chip-name">EUR</span>
-          <span class="chip-rail">SEPA Transfer</span>
-        </button>
-        <button class="currency-chip" onclick="switchCurrency('gbp', this)">
-          <span class="chip-flag">🇬🇧</span>
-          <span class="chip-name">GBP</span>
-          <span class="chip-rail">Faster Payments</span>
-        </button>
-        <button class="currency-chip" onclick="switchCurrency('nzd', this)">
-          <span class="chip-flag">🇳🇿</span>
-          <span class="chip-name">NZD</span>
-          <span class="chip-rail">Domestic Wire</span>
-        </button>
-        <button class="currency-chip" onclick="switchCurrency('cad', this)">
-          <span class="chip-flag">🇨🇦</span>
-          <span class="chip-name">CAD</span>
-          <span class="chip-rail">EFT / Direct Transfer</span>
-        </button>
-        <button class="currency-chip chip-paypal" onclick="switchCurrency('paypal', this)">
-          <span class="chip-flag">💳</span>
-          <span class="chip-name">Card / PayPal</span>
-          <span class="chip-rail">Instant Settlement</span>
-        </button>
+      <div class="rails-grid">
+        <!-- USD -->
+        <div class="rail-card">
+          <div>
+            <div class="rail-header">
+              <div class="rail-flag-wrap">
+                <span class="rail-flag">🇺🇸</span>
+                <span class="rail-name">United States Dollar (USD)</span>
+              </div>
+              <span class="rail-tag">Zero Wire Fee</span>
+            </div>
+            <p class="rail-desc">Direct domestic clearing through Column Bank & Wise US Inc. for all corporate clients across the 50 US states.</p>
+          </div>
+          <ul class="rail-specs">
+            <li><span class="spec-label">Accepted Formats:</span> <span class="spec-val">ACH, Fedwire, Direct Deposit</span></li>
+            <li><span class="spec-label">Settlement Time:</span> <span class="spec-val">Instant – Same Day</span></li>
+          </ul>
+        </div>
+
+        <!-- EUR -->
+        <div class="rail-card">
+          <div>
+            <div class="rail-header">
+              <div class="rail-flag-wrap">
+                <span class="rail-flag">🇪🇺</span>
+                <span class="rail-name">Eurozone (EUR)</span>
+              </div>
+              <span class="rail-tag">SEPA Instant</span>
+            </div>
+            <p class="rail-desc">Direct European clearing via Wise Europe (Brussels) covering all 27 EU member states, Austria, and Switzerland.</p>
+          </div>
+          <ul class="rail-specs">
+            <li><span class="spec-label">Accepted Formats:</span> <span class="spec-val">SEPA Credit Transfer, SEPA Instant</span></li>
+            <li><span class="spec-label">Settlement Time:</span> <span class="spec-val">Instant (Seconds)</span></li>
+          </ul>
+        </div>
+
+        <!-- GBP -->
+        <div class="rail-card">
+          <div>
+            <div class="rail-header">
+              <div class="rail-flag-wrap">
+                <span class="rail-flag">🇬🇧</span>
+                <span class="rail-name">British Pound (GBP)</span>
+              </div>
+              <span class="rail-tag">FPS Supported</span>
+            </div>
+            <p class="rail-desc">Direct UK domestic settlement enabling instantaneous sterling transfers for United Kingdom enterprises.</p>
+          </div>
+          <ul class="rail-specs">
+            <li><span class="spec-label">Accepted Formats:</span> <span class="spec-val">Faster Payments System (FPS), BACS</span></li>
+            <li><span class="spec-label">Settlement Time:</span> <span class="spec-val">Instant</span></li>
+          </ul>
+        </div>
+
+        <!-- CAD -->
+        <div class="rail-card">
+          <div>
+            <div class="rail-header">
+              <div class="rail-flag-wrap">
+                <span class="rail-flag">🇨🇦</span>
+                <span class="rail-name">Canadian Dollar (CAD)</span>
+              </div>
+              <span class="rail-tag">EFT Direct</span>
+            </div>
+            <p class="rail-desc">Direct Canadian clearing via EFT direct deposit across all major Canadian financial institutions.</p>
+          </div>
+          <ul class="rail-specs">
+            <li><span class="spec-label">Accepted Formats:</span> <span class="spec-val">Electronic Funds Transfer (EFT)</span></li>
+            <li><span class="spec-label">Settlement Time:</span> <span class="spec-val">1 – 2 Business Days</span></li>
+          </ul>
+        </div>
+
+        <!-- NZD & AUD -->
+        <div class="rail-card">
+          <div>
+            <div class="rail-header">
+              <div class="rail-flag-wrap">
+                <span class="rail-flag">🇳🇿 🇦🇺</span>
+                <span class="rail-name">NZD & Australian Dollar</span>
+              </div>
+              <span class="rail-tag">Domestic Rail</span>
+            </div>
+            <p class="rail-desc">Direct local clearing via Wise Payments NZ and Australian domestic bank rails.</p>
+          </div>
+          <ul class="rail-specs">
+            <li><span class="spec-label">Accepted Formats:</span> <span class="spec-val">Direct Bank Transfer, PayID</span></li>
+            <li><span class="spec-label">Settlement Time:</span> <span class="spec-val">Same Day</span></li>
+          </ul>
+        </div>
+
+        <!-- Global Invoicing -->
+        <div class="rail-card">
+          <div>
+            <div class="rail-header">
+              <div class="rail-flag-wrap">
+                <span class="rail-flag">🌐</span>
+                <span class="rail-name">Corporate Invoicing</span>
+              </div>
+              <span class="rail-tag">Formal NDA</span>
+            </div>
+            <p class="rail-desc">Custom retainer billing configured with binding terms, clear project milestones, and designated tax receipts.</p>
+          </div>
+          <ul class="rail-specs">
+            <li><span class="spec-label">Delivery Format:</span> <span class="spec-val">Verified Digital PDF Invoice</span></li>
+            <li><span class="spec-label">Exclusivity:</span> <span class="spec-val">Non-Compete Verified</span></li>
+          </ul>
+        </div>
       </div>
 
-      <div class="payment-card-viewport">
-        <!-- USD Panel -->
-        <div id="pay-usd" class="pay-panel active">
-          <div class="panel-header">
-            <div>
-              <h3>United States Dollar (USD)</h3>
-              <p>Direct domestic transfer through Column Bank & Wise US Inc.</p>
-            </div>
-            <span class="zero-fee-badge">Zero International Wire Fees</span>
-          </div>
-          <div class="account-data-grid">
-            <div class="data-box">
-              <span class="box-label">Beneficiary Name</span>
-              <div class="box-val"><span>NAKUL MAINI</span><button class="copy-action" onclick="copyData('NAKUL MAINI', this)">Copy</button></div>
-            </div>
-            <div class="data-box">
-              <span class="box-label">Account Type</span>
-              <div class="box-val"><span>Deposit</span></div>
-            </div>
-            <div class="data-box">
-              <span class="box-label">Routing Number (ACH & Wire)</span>
-              <div class="box-val"><span class="highlight-val">084009519</span><button class="copy-action" onclick="copyData('084009519', this)">Copy</button></div>
-            </div>
-            <div class="data-box">
-              <span class="box-label">Account Number</span>
-              <div class="box-val"><span class="highlight-val">911440587732700</span><button class="copy-action" onclick="copyData('911440587732700', this)">Copy</button></div>
-            </div>
-            <div class="data-box full-span">
-              <span class="box-label">Swift / BIC</span>
-              <div class="box-val"><span>TRWIUS35XXX</span><button class="copy-action" onclick="copyData('TRWIUS35XXX', this)">Copy</button></div>
-            </div>
-            <div class="data-box full-span">
-              <span class="box-label">Bank Address</span>
-              <div class="box-val"><span>Wise US Inc., 30 W 26th St, 6th Floor, New York, NY, 10010, United States</span></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- EUR Panel -->
-        <div id="pay-eur" class="pay-panel">
-          <div class="panel-header">
-            <div>
-              <h3>Eurozone (EUR)</h3>
-              <p>Direct SEPA transfer through Wise Europe (Brussels).</p>
-            </div>
-            <span class="zero-fee-badge">SEPA Instant Supported</span>
-          </div>
-          <div class="account-data-grid">
-            <div class="data-box full-span">
-              <span class="box-label">Beneficiary Name</span>
-              <div class="box-val"><span>NAKUL MAINI</span><button class="copy-action" onclick="copyData('NAKUL MAINI', this)">Copy</button></div>
-            </div>
-            <div class="data-box full-span">
-              <span class="box-label">IBAN</span>
-              <div class="box-val"><span class="highlight-val">BE08 9059 6519 9113</span><button class="copy-action" onclick="copyData('BE08 9059 6519 9113', this)">Copy</button></div>
-            </div>
-            <div class="data-box full-span">
-              <span class="box-label">Swift / BIC</span>
-              <div class="box-val"><span>TRWIBEB1XXX</span><button class="copy-action" onclick="copyData('TRWIBEB1XXX', this)">Copy</button></div>
-            </div>
-            <div class="data-box full-span">
-              <span class="box-label">Bank Address</span>
-              <div class="box-val"><span>Wise Europe, Rue du Trône 100, 3rd floor, Brussels 1050, Belgium</span></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- GBP Panel -->
-        <div id="pay-gbp" class="pay-panel">
-          <div class="panel-header">
-            <div>
-              <h3>British Pound (GBP)</h3>
-              <p>Direct UK domestic transfer through Faster Payments & BACS.</p>
-            </div>
-            <span class="zero-fee-badge">Instant UK Transfer</span>
-          </div>
-          <div class="account-data-grid">
-            <div class="data-box">
-              <span class="box-label">Beneficiary Name</span>
-              <div class="box-val"><span>NAKUL MAINI</span><button class="copy-action" onclick="copyData('NAKUL MAINI', this)">Copy</button></div>
-            </div>
-            <div class="data-box">
-              <span class="box-label">Sort Code</span>
-              <div class="box-val"><span class="highlight-val">60-84-64</span><button class="copy-action" onclick="copyData('60-84-64', this)">Copy</button></div>
-            </div>
-            <div class="data-box">
-              <span class="box-label">Account Number</span>
-              <div class="box-val"><span class="highlight-val">97301589</span><button class="copy-action" onclick="copyData('97301589', this)">Copy</button></div>
-            </div>
-            <div class="data-box full-span">
-              <span class="box-label">Swift / BIC</span>
-              <div class="box-val"><span>TRWIGB2LXXX</span><button class="copy-action" onclick="copyData('TRWIGB2LXXX', this)">Copy</button></div>
-            </div>
-            <div class="data-box full-span">
-              <span class="box-label">IBAN</span>
-              <div class="box-val"><span>GB08 TRWI 6084 6497 3015 89</span><button class="copy-action" onclick="copyData('GB08 TRWI 6084 6497 3015 89', this)">Copy</button></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- NZD Panel -->
-        <div id="pay-nzd" class="pay-panel">
-          <div class="panel-header">
-            <div>
-              <h3>New Zealand Dollar (NZD)</h3>
-              <p>Domestic New Zealand wire transfer via Wise Payments NZ.</p>
-            </div>
-            <span class="zero-fee-badge">Local NZ Banking</span>
-          </div>
-          <div class="account-data-grid">
-            <div class="data-box full-span">
-              <span class="box-label">Beneficiary Name</span>
-              <div class="box-val"><span>NAKUL MAINI</span><button class="copy-action" onclick="copyData('NAKUL MAINI', this)">Copy</button></div>
-            </div>
-            <div class="data-box full-span">
-              <span class="box-label">Account Number</span>
-              <div class="box-val"><span class="highlight-val">04-2021-0427096-18</span><button class="copy-action" onclick="copyData('04-2021-0427096-18', this)">Copy</button></div>
-            </div>
-            <div class="data-box full-span">
-              <span class="box-label">Bank Address</span>
-              <div class="box-val"><span>Wise Payments NZ, Auckland, New Zealand</span></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- CAD Panel -->
-        <div id="pay-cad" class="pay-panel">
-          <div class="panel-header">
-            <div>
-              <h3>Canadian Dollar (CAD)</h3>
-              <p>Domestic Canadian direct transfer (EFT) via Wise Payments Canada.</p>
-            </div>
-            <span class="zero-fee-badge">Direct Canadian EFT</span>
-          </div>
-          <div class="account-data-grid">
-            <div class="data-box">
-              <span class="box-label">Beneficiary Name</span>
-              <div class="box-val"><span>NAKUL MAINI</span><button class="copy-action" onclick="copyData('NAKUL MAINI', this)">Copy</button></div>
-            </div>
-            <div class="data-box">
-              <span class="box-label">Account Number</span>
-              <div class="box-val"><span class="highlight-val">171375180</span><button class="copy-action" onclick="copyData('171375180', this)">Copy</button></div>
-            </div>
-            <div class="data-box">
-              <span class="box-label">Institution Number</span>
-              <div class="box-val"><span>705</span></div>
-            </div>
-            <div class="data-box">
-              <span class="box-label">Branch Number</span>
-              <div class="box-val"><span>00001</span></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- PayPal Panel -->
-        <div id="pay-paypal" class="pay-panel text-center">
-          <h3 style="font-size: 22px; color: #fff; margin-bottom: 8px;">Credit Card, Debit Card & PayPal</h3>
-          <p style="color: var(--text-muted); font-size: 14.5px; margin-bottom: 24px;">Instant checkout for strategic retainers, diagnostic audits, and custom sprint milestones.</p>
-          <a href="https://paypal.me/mainitech" target="_blank" rel="noopener" class="btn" style="background: #ffc439; color: #111; font-weight: 800; padding: 15px 36px; border-radius: 50px; display: inline-block;">Pay via PayPal.Me/mainitech ↗</a>
-        </div>
+      <!-- Instant Checkout Option -->
+      <div class="instant-checkout-card">
+        <h3>Credit Card, Debit Card & Instant Checkout</h3>
+        <p>For immediate milestone authorizations, audit retainer deposits, or fractional strategic sprints, clients can check out securely online via verified commercial card processing.</p>
+        <a href="https://paypal.me/mainitech" target="_blank" rel="noopener" class="paypal-btn">Pay via Verified Gateway (PayPal.Me/mainitech) ↗</a>
       </div>
     </div>
   </section>
@@ -484,28 +399,5 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    function switchCurrency(currencyKey, buttonElement) {
-      document.querySelectorAll('.currency-chip').forEach(c => c.classList.remove('active'));
-      if (buttonElement) buttonElement.classList.add('active');
-      document.querySelectorAll('.pay-panel').forEach(p => p.classList.remove('active'));
-      const target = document.getElementById('pay-' + currencyKey);
-      if (target) target.classList.add('active');
-    }
-    function copyData(textToCopy, btn) {
-      navigator.clipboard.writeText(textToCopy).then(() => {
-        const orig = btn.innerText;
-        btn.innerText = 'Copied!';
-        btn.style.background = '#10b981';
-        btn.style.color = '#fff';
-        setTimeout(() => {
-          btn.innerText = orig;
-          btn.style.background = '';
-          btn.style.color = '';
-        }, 2000);
-      });
-    }
-  </script>
 </body>
 </html>
