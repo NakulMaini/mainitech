@@ -3,104 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Global Hubs & Geographic Locations | MainiTech Strategic Solutions</title>
-  <meta name="description" content="Worldwide strategic locations: Primary leadership anchored in Austria, serving enterprise clients across North America, Europe, Middle East, and Asia.">
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <title>Global Delivery Hubs & International Operations | MainiTech</title>
+  <meta name="description" content="Worldwide delivery network: Governance led from Austria, with operations optimized across India, Philippines, Dubai, Germany, China, and Hong Kong.">
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://nakulmaini.github.io/mainitech/global-hubs.html">
+  <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg-dark: #070d18;
-      --bg-card: #0b1220;
-      --primary-blue: #0284c7;
-      --accent-cyan: #38bdf8;
-      --accent-green: #10b981;
-      --text-main: #f8fafc;
-      --text-body: #cbd5e1;
-      --text-muted: #94a3b8;
-      --border-color: rgba(255, 255, 255, 0.08);
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-    
-    .site-header {
-      position: sticky;
-      top: 0;
-      background: rgba(7, 13, 24, 0.98);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-color);
-      z-index: 10000;
-    }
-    .nav-container {
-      max-width: 1280px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 24px;
-    }
-    .brand-logo { height: 44px; width: auto; display: block; }
-    .nav-menu { display: flex; align-items: center; gap: 14px; }
-    .nav-link {
-      color: var(--text-main);
-      font-weight: 600;
-      font-size: 14px;
-      text-decoration: none;
-      padding: 8px 10px;
-      transition: color 0.2s;
-    }
-    .nav-link:hover, .nav-link.active-nav { color: var(--accent-cyan); }
-    
-    .btn {
-      display: inline-block;
-      font-weight: 700;
-      font-size: 14px;
-      padding: 10px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      cursor: pointer;
-      border: none;
-      transition: all 0.2s;
-    }
-    .btn-primary { background: linear-gradient(135deg, #0284c7, #0369a1); color: #fff; }
-
-    .hero-section {
-      padding: 70px 0 40px;
-      text-align: center;
-      background: radial-gradient(circle at 50% 15%, rgba(2, 132, 199, 0.16) 0%, transparent 65%);
-    }
-    .hero-badge {
-      display: inline-block;
-      padding: 6px 14px;
-      background: rgba(56, 189, 248, 0.12);
-      color: var(--accent-cyan);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      border-radius: 30px;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-    .hero-title { font-size: 38px; font-weight: 800; margin-bottom: 12px; }
-    .hero-subtitle { font-size: 15.5px; color: var(--text-muted); max-width: 760px; margin: 0 auto; }
-
-    .about-section { padding: 50px 0; border-top: 1px solid var(--border-color); }
-    .section-header h2 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
-    .section-header p { color: var(--text-muted); font-size: 14px; margin-bottom: 30px; }
-    .text-center { text-align: center; }
-
-    /* Clean Image Container */
-    .map-img-container {
+    .clean-map-wrap {
       max-width: 1040px;
-      margin: 0 auto 40px;
+      margin: 0 auto 36px;
       background: #0b1220;
       border: 1px solid #1e293b;
       border-radius: 20px;
@@ -108,7 +22,7 @@
       box-shadow: 0 16px 40px rgba(0,0,0,0.5);
       text-align: center;
     }
-    .clean-map-image {
+    .clean-map-img {
       width: 100%;
       height: auto;
       max-height: 420px;
@@ -116,8 +30,6 @@
       border-radius: 12px;
       opacity: 0.9;
     }
-
-    /* Tabular Locations */
     .table-container {
       max-width: 1040px;
       margin: 0 auto;
@@ -150,7 +62,7 @@
       vertical-align: middle;
     }
     .locations-table tr:last-child td { border-bottom: none; }
-    .region-badge {
+    .hub-badge {
       display: inline-block;
       font-size: 11.5px;
       font-weight: 800;
@@ -159,34 +71,6 @@
       background: rgba(56, 189, 248, 0.12);
       color: var(--accent-cyan);
     }
-
-    .multi-channel-contact-bar {
-      position: fixed !important;
-      bottom: 24px !important;
-      right: 24px !important;
-      background: #0b1220 !important;
-      border: 1.5px solid #1e293b !important;
-      border-radius: 50px !important;
-      padding: 6px 12px !important;
-      display: inline-flex !important;
-      align-items: center !important;
-      gap: 10px !important;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8) !important;
-      z-index: 99999 !important;
-      height: 52px !important;
-    }
-    .contact-bar-label { font-size: 12px; font-weight: 800; color: var(--accent-cyan); text-transform: uppercase; white-space: nowrap; }
-    .contact-icons-row { display: inline-flex; gap: 8px; }
-    .contact-action-icon { width: 38px; height: 38px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; flex-shrink: 0; }
-    .icon-wa { background: #25D366; }
-    .icon-ig { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
-    .icon-fb { background: #1877F2; }
-    .contact-action-icon svg { width: 20px; height: 20px; fill: #fff; display: block; }
-
-    .site-footer { border-top: 1px solid var(--border-color); padding: 26px 0; font-size: 13px; color: var(--text-muted); margin-top: 60px; }
-    .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; }
-    .footer-links a { color: var(--text-muted); text-decoration: none; margin-left: 14px; }
-    .footer-links a:hover { color: var(--text-main); }
   </style>
 </head>
 <body>
@@ -194,13 +78,13 @@
   <!-- Navigation -->
   <header class="site-header">
     <div class="nav-container">
-      <a href="index.html" class="brand"><img src="logo.png" alt="MainiTech Strategic Solutions" class="brand-logo"></a>
+      <a href="index.html" class="brand"><img src="logo.png" alt="MainiTech" class="brand-logo"></a>
       <nav class="nav-menu">
-        <a href="about.html" class="nav-link">About</a>
+        <a href="index.html" class="nav-link">About</a>
         <a href="career-roadmap.html" class="nav-link">Career Roadmap</a>
-        <a href="services.html" class="nav-link">Strategic Services</a>
+        <a href="services.html" class="nav-link">Services</a>
         <a href="cost-advantage.html" class="nav-link">Cost Advantage</a>
-        <a href="client-letters.html" class="nav-link">Client Letters</a>
+        <a href="client-letters.html" class="nav-link">Testimonials</a>
         <a href="global-hubs.html" class="nav-link active-nav">Global Hubs</a>
         <a href="payments.html" class="nav-link">Payments</a>
         <a href="faq.html" class="nav-link">FAQ</a>
@@ -213,27 +97,25 @@
 
   <!-- Hero Header -->
   <section class="hero-section">
-    <div class="container">
-      <div class="hero-badge">Worldwide Footprint</div>
-      <h1 class="hero-title">Global Hubs & Geographic Locations</h1>
-      <p class="hero-subtitle">High-level strategy led directly from Austria (CET), synchronized with regional delivery teams and domestic clearing rails across four continents.</p>
+    <div class="container hero-content">
+      <div class="hero-badge">Distributed International Network</div>
+      <h1 class="hero-title">Global Delivery Hubs & International Operations</h1>
+      <p class="hero-subtitle">High-level strategic governance directed from Austria, synchronized with delivery teams in India, the Philippines, Dubai, Germany, China, and Hong Kong to provide around-the-clock commercial execution at minimal operational cost.</p>
     </div>
   </section>
 
-  <!-- Clean Global Map Graphic -->
-  <section class="about-section" style="padding-top: 20px;">
+  <!-- Clean World Map Graphic -->
+  <section class="about-section" style="padding-top: 10px;">
     <div class="container">
-      <div class="map-img-container">
-        <svg class="clean-map-image" viewBox="0 0 1000 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div class="clean-map-wrap">
+        <svg class="clean-map-img" viewBox="0 0 1000 480" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="1000" height="480" fill="#0b1220" rx="12"/>
-          <!-- Continental Landmasses -->
           <path d="M150,100 Q200,70 280,90 Q310,130 290,190 Q240,220 210,190 Q160,200 140,140 Z" fill="#16253b" stroke="#1e3a5f" stroke-width="1.5"/>
           <path d="M230,240 Q290,240 310,310 Q290,400 240,420 Q200,370 210,290 Z" fill="#16253b" stroke="#1e3a5f" stroke-width="1.5"/>
           <path d="M450,90 Q530,60 570,120 Q530,170 470,150 Q440,120 450,90 Z" fill="#16253b" stroke="#1e3a5f" stroke-width="1.5"/>
           <path d="M450,180 Q530,170 550,250 Q530,350 470,360 Q420,270 440,190 Z" fill="#16253b" stroke="#1e3a5f" stroke-width="1.5"/>
           <path d="M590,80 Q770,60 870,130 Q840,240 730,240 Q650,220 610,160 Z" fill="#16253b" stroke="#1e3a5f" stroke-width="1.5"/>
           <path d="M770,300 Q860,290 880,350 Q840,410 770,390 Q740,340 770,300 Z" fill="#16253b" stroke="#1e3a5f" stroke-width="1.5"/>
-          <!-- Hub Dots -->
           <circle cx="510" cy="130" r="7" fill="#fbbf24"/>
           <circle cx="210" cy="150" r="6" fill="#38bdf8"/>
           <circle cx="610" cy="195" r="6" fill="#f97316"/>
@@ -244,61 +126,131 @@
 
       <!-- Tabular Global Locations -->
       <div class="section-header text-center">
-        <h2>Operating Regions & Capabilities</h2>
-        <p>A structured breakdown of our active operational hubs, local time zones, and native currency settlement.</p>
+        <h2>Synchronized Global Delivery Matrix</h2>
+        <p>Operational presence structured across multiple sovereign markets to minimize overhead while ensuring continuous progress.</p>
       </div>
 
       <div class="table-container">
         <table class="locations-table">
           <thead>
             <tr>
-              <th>Continent / Region</th>
-              <th>Primary Hubs</th>
+              <th>Operating Hub</th>
+              <th>Geographic Location</th>
               <th>Time Zone</th>
-              <th>Operational Function</th>
-              <th>Supported Local Rail</th>
+              <th>Operational Specialization</th>
+              <th>Client Cost Advantage</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><span class="region-badge">Europe</span></td>
-              <td><strong>Austria (HQ), Germany, UK</strong></td>
-              <td>CET / GMT</td>
-              <td>Strategic leadership, mathematical data systems, and client governance</td>
-              <td>SEPA & Faster Payments</td>
+              <td><span class="hub-badge">Austria (HQ)</span></td>
+              <td><strong>Vienna & Leoben</strong></td>
+              <td>CET / UTC+1</td>
+              <td>Lead advisory, mathematical data modeling, and commercial governance</td>
+              <td>European scientific rigor applied to business unit economics</td>
             </tr>
             <tr>
-              <td><span class="region-badge">North America</span></td>
-              <td><strong>United States & Canada</strong></td>
-              <td>EST / CST / PST</td>
-              <td>Primary client operations, market expansion, and business audits</td>
-              <td>Domestic ACH & Wire (Column Bank)</td>
+              <td><span class="hub-badge">Germany</span></td>
+              <td><strong>Munich & Frankfurt</strong></td>
+              <td>CET / UTC+1</td>
+              <td>Industrial systems restructuring, enterprise client expansion, and NDA governance</td>
+              <td>Sovereign European compliance and high-value B2B alignment</td>
             </tr>
             <tr>
-              <td><span class="region-badge">Middle East</span></td>
-              <td><strong>Dubai (UAE) & Saudi Arabia</strong></td>
+              <td><span class="hub-badge">Middle East</span></td>
+              <td><strong>Dubai (UAE) & GCC</strong></td>
               <td>GST (UTC+4)</td>
-              <td>Regional B2B growth and enterprise partnerships</td>
-              <td>Direct Domestic Wire & Card</td>
+              <td>Commercial expansion, real estate strategies, and cross-border partnerships</td>
+              <td>Zero-friction Gulf expansion connecting East and West markets</td>
             </tr>
             <tr>
-              <td><span class="region-badge">Asia-Pacific</span></td>
-              <td><strong>India, Philippines, New Zealand</strong></td>
-              <td>IST / PHT / NZD</td>
-              <td>Continuous technical engineering, SOP automation, and client delivery</td>
-              <td>Local Banking & NZD Clearing</td>
+              <td><span class="hub-badge">India</span></td>
+              <td><strong>Delhi NCR & Tech Corridors</strong></td>
+              <td>IST (UTC+5:30)</td>
+              <td>Software engineering, SEO/AEO architectures, bookkeeping, and SOP automation</td>
+              <td>Direct 60–75% reduction in technical delivery overhead</td>
+            </tr>
+            <tr>
+              <td><span class="hub-badge">Philippines</span></td>
+              <td><strong>Manila Hub</strong></td>
+              <td>PHT (UTC+8)</td>
+              <td>Around-the-clock operations support, lead generation, and customer journey tracking</td>
+              <td>Continuous 24-hour progress without US/EU overtime billing</td>
+            </tr>
+            <tr>
+              <td><span class="hub-badge">East Asia</span></td>
+              <td><strong>Hong Kong & China</strong></td>
+              <td>HKT (UTC+8)</td>
+              <td>Supply chain digital integration, international vendor management, and commerce workflows</td>
+              <td>Direct vendor oversight and streamlined international supply chains</td>
             </tr>
           </tbody>
         </table>
       </div>
+    </div>
+  </section>
 
-      <div class="text-center" style="margin-top: 36px;">
-        <a href="https://calendar.app.google/7iYHbqazTM81eosA7" target="_blank" rel="noopener" class="btn btn-primary">Schedule a Consultation Call ↗</a>
+  <!-- 8 Dedicated Global Delivery FAQs -->
+  <section class="about-section">
+    <div class="container faq-container">
+      <div class="section-header text-center">
+        <h2>Global Hubs & Operations FAQs</h2>
+        <p>Direct details on how our synchronized global model operates across multiple sovereign borders.</p>
+      </div>
+      <div class="faq-accordion">
+        <div class="faq-item active">
+          <button class="faq-question">1. How does having hubs in multiple countries save my business money? <span class="faq-icon">−</span></button>
+          <div class="faq-answer">
+            <p>We leverage global labor and operational arbitrage. High-level strategy and systems modeling are led directly from Austria. However, routine technical execution, SEO citation updates, bookkeeping, and web development are handled across our vetted delivery centers in India and the Philippines—delivering elite quality at a fraction of Western corporate rates.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">2. Will I have to manage teams across different time zones? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>No. You interact directly with Nakul Maini as your dedicated strategist. We handle 100% of the internal workflow orchestration, quality control, and cross-border task management.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">3. How does MainiTech ensure 24-hour continuous progress? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>Because our operations span CET (Austria/Germany), GST (Dubai), IST (India), and PHT/HKT (Philippines/Hong Kong), work initiated during your business day continues uninterrupted across our overnight hubs, dramatically reducing delivery turnaround times.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">4. How is data security and proprietary IP protected across borders? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>All client data is governed by our binding Austrian-standard Non-Disclosure Agreement (NDA). Technical access is strictly isolated using enterprise access management, ensuring no proprietary data is ever exposed or compromised.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">5. Can you assist companies looking to expand into Dubai or European markets? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>Yes. Having physical presence and active networks across Austria, Germany, and Dubai allows us to structure local go-to-market strategies, B2B partner pipelines, and multi-currency payment rails tailored for regional buyers.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">6. What happens if an operational hub faces a localized delay or holiday? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>Our distributed structure prevents operational bottlenecks. Tasks are synchronized through centralized documentation, enabling alternate hubs to immediately maintain velocity without service interruptions.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">7. How are currency conversions and international fees managed? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>You pay locally in your native currency (USD, EUR, GBP, CAD, etc.) into our domestic clearing accounts, completely eliminating cross-border conversion charges and international wire fees.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">8. How can I schedule an introductory strategic alignment call? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>Use the "Book a Free Consultation" button above to reserve a direct 30-minute discovery call on Google Calendar. We will align with your local time zone (EST, CST, PST, CET, or GMT).</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Floating Contact Widget -->
+  <!-- Multi-Channel Floating Contact Widget -->
   <div class="multi-channel-contact-bar">
     <span class="contact-bar-label">Contact Us</span>
     <div class="contact-icons-row">
@@ -318,14 +270,32 @@
     <div class="container footer-content">
       <div class="footer-left"><p>&copy; 2026 MainiTech Strategic Solutions. All rights reserved.</p></div>
       <div class="footer-links">
-        <a href="about.html">About</a>
+        <a href="index.html">About</a>
         <a href="career-roadmap.html">Roadmap</a>
         <a href="services.html">Services</a>
-        <a href="cost-advantage.html">Advantage</a>
-        <a href="client-letters.html">Client Letters</a>
+        <a href="cost-advantage.html">Cost Advantage</a>
+        <a href="client-letters.html">Testimonials</a>
         <a href="payments.html">Payments</a>
       </div>
     </div>
   </footer>
+
+  <script>
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.onclick = function() {
+        const item = this.parentElement;
+        const isOpen = item.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('active');
+          const icon = i.querySelector('.faq-icon');
+          if (icon) icon.innerText = '+';
+        });
+        if (!isOpen) {
+          item.classList.add('active');
+          this.querySelector('.faq-icon').innerText = '−';
+        }
+      };
+    });
+  </script>
 </body>
 </html>
