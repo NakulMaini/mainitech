@@ -11,6 +11,34 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    .google-profile-action-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 16px auto 30px;
+    }
+    .google-badge-inline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #0b1220;
+      border: 1px solid #1e293b;
+      padding: 8px 18px;
+      border-radius: 30px;
+    }
+    .google-badge-inline svg {
+      width: 18px;
+      height: 18px;
+    }
+    .google-stars {
+      color: #f59e0b;
+      font-size: 17px;
+      letter-spacing: 2px;
+    }
+  </style>
 </head>
 <body>
 
@@ -21,7 +49,57 @@
       <nav class="nav-menu">
         <a href="index.html" class="nav-link">About</a>
         <a href="career-roadmap.html" class="nav-link">Career Roadmap</a>
-        <a href="services.html" class="nav-link">Services</a>
+        <div class="nav-item-dropdown">
+          <a href="services.html" class="nav-link dropdown-toggle">Services <span class="chevron">▾</span></a>
+          <ul class="dropdown-primary">
+            <li class="has-flyout">
+              <span class="category-header">Business Strategy & Analysis <span class="chevron">›</span></span>
+              <ul class="dropdown-secondary">
+                <li><a href="services/business-growth-consultation.html">Business Growth Consultation</a></li>
+                <li><a href="services/web-business-profile-audits.html">Web & Business Profile Audits</a></li>
+                <li><a href="services/workflow-restructuring.html">Workflow & Operational Restructuring</a></li>
+                <li><a href="services/operational-cost-reduction.html">Operational Cost Reduction</a></li>
+                <li><a href="services/bookkeeping-account-management.html">Bookkeeping & Account Management</a></li>
+              </ul>
+            </li>
+            <li class="has-flyout">
+              <span class="category-header">Marketing & Acquisition <span class="chevron">›</span></span>
+              <ul class="dropdown-secondary">
+                <li><a href="services/digital-marketing.html">Digital & Performance Marketing</a></li>
+                <li><a href="services/search-engine-optimization.html">Search Engine Optimization (SEO/AEO)</a></li>
+                <li><a href="services/social-media-marketing.html">Social Media Marketing (SMM)</a></li>
+                <li><a href="services/social-media-management.html">Social Media Management & SMO</a></li>
+                <li><a href="services/email-marketing.html">Email Marketing & Management</a></li>
+                <li><a href="services/sms-marketing.html">SMS & Text Marketing</a></li>
+                <li><a href="services/content-marketing.html">Content Marketing Strategy</a></li>
+                <li><a href="services/b2b-lead-generation.html">Targeted B2B Lead Generation</a></li>
+              </ul>
+            </li>
+            <li class="has-flyout">
+              <span class="category-header">Local & Community Authority <span class="chevron">›</span></span>
+              <ul class="dropdown-secondary">
+                <li><a href="services/google-business-profile.html">Google Business Profile (GBP)</a></li>
+                <li><a href="services/yelp-mapquest-optimization.html">Yelp & MapQuest Optimization</a></li>
+                <li><a href="services/forum-authority-growth.html">Forum Growth (Reddit, Quora, Medium)</a></li>
+              </ul>
+            </li>
+            <li class="has-flyout">
+              <span class="category-header">Development Solutions <span class="chevron">›</span></span>
+              <ul class="dropdown-secondary">
+                <li><a href="services/conversion-web-development.html">High-Converting Web Development</a></li>
+                <li><a href="services/mobile-app-development.html">Mobile Application Development</a></li>
+              </ul>
+            </li>
+            <li class="has-flyout">
+              <span class="category-header">Airbnb Growth Strategy <span class="chevron">›</span></span>
+              <ul class="dropdown-secondary">
+                <li><a href="services/airbnb-conversion-enhancement.html">Listing Conversion Rate Enhancement</a></li>
+                <li><a href="services/airbnb-marketing-strategy.html">Airbnb Marketing Strategy</a></li>
+                <li><a href="services/airbnb-management-strategy.html">Turnkey Airbnb Management</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
         <a href="cost-advantage.html" class="nav-link">Cost Advantage</a>
         <a href="client-letters.html" class="nav-link active-nav">Testimonials</a>
         <a href="global-hubs.html" class="nav-link">Global Hubs</a>
@@ -39,16 +117,25 @@
     <div class="container hero-content">
       <div class="hero-badge">Authenticated Social Proof</div>
       <h1 class="hero-title">Client Testimonials & Signed Letters</h1>
-      <p class="hero-subtitle">Real-time verified Google Business Profile ratings and signed corporate letterheads from enterprise CEOs and founders worldwide.</p>
+      <p class="hero-subtitle">Real-time verified client feedback and signed corporate letterheads from enterprise CEOs and founders worldwide.</p>
     </div>
   </section>
 
-  <!-- Marquee of Live Google Reviews -->
+  <!-- Client Reviews Marquee Section -->
   <section class="about-section" style="padding-top: 10px;">
     <div class="container">
-      <div class="section-header text-center">
-        <h2>Live Google Business Profile Reviews</h2>
-        <p>Continuous rotating stream of 5.0★ feedback verified directly on Google Maps.</p>
+      <div class="section-header text-center" style="margin-bottom: 12px;">
+        <h2>Client Reviews</h2>
+      </div>
+
+      <!-- Google Profile Quick Direct Action -->
+      <div class="google-profile-action-box">
+        <div class="google-badge-inline">
+          <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+          <strong>Google Business Profile</strong>
+          <span class="google-stars">★★★★★</span>
+        </div>
+        <a href="https://share.google/JL2wEK9SdCHePlojt" target="_blank" rel="noopener" class="btn btn-outline btn-small">Visit Official Google Business Profile ↗</a>
       </div>
 
       <div class="marquee-container">
