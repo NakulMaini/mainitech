@@ -33,7 +33,7 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
-    .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
     
     .site-header {
       position: sticky;
@@ -94,21 +94,23 @@
       letter-spacing: 0.5px;
     }
     .hero-title { font-size: 40px; font-weight: 800; margin-bottom: 12px; }
-    .hero-subtitle { font-size: 16px; color: var(--text-muted); max-width: 840px; margin: 0 auto; }
+    .hero-subtitle { font-size: 16px; color: var(--text-muted); max-width: 860px; margin: 0 auto; }
 
     .about-section { padding: 50px 0; border-top: 1px solid var(--border-color); }
     .section-header h2 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
     .section-header p { color: var(--text-muted); font-size: 14px; margin-bottom: 30px; }
     .text-center { text-align: center; }
 
-    /* Surveillance Viewport */
+    /* ===================================================
+       EXPANDED COMMAND-ROOM NEON SURVEILLANCE VIEWPORT
+       =================================================== */
     .surveillance-viewport {
-      max-width: 1180px;
+      max-width: 1240px;
       margin: 10px auto 40px;
       background: radial-gradient(circle at 50% 50%, #0a172a 0%, #030712 100%);
       border: 1.5px solid rgba(56, 189, 248, 0.4);
       border-radius: 20px;
-      padding: 20px;
+      padding: 24px;
       position: relative;
       overflow: visible;
       box-shadow: 0 0 50px rgba(2, 132, 199, 0.25), inset 0 0 40px rgba(7, 13, 24, 0.95);
@@ -140,7 +142,7 @@
     .surveillance-map-svg {
       width: 100%;
       height: auto;
-      min-height: 480px;
+      min-height: 580px;
       display: block;
       filter: drop-shadow(0 0 16px rgba(56, 189, 248, 0.45));
     }
@@ -156,10 +158,17 @@
     }
     .neon-trajectory {
       stroke: #38bdf8;
-      stroke-width: 1.2;
-      stroke-dasharray: 5, 5;
-      opacity: 0.65;
-      animation: flowPath 22s linear infinite;
+      stroke-width: 1.3;
+      stroke-dasharray: 6, 6;
+      opacity: 0.75;
+      animation: flowPath 20s linear infinite;
+    }
+    .neon-trajectory-gold {
+      stroke: #fbbf24;
+      stroke-width: 1.5;
+      stroke-dasharray: 6, 6;
+      opacity: 0.85;
+      animation: flowPath 18s linear infinite;
     }
     @keyframes flowPath {
       to { stroke-dashoffset: -100; }
@@ -170,10 +179,27 @@
     }
     @keyframes radarPing {
       0% { r: 3.5; opacity: 1; }
-      100% { r: 22; opacity: 0; }
+      100% { r: 24; opacity: 0; }
     }
 
-    /* Graphical Pop-Up Cards */
+    /* Labels on Map */
+    .country-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      fill: #e2e8f0;
+      filter: drop-shadow(0 1px 3px rgba(0,0,0,0.9));
+      user-select: none;
+    }
+    .country-label-hq {
+      font-size: 11px;
+      font-weight: 800;
+      fill: var(--accent-amber);
+    }
+
+    /* ===================================================
+       LARGE GRAPHICAL POP-UP COMMAND WINDOW
+       =================================================== */
     .interactive-hub-group {
       cursor: pointer;
     }
@@ -182,83 +208,99 @@
       visibility: hidden;
       pointer-events: none;
       transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-      transform: translateY(8px);
+      transform: translateY(12px) scale(0.96);
     }
     .interactive-hub-group:hover .hover-hud-card,
     .interactive-hub-group:focus-within .hover-hud-card {
       opacity: 1;
       visibility: visible;
       pointer-events: auto;
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
     }
     .interactive-hub-group:hover .node-ping {
       animation-duration: 1s;
     }
 
-    .hud-popup-box {
-      background: rgba(9, 15, 28, 0.98);
-      border: 1.5px solid var(--accent-cyan);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.95), 0 0 24px rgba(56, 189, 248, 0.5);
-      border-radius: 14px;
-      padding: 14px 16px;
+    .hud-popup-box-large {
+      background: rgba(9, 16, 32, 0.98);
+      border: 2px solid var(--accent-cyan);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.95), 0 0 30px rgba(56, 189, 248, 0.5);
+      border-radius: 16px;
+      padding: 18px 20px;
       color: #fff;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      backdrop-filter: blur(16px);
+      backdrop-filter: blur(20px);
       text-align: left;
+      box-sizing: border-box;
+      width: 100%;
     }
     .hud-popup-title {
-      font-size: 13.5px;
+      font-size: 15px;
       font-weight: 800;
       color: #fff;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 2px;
+      margin-bottom: 4px;
       font-family: 'JetBrains Mono', monospace;
     }
     .hud-role-pill {
-      font-size: 9.5px;
+      font-size: 10px;
       font-weight: 800;
-      padding: 2px 7px;
-      border-radius: 4px;
+      padding: 3px 8px;
+      border-radius: 6px;
       text-transform: uppercase;
       background: rgba(56, 189, 248, 0.15);
       color: var(--accent-cyan);
-      border: 1px solid rgba(56, 189, 248, 0.3);
+      border: 1px solid rgba(56, 189, 248, 0.35);
     }
     .hud-popup-tz {
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 700;
       color: var(--accent-amber);
       text-transform: uppercase;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       display: block;
       font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.5px;
     }
     .hud-operations-list {
       list-style: none;
       padding: 0;
       margin: 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      padding-top: 6px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 8px;
     }
     .hud-operations-list li {
-      font-size: 11px;
+      font-size: 12.5px;
       color: var(--text-body);
-      line-height: 1.45;
-      padding: 3px 0;
+      line-height: 1.5;
+      padding: 4px 0;
       display: flex;
       align-items: flex-start;
-      gap: 6px;
+      gap: 8px;
     }
     .hud-operations-list li span.bullet {
       color: var(--accent-green);
       font-weight: 800;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+    .hud-stat-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      margin-top: 8px;
+      padding-top: 8px;
+      font-size: 11px;
+      color: var(--accent-cyan);
+      font-family: 'JetBrains Mono', monospace;
     }
 
     /* Structured Locations Table */
     .table-container {
-      max-width: 1180px;
+      max-width: 1240px;
       margin: 0 auto;
       background: #0b1220;
       border: 1px solid #1e293b;
@@ -299,7 +341,7 @@
       color: var(--accent-cyan);
     }
 
-    /* Floating Multi-Channel Widget */
+    /* Floating Contact Widget */
     .multi-channel-contact-bar {
       position: fixed !important;
       bottom: 24px !important;
@@ -404,19 +446,19 @@
   <!-- Hero Header -->
   <section class="hero-section">
     <div class="container hero-content">
-      <div class="hero-badge">Connected Across 20+ Global Markets</div>
+      <div class="hero-badge">Worldwide Operations Network • 20+ Connected Markets</div>
       <h1 class="hero-title">Global Delivery Hubs & International Operations</h1>
       <p class="hero-subtitle">High-level strategic governance directed from Austria, synchronized with delivery teams in India, the Philippines, Dubai, Germany, China, and Hong Kong to provide around-the-clock commercial execution at minimal operational cost.</p>
     </div>
   </section>
 
-  <!-- Surveillance Viewport with 20+ Connected Country Hubs -->
+  <!-- Surveillance Viewport with 20+ Countries, Trajectories & Large Hover Popups -->
   <section class="about-section" style="padding-top: 10px;">
     <div class="container">
       <div class="surveillance-viewport">
         <div class="surveillance-header-bar">
-          <span class="status-tag"><span class="pulse-dot-green"></span> MAINITECH OPERATIONS HUD // 20+ COUNTRIES ACTIVE ON RADAR</span>
-          <span>HOVER NODES TO INSPECT OPERATIONS // CONTINUOUS ROTATION</span>
+          <span class="status-tag"><span class="pulse-dot-green"></span> MAINITECH OPERATIONS HUD // 20+ NATIONS ONLINE</span>
+          <span>HOVER ANY COUNTRY FOR LARGE COMMAND SPECS // CET • GST • IST • PHT • AEST</span>
         </div>
 
         <svg class="surveillance-map-svg" viewBox="0 0 1000 500" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -444,85 +486,101 @@
           <!-- Australia -->
           <path class="neon-landmass" d="M775,315 L865,305 L895,365 L855,425 L785,415 L755,365 Z" />
 
-          <!-- Global Cyber Trajectory Network -->
-          <!-- Austria Core Network -->
-          <path d="M510,120 Q365,110 220,130" class="neon-trajectory" />
-          <path d="M510,120 Q480,180 460,260" class="neon-trajectory" />
-          <path d="M510,120 Q560,155 610,190" class="neon-trajectory" />
-          <path d="M510,120 Q600,160 690,205" class="neon-trajectory" />
-          <!-- Secondary Corridors -->
+          <!-- Comprehensive Global Flight Arcs -->
+          <!-- From Austria (HQ) -->
+          <path d="M510,120 Q365,110 220,130" class="neon-trajectory-gold" />
+          <path d="M510,120 Q480,180 460,260" class="neon-trajectory-gold" />
+          <path d="M510,120 Q560,155 610,190" class="neon-trajectory-gold" />
+          <path d="M510,120 Q600,160 690,205" class="neon-trajectory-gold" />
+          <path d="M510,120 Q650,140 790,170" class="neon-trajectory-gold" />
+
+          <!-- From Australia (Pacific Hub) Outward to Connected Markets -->
+          <path d="M820,380 Q850,400 890,420" class="neon-trajectory" />
+          <path d="M820,380 Q810,300 800,230" class="neon-trajectory" />
+          <path d="M820,380 Q780,310 760,265" class="neon-trajectory" />
+          <path d="M820,380 Q750,290 690,205" class="neon-trajectory" />
+          <path d="M820,380 Q700,280 610,190" class="neon-trajectory" />
+
+          <!-- Secondary Operational Cross-Arcs -->
           <path d="M220,130 Q240,240 260,320" class="neon-trajectory" />
           <path d="M460,260 Q500,310 520,380" class="neon-trajectory" />
           <path d="M690,205 Q745,215 800,230" class="neon-trajectory" />
           <path d="M690,205 Q740,180 790,170" class="neon-trajectory" />
-          <path d="M800,230 Q810,290 820,380" class="neon-trajectory" />
+          <path d="M790,170 Q825,155 860,140" class="neon-trajectory" />
 
           <!-- ==============================================
-               20+ INTERACTIVE COUNTRY HUBS WITH HOVER CARDS
+               20+ HUBS WITH FULL LABELS & LARGE HOVER HUD CARDS
                ============================================== -->
 
           <!-- 1. AUSTRIA [STRATEGIC HQ] -->
           <g class="interactive-hub-group" tabindex="0">
-            <circle cx="510" cy="120" r="16" fill="#fbbf24" class="node-ping" opacity="0.35" />
+            <circle cx="510" cy="120" r="16" fill="#fbbf24" class="node-ping" opacity="0.4" />
             <circle cx="510" cy="120" r="6" fill="#fbbf24" stroke="#ffffff" stroke-width="2" />
-            <text x="522" y="116" fill="#fbbf24" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">AUSTRIA [HQ]</text>
-            <foreignObject x="430" y="135" width="280" height="155" class="hover-hud-card">
-              <div class="hud-popup-box" xmlns="http://www.w3.org/1999/xhtml">
+            <text x="522" y="116" class="country-label country-label-hq">AUSTRIA [STRATEGIC HQ]</text>
+            <foreignObject x="360" y="132" width="380" height="210" class="hover-hud-card">
+              <div class="hud-popup-box-large" xmlns="http://www.w3.org/1999/xhtml">
                 <div class="hud-popup-title"><span>🇦🇹 AUSTRIA</span><span class="hud-role-pill">STRATEGIC HQ</span></div>
-                <span class="hud-popup-tz">TIME: CET (UTC+1) • VIENNA &amp; LEOBEN</span>
+                <span class="hud-popup-tz">TIME ZONE: CET (UTC+1) • VIENNA &amp; LEOBEN</span>
                 <ul class="hud-operations-list">
-                  <li><span class="bullet">›</span> European Scientific &amp; Data Systems Leadership</li>
-                  <li><span class="bullet">›</span> DiCES Joint MSc Analytical Modeling</li>
-                  <li><span class="bullet">›</span> Executive Commercial Strategy Formulation</li>
-                  <li><span class="bullet">›</span> Sovereign SEPA Instant Banking Rails</li>
+                  <li><span class="bullet">›</span> European Scientific Rigor &amp; Complex Systems Engineering</li>
+                  <li><span class="bullet">›</span> DiCES Joint Master's Program Mathematical Modeling</li>
+                  <li><span class="bullet">›</span> Lead Executive Commercial Advisory &amp; Client Governance</li>
+                  <li><span class="bullet">›</span> Sovereign SEPA Instant Euro Clearing Rails (Zero Conversion Loss)</li>
                 </ul>
+                <div class="hud-stat-footer"><span>OPERATIONS: ACTIVE</span><span>LATENCY: 1ms (HQ)</span></div>
               </div>
             </foreignObject>
           </g>
 
           <!-- 2. GERMANY -->
           <g class="interactive-hub-group" tabindex="0">
-            <circle cx="485" cy="105" r="4.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
-            <text x="420" y="98" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10">GERMANY</text>
-            <foreignObject x="350" y="115" width="260" height="140" class="hover-hud-card">
-              <div class="hud-popup-box" xmlns="http://www.w3.org/1999/xhtml">
-                <div class="hud-popup-title"><span>🇩🇪 GERMANY</span><span class="hud-role-pill">ENTERPRISE</span></div>
-                <span class="hud-popup-tz">TIME: CET (UTC+1) • FRANKFURT</span>
+            <circle cx="485" cy="105" r="5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
+            <text x="420" y="100" class="country-label">GERMANY</text>
+            <foreignObject x="330" y="118" width="370" height="195" class="hover-hud-card">
+              <div class="hud-popup-box-large" xmlns="http://www.w3.org/1999/xhtml">
+                <div class="hud-popup-title"><span>🇩🇪 GERMANY</span><span class="hud-role-pill">ENTERPRISE HUB</span></div>
+                <span class="hud-popup-tz">TIME ZONE: CET (UTC+1) • FRANKFURT &amp; MUNICH</span>
                 <ul class="hud-operations-list">
-                  <li><span class="bullet">›</span> Industrial Workflow Standardization</li>
-                  <li><span class="bullet">›</span> Binding European NDA &amp; GDPR Governance</li>
-                  <li><span class="bullet">›</span> Cross-Border German Enterprise Networks</li>
+                  <li><span class="bullet">›</span> Industrial Workflow Standardization &amp; Unit Economics</li>
+                  <li><span class="bullet">›</span> GDPR &amp; Strict European Data Protection Compliance</li>
+                  <li><span class="bullet">›</span> High-Ticket B2B Enterprise Client Networks</li>
                 </ul>
+                <div class="hud-stat-footer"><span>STATUS: VERIFIED</span><span>COVERAGE: DACH REGION</span></div>
               </div>
             </foreignObject>
           </g>
 
           <!-- 3. UNITED KINGDOM -->
           <g class="interactive-hub-group" tabindex="0">
-            <circle cx="460" cy="95" r="4" fill="#38bdf8" stroke="#ffffff" stroke-width="1.2" />
-            <foreignObject x="360" y="105" width="240" height="130" class="hover-hud-card">
-              <div class="hud-popup-box" xmlns="http://www.w3.org/1999/xhtml">
-                <div class="hud-popup-title"><span>🇬🇧 UK</span><span class="hud-role-pill">FPS RAIL</span></div>
-                <span class="hud-popup-tz">TIME: GMT • LONDON</span>
+            <circle cx="460" cy="95" r="4.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
+            <text x="400" y="86" class="country-label">UNITED KINGDOM</text>
+            <foreignObject x="320" y="105" width="360" height="185" class="hover-hud-card">
+              <div class="hud-popup-box-large" xmlns="http://www.w3.org/1999/xhtml">
+                <div class="hud-popup-title"><span>🇬🇧 UNITED KINGDOM</span><span class="hud-role-pill">FINANCIAL RAIL</span></div>
+                <span class="hud-popup-tz">TIME ZONE: GMT / BST • LONDON</span>
                 <ul class="hud-operations-list">
-                  <li><span class="bullet">›</span> Faster Payments System (FPS) Domestic Rail</li>
-                  <li><span class="bullet">›</span> UK B2B Market Acquisition Pipelines</li>
+                  <li><span class="bullet">›</span> Faster Payments System (FPS) Domestic Clearing</li>
+                  <li><span class="bullet">›</span> UK &amp; European Cross-Border Commercial Expansion</li>
+                  <li><span class="bullet">›</span> Direct B2B Customer Acquisition Systems</li>
                 </ul>
+                <div class="hud-stat-footer"><span>CURRENCY: GBP DOMESTIC</span><span>STATUS: SYNCHRONIZED</span></div>
               </div>
             </foreignObject>
           </g>
 
           <!-- 4. SWITZERLAND -->
           <g class="interactive-hub-group" tabindex="0">
-            <circle cx="495" cy="115" r="3.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1" />
-            <foreignObject x="420" y="125" width="240" height="130" class="hover-hud-card">
-              <div class="hud-popup-box" xmlns="http://www.w3.org/1999/xhtml">
-                <div class="hud-popup-title"><span>🇨🇭 SWITZERLAND</span><span class="hud-role-pill">FINANCE</span></div>
-                <span class="hud-popup-tz">TIME: CET • ZURICH</span>
+            <circle cx="495" cy="115" r="4" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
+            <text x="430" y="125" class="country-label">SWITZERLAND</text>
+            <foreignObject x="340" y="128" width="360" height="180" class="hover-hud-card">
+              <div class="hud-popup-box-large" xmlns="http://www.w3.org/1999/xhtml">
+                <div class="hud-popup-title"><span>🇨🇭 SWITZERLAND</span><span class="hud-role-pill">WEALTH &amp; DATA</span></div>
+                <span class="hud-popup-tz">TIME ZONE: CET • ZURICH &amp; GENEVA</span>
                 <ul class="hud-operations-list">
-                  <li><span class="bullet">›</span> High-Net-Worth Advisory &amp; Privacy Standards</li>
-                  <li><span class="bullet">›</span> European Multi-Currency Clearing</li>
+                  <li><span class="bullet">›</span> Elite Privacy Standards &amp; Intellectual Property Protection</li>
+                  <li><span class="bullet">›</span> Premium Financial Advisory &amp; Modeling</li>
                 </ul>
+                <div class="hud-stat-footer"><span>PROTOCOL: SWISS COMPLIANT</span><span>STATUS: ACTIVE</span></div>
               </div>
             </foreignObject>
           </g>
@@ -530,18 +588,19 @@
           <!-- 5. UNITED STATES -->
           <g class="interactive-hub-group" tabindex="0">
             <circle cx="220" cy="130" r="14" fill="#38bdf8" class="node-ping" opacity="0.3" />
-            <circle cx="220" cy="130" r="5.5" fill="#38bdf8" stroke="#ffffff" stroke-width="2" />
-            <text x="140" y="122" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">UNITED STATES</text>
-            <foreignObject x="110" y="145" width="270" height="150" class="hover-hud-card">
-              <div class="hud-popup-box" xmlns="http://www.w3.org/1999/xhtml">
-                <div class="hud-popup-title"><span>🇺🇸 UNITED STATES</span><span class="hud-role-pill">CLIENT BASE</span></div>
-                <span class="hud-popup-tz">TIME: EST / CST / PST • 50 STATES</span>
+            <circle cx="220" cy="130" r="6" fill="#38bdf8" stroke="#ffffff" stroke-width="2" />
+            <text x="135" y="120" class="country-label" style="font-size:11px; fill:#38bdf8;">UNITED STATES</text>
+            <foreignObject x="110" y="145" width="380" height="205" class="hover-hud-card">
+              <div class="hud-popup-box-large" xmlns="http://www.w3.org/1999/xhtml">
+                <div class="hud-popup-title"><span>🇺🇸 UNITED STATES</span><span class="hud-role-pill">PRIMARY CLIENT BASE</span></div>
+                <span class="hud-popup-tz">TIME ZONE: EST / CST / PST • 50 STATES</span>
                 <ul class="hud-operations-list">
-                  <li><span class="bullet">›</span> Primary Client Operations &amp; Audits (NY, CA, TX, FL)</li>
-                  <li><span class="bullet">›</span> Domestic ACH &amp; Fedwire via Column Bank</li>
-                  <li><span class="bullet">›</span> Zero International Wire Deductions</li>
-                  <li><span class="bullet">›</span> Complete Territorial Exclusivity Guarantee</li>
+                  <li><span class="bullet">›</span> Verified Executive Proof: NY, CA, TX, FL Corporate Letterheads</li>
+                  <li><span class="bullet">›</span> Domestic ACH &amp; Fedwire via Column Bank (Zero Deductions)</li>
+                  <li><span class="bullet">›</span> Strict Territorial Non-Compete Guarantee Under NDA</li>
+                  <li><span class="bullet">›</span> Full-Funnel Growth Sprints Starting at $12/Day</li>
                 </ul>
+                <div class="hud-stat-footer"><span>PORTFOLIO: 150+ US CLIENTS</span><span>STATUS: CONNECTED</span></div>
               </div>
             </foreignObject>
           </g>
@@ -549,142 +608,157 @@
           <!-- 6. CANADA -->
           <g class="interactive-hub-group" tabindex="0">
             <circle cx="210" cy="95" r="4.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
-            <text x="175" y="85" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="10">CANADA</text>
-            <foreignObject x="150" y="105" width="250" height="135" class="hover-hud-card">
-              <div class="hud-popup-box" xmlns="http://www.w3.org/1999/xhtml">
-                <div class="hud-popup-title"><span>🇨🇦 CANADA</span><span class="hud-role-pill">EFT RAIL</span></div>
-                <span class="hud-popup-tz">TIME: EST • TORONTO</span>
+            <text x="160" y="85" class="country-label">CANADA</text>
+            <foreignObject x="130" y="105" width="360" height="185" class="hover-hud-card">
+              <div class="hud-popup-box-large" xmlns="http://www.w3.org/1999/xhtml">
+                <div class="hud-popup-title"><span>🇨🇦 CANADA</span><span class="hud-role-pill">DIRECT EFT</span></div>
+                <span class="hud-popup-tz">TIME ZONE: EST / PST • TORONTO &amp; VANCOUVER</span>
                 <ul class="hud-operations-list">
-                  <li><span class="bullet">›</span> Electronic Funds Transfer (EFT) Direct Rail</li>
-                  <li><span class="bullet">›</span> North American Cross-Border Acquisition</li>
+                  <li><span class="bullet">›</span> Electronic Funds Transfer (EFT) Domestic Settlement</li>
+                  <li><span class="bullet">›</span> North American Commercial Scaling Frameworks</li>
                 </ul>
+                <div class="hud-stat-footer"><span>RAIL: CAD DIRECT EFT</span><span>STATUS: SYNCHRONIZED</span></div>
               </div>
             </foreignObject>
           </g>
 
-          <!-- 7. BRAZIL (SOUTH AMERICA) -->
+          <!-- 7. BRAZIL -->
           <g class="interactive-hub-group" tabindex="0">
-            <circle cx="260" cy="320" r="4.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
-            <text x="272" y="324" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10">BRAZIL</text>
-            <foreignObject x="210" y="335" width="250" height="135" class="hover-hud-card">
-              <div class="hud-popup-box" xmlns="http://www.w3.org/1999/xhtml">
-                <div class="hud-popup-title"><span>🇧🇷 BRAZIL</span><span class="hud-role-pill">LATAM HUB</span></div>
-                <span class="hud-popup-tz">TIME: BRT (UTC-3) • SÃO PAULO</span>
+            <circle cx="260" cy="320" r="5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
+            <text x="272" y="324" class="country-label">BRAZIL</text>
+            <foreignObject x="180" y="335" width="360" height="185" class="hover-hud-card">
+              <div class="hud-popup-box-large" xmlns="http://www.w3.org/1999/xhtml">
+                <div class="hud-popup-title"><span>🇧🇷 BRAZIL</span><span class="hud-role-pill">LATAM EXPANSION</span></div>
+                <span class="hud-popup-tz">TIME ZONE: BRT (UTC-3) • SÃO PAULO</span>
                 <ul class="hud-operations-list">
-                  <li><span class="bullet">›</span> Latin American Enterprise Market Expansion</li>
-                  <li><span class="bullet">›</span> Multilingual Digital Customer Journeys</li>
+                  <li><span class="bullet">›</span> Latin American Commercial Market Entry</li>
+                  <li><span class="bullet">›</span> Multilingual Conversion Architecture</li>
                 </ul>
+                <div class="hud-stat-footer"><span>REGION: SOUTH AMERICA</span><span>STATUS: ACTIVE</span></div>
               </div>
             </foreignObject>
           </g>
 
           <!-- 8. GHANA (WEST AFRICA) -->
           <g class="interactive-hub-group" tabindex="0">
-            <circle cx="460" cy="260" r="10" fill="#10b981" class="node-ping" opacity="0.3" />
-            <circle cx="460" cy="260" r="4.5" fill="#10b981" stroke="#ffffff" stroke-width="1.5" />
-            <text x="395" y="264" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">GHANA</text>
-            <foreignObject x="370" y="275" width="250" height="135" class="hover-hud-card">
-              <div class="hud-popup-box" xmlns="http://www.w3.org/1999/xhtml">
-                <div class="hud-popup-title"><span>🇬🇭 GHANA</span><span class="hud-role-pill">AFRICA HUB</span></div>
-                <span class="hud-popup-tz">TIME: GMT • ACCRA</span>
+            <circle cx="460" cy="260" r="11" fill="#10b981" class="node-ping" opacity="0.35" />
+            <circle cx="460" cy="260" r="5" fill="#10b981" stroke="#ffffff" stroke-width="1.5" />
+            <text x="395" y="264" class="country-label" style="fill:#10b981;">GHANA</text>
+            <foreignObject x="340" y="275" width="380" height="195" class="hover-hud-card">
+              <div class="hud-popup-box-large" xmlns="http://www.w3.org/1999/xhtml">
+                <div class="hud-popup-title"><span>🇬🇭 GHANA</span><span class="hud-role-pill">WEST AFRICA HUB</span></div>
+                <span class="hud-popup-tz">TIME ZONE: GMT • ACCRA CORRIDOR</span>
                 <ul class="hud-operations-list">
-                  <li><span class="bullet">›</span> West African Digital Commerce Integration</li>
-                  <li><span class="bullet">›</span> Mobile Money &amp; Emerging Tech Corridors</li>
-                  <li><span class="bullet">›</span> English-Native Operational Support</li>
+                  <li><span class="bullet">›</span> West African Digital Commerce &amp; FinTech Integration</li>
+                  <li><span class="bullet">›</span> Mobile Money &amp; Modern Payment Gateway Architectures</li>
+                  <li><span class="bullet">›</span> English-Native Operational Support &amp; Workflow Automation</li>
                 </ul>
+                <div class="hud-stat-footer"><span>CORRIDOR: WEST AFRICA</span><span>STATUS: ONLINE</span></div>
               </div>
             </foreignObject>
           </g>
 
           <!-- 9. NIGERIA -->
           <g class="interactive-hub-group" tabindex="0">
-            <circle cx="485" cy="255" r="4" fill="#38bdf8" stroke="#ffffff" stroke-width="1.2" />
-            <foreignObject x="420" y="270" width="240" height="130" class="hover-hud-card">
-              <div class="hud-popup-box" xmlns="http://www.w3.org/1999/xhtml">
-                <div class="hud-popup-title"><span>🇳🇬 NIGERIA</span><span class="hud-role-pill">COMMERCE</span></div>
-                <span class="hud-popup-tz">TIME: WAT • LAGOS</span>
+            <circle cx="485" cy="255" r="4.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.2" />
+            <text x="495" y="258" class="country-label">NIGERIA</text>
+            <foreignObject x="380" y="268" width="360" height="180" class="hover-hud-card">
+              <div class="hud-popup-box-large" xmlns="http://www.w3.org/1999/xhtml">
+                <div class="hud-popup-title"><span>🇳🇬 NIGERIA</span><span class="hud-role-pill">TECH COMMERCE</span></div>
+                <span class="hud-popup-tz">TIME ZONE: WAT • LAGOS</span>
                 <ul class="hud-operations-list">
-                  <li><span class="bullet">›</span> High-Volume FinTech Acquisition Strategy</li>
-                  <li><span class="bullet">›</span> Emerging Market Growth Architecture</li>
+                  <li><span class="bullet">›</span> High-Volume African Digital Acquisition Strategy</li>
+                  <li><span class="bullet">›</span> Cross-Border Business Process Structuring</li>
                 </ul>
+                <div class="hud-stat-footer"><span>GROWTH: EMERGING MARKET</span><span>STATUS: ACTIVE</span></div>
               </div>
             </foreignObject>
           </g>
 
           <!-- 10. KENYA -->
           <g class="interactive-hub-group" tabindex="0">
-            <circle cx="545" cy="285" r="4" fill="#38bdf8" stroke="#ffffff" stroke-width="1.2" />
-            <foreignObject x="480" y="300" width="240" height="130" class="hover-hud-card">
-              <div class="hud-popup-box" xmlns="http://www.w3.org/1999/xhtml">
+            <circle cx="545" cy="285" r="4.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.2" />
+            <text x="555" y="288" class="country-label">KENYA</text>
+            <foreignObject x="430" y="295" width="360" height="180" class="hover-hud-card">
+              <div class="hud-popup-box-large" xmlns="http://www.w3.org/1999/xhtml">
                 <div class="hud-popup-title"><span>🇰🇪 KENYA</span><span class="hud-role-pill">EAST AFRICA</span></div>
-                <span class="hud-popup-tz">TIME: EAT • NAIROBI</span>
+                <span class="hud-popup-tz">TIME ZONE: EAT • NAIROBI</span>
                 <ul class="hud-operations-list">
-                  <li><span class="bullet">›</span> East African Enterprise Hub</li>
-                  <li><span class="bullet">›</span> Silicon Savannah Digital Ecosystem</li>
+                  <li><span class="bullet">›</span> Silicon Savannah Digital Technology Hub</li>
+                  <li><span class="bullet">›</span> East African Enterprise Partnerships</li>
                 </ul>
+                <div class="hud-stat-footer"><span>REGION: EAST AFRICA</span><span>STATUS: CONNECTED</span></div>
               </div>
             </foreignObject>
           </g>
 
           <!-- 11. SOUTH AFRICA -->
           <g class="interactive-hub-group" tabindex="0">
-            <circle cx="520" cy="380" r="4.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
-            <text x="532" y="384" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10">SOUTH AFRICA</text>
-            <foreignObject x="430" y="270" width="250" height="135" class="hover-hud-card">
-              <div class="hud-popup-box" xmlns="http://www.w3.org/1999/xhtml">
-                <div class="hud-popup-title"><span>🇿🇦 SOUTH AFRICA</span><span class="hud-role-pill">GATEWAY</span></div>
-                <span class="hud-popup-tz">TIME: SAST • CAPE TOWN</span>
+            <circle cx="520" cy="380" r="5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
+            <text x="532" y="384" class="country-label">SOUTH AFRICA</text>
+            <foreignObject x="390" y="260" width="360" height="180" class="hover-hud-card">
+              <div class="hud-popup-box-large" xmlns="http://www.w3.org/1999/xhtml">
+                <div class="hud-popup-title"><span>🇿🇦 SOUTH AFRICA</span><span class="hud-role-pill">REGIONAL GATEWAY</span></div>
+                <span class="hud-popup-tz">TIME ZONE: SAST • CAPE TOWN &amp; JHB</span>
                 <ul class="hud-operations-list">
                   <li><span class="bullet">›</span> Southern African Commercial Bridge</li>
-                  <li><span class="bullet">›</span> Multi-Currency Account Management</li>
+                  <li><span class="bullet">›</span> Multi-Currency Account Settlement</li>
                 </ul>
+                <div class="hud-stat-footer"><span>CORRIDOR: SOUTHERN AFRICA</span><span>STATUS: ACTIVE</span></div>
               </div>
             </foreignObject>
           </g>
 
           <!-- 12. DUBAI (UAE & GCC) -->
           <g class="interactive-hub-group" tabindex="0">
-            <circle cx="610" cy="190" r="12" fill="#f97316" class="node-ping" opacity="0.3" />
-            <circle cx="610" cy="190" r="5" fill="#f97316" stroke="#ffffff" stroke-width="1.5" />
-            <text x="590" y="215" fill="#f97316" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">DUBAI (GCC)</text>
-            <foreignObject x="530" y="225" width="260" height="145" class="hover-hud-card">
-              <div class="hud-popup-box" xmlns="http://www.w3.org/1999/xhtml">
-                <div class="hud-popup-title"><span>🇦🇪 DUBAI</span><span class="hud-role-pill">GCC HUB</span></div>
-                <span class="hud-popup-tz">TIME: GST (UTC+4) • ARABIAN GULF</span>
+            <circle cx="610" cy="190" r="13" fill="#f97316" class="node-ping" opacity="0.35" />
+            <circle cx="610" cy="190" r="5.5" fill="#f97316" stroke="#ffffff" stroke-width="1.5" />
+            <text x="585" y="215" class="country-label" style="fill:#f97316;">DUBAI (UAE)</text>
+            <foreignObject x="510" y="225" width="380" height="205" class="hover-hud-card">
+              <div class="hud-popup-box-large" xmlns="http://www.w3.org/1999/xhtml">
+                <div class="hud-popup-title"><span>🇦🇪 DUBAI</span><span class="hud-role-pill">GCC COMMERCIAL HUB</span></div>
+                <span class="hud-popup-tz">TIME ZONE: GST (UTC+4) • ARABIAN GULF</span>
                 <ul class="hud-operations-list">
-                  <li><span class="bullet">›</span> Middle East Commercial Advisory &amp; Real Estate</li>
-                  <li><span class="bullet">›</span> Cross-Border Capital Connecting East &amp; West</li>
-                  <li><span class="bullet">›</span> High-Ticket B2B Lead Generation (GCC)</li>
+                  <li><span class="bullet">›</span> Middle East Commercial Expansion &amp; High-Ticket B2B Sales</li>
+                  <li><span class="bullet">›</span> Cross-Border Capital Linking Asian &amp; European Capital</li>
+                  <li><span class="bullet">›</span> Real Estate Asset Acquisition &amp; High-Yield Digital Campaigns</li>
+                  <li><span class="bullet">›</span> Zero Currency Exchange Friction via Direct Domestic Settlement</li>
                 </ul>
+                <div class="hud-stat-footer"><span>MARKET: UAE / GCC</span><span>STATUS: CONNECTED</span></div>
               </div>
             </foreignObject>
           </g>
 
           <!-- 13. SAUDI ARABIA -->
           <g class="interactive-hub-group" tabindex="0">
-            <circle cx="580" cy="195" r="4" fill="#38bdf8" stroke="#ffffff" stroke-width="1.2" />
-            <foreignObject x="510" y="210" width="240" height="130" class="hover-hud-card">
-              <div class="hud-popup-box" xmlns="http://www.w3.org/1999/xhtml">
-                <div class="hud-popup-title"><span>🇸🇦 SAUDI ARABIA</span><span class="hud-role-pill">VISION 2030</span></div>
-                <span class="hud-popup-tz">TIME: AST • RIYADH</span>
+            <circle cx="580" cy="195" r="4.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.2" />
+            <text x="515" y="195" class="country-label">SAUDI ARABIA</text>
+            <foreignObject x="450" y="205" width="360" height="180" class="hover-hud-card">
+              <div class="hud-popup-box-large" xmlns="http://www.w3.org/1999/xhtml">
+                <div class="hud-popup-title"><span>🇸🇦 SAUDI ARABIA</span><span class="hud-role-pill">GULF EXPANSION</span></div>
+                <span class="hud-popup-tz">TIME ZONE: AST • RIYADH</span>
                 <ul class="hud-operations-list">
-                  <li><span class="bullet">›</span> Giga-Project Digital Strategy Alignment</li>
-                  <li><span class="bullet">›</span> Enterprise B2B Market Entry</li>
+                  <li><span class="bullet">›</span> Enterprise B2B Market Entry &amp; Pipeline Scaling</li>
+                  <li><span class="bullet">›</span> Regional Commercial Partnership Development</li>
                 </ul>
+                <div class="hud-stat-footer"><span>CORRIDOR: GCC ARABIA</span><span>STATUS: ONLINE</span></div>
               </div>
             </foreignObject>
           </g>
 
           <!-- 14. QATAR -->
           <g class="interactive-hub-group" tabindex="0">
-            <circle cx="600" cy="188" r="3.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1" />
-            <foreignObject x="520" y="200" width="230" height="120" class="hover-hud-card">
-              <div class="hud-popup-box" xmlns="http://www.w3.org/1999/xhtml">
-                <div class="hud-popup-title"><span>🇶🇦 QATAR</span><span class="hud-role-pill">DOHA</span></div>
-                <span class="hud-popup-tz">TIME: AST • DOHA</span>
+            <circle cx="600" cy="188" r="4" fill="#38bdf8" stroke="#ffffff" stroke-width="1" />
+            <text x="590" y="178" class="country-label">QATAR</text>
+            <foreignObject x="480" y="195" width="350" height="175" class="hover-hud-card">
+              <div class="hud-popup-box-large" xmlns="http://www.w3.org/1999/xhtml">
+                <div class="hud-popup-title"><span>🇶🇦 QATAR</span><span class="hud-role-pill">STRATEGIC HUB</span></div>
+                <span class="hud-popup-tz">TIME ZONE: AST • DOHA</span>
                 <ul class="hud-operations-list">
-                  <li><span class="bullet">›</span> Enterprise Strategic Partnerships</li>
+                  <li><span class="bullet">›</span> Sovereign Institutional Partnership Structuring</li>
+                  <li><span class="bullet">›</span> Cross-Border Technology Alignment</li>
                 </ul>
+                <div class="hud-stat-footer"><span>NETWORK: GULF REGION</span><span>STATUS: ACTIVE</span></div>
               </div>
             </foreignObject>
           </g>
@@ -693,51 +767,54 @@
           <g class="interactive-hub-group" tabindex="0">
             <circle cx="690" cy="205" r="16" fill="#10b981" class="node-ping" opacity="0.35" />
             <circle cx="690" cy="205" r="6" fill="#10b981" stroke="#ffffff" stroke-width="2" />
-            <text x="704" y="210" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">INDIA [CORE OPS]</text>
-            <foreignObject x="590" y="225" width="270" height="155" class="hover-hud-card">
-              <div class="hud-popup-box" xmlns="http://www.w3.org/1999/xhtml">
-                <div class="hud-popup-title"><span>🇮🇳 INDIA</span><span class="hud-role-pill">CORE OPS</span></div>
-                <span class="hud-popup-tz">TIME: IST (UTC+5:30) • DELHI NCR</span>
+            <text x="704" y="210" class="country-label" style="font-size:11px; fill:#10b981;">INDIA [CORE TECH OPS]</text>
+            <foreignObject x="560" y="225" width="380" height="215" class="hover-hud-card">
+              <div class="hud-popup-box-large" xmlns="http://www.w3.org/1999/xhtml">
+                <div class="hud-popup-title"><span>🇮🇳 INDIA</span><span class="hud-role-pill">DELIVERY ENGINE</span></div>
+                <span class="hud-popup-tz">TIME ZONE: IST (UTC+5:30) • DELHI NCR</span>
                 <ul class="hud-operations-list">
-                  <li><span class="bullet">›</span> Custom Software &amp; Mobile App Engineering</li>
-                  <li><span class="bullet">›</span> Advanced Technical SEO &amp; AEO Architecture</li>
-                  <li><span class="bullet">›</span> Bookkeeping &amp; Operational SOP Standardization</li>
-                  <li><span class="bullet">›</span> 60–75% Direct Technical Overhead Reduction</li>
+                  <li><span class="bullet">›</span> Custom Software, Static Web &amp; Mobile App Engineering</li>
+                  <li><span class="bullet">›</span> Advanced Technical SEO &amp; AEO Keyword Architectures</li>
+                  <li><span class="bullet">›</span> Financial Bookkeeping, Reconciliation &amp; SOP Standardization</li>
+                  <li><span class="bullet">›</span> Direct 60–75% Reduction in Ongoing Operating Overhead</li>
                 </ul>
+                <div class="hud-stat-footer"><span>CAPACITY: 24/7 EXECUTION</span><span>STATUS: ONLINE</span></div>
               </div>
             </foreignObject>
           </g>
 
           <!-- 16. SINGAPORE -->
           <g class="interactive-hub-group" tabindex="0">
-            <circle cx="760" cy="265" r="4.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
-            <text x="690" y="280" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10">SINGAPORE</text>
-            <foreignObject x="680" y="285" width="250" height="135" class="hover-hud-card">
-              <div class="hud-popup-box" xmlns="http://www.w3.org/1999/xhtml">
-                <div class="hud-popup-title"><span>🇸🇬 SINGAPORE</span><span class="hud-role-pill">ASEAN HUB</span></div>
-                <span class="hud-popup-tz">TIME: SGT (UTC+8)</span>
+            <circle cx="760" cy="265" r="5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
+            <text x="690" y="278" class="country-label">SINGAPORE</text>
+            <foreignObject x="650" y="285" width="360" height="180" class="hover-hud-card">
+              <div class="hud-popup-box-large" xmlns="http://www.w3.org/1999/xhtml">
+                <div class="hud-popup-title"><span>🇸🇬 SINGAPORE</span><span class="hud-role-pill">FINTECH HUB</span></div>
+                <span class="hud-popup-tz">TIME ZONE: SGT (UTC+8)</span>
                 <ul class="hud-operations-list">
-                  <li><span class="bullet">›</span> Southeast Asian Regional FinTech Alignment</li>
-                  <li><span class="bullet">›</span> Multi-Currency Regional Settlement Rails</li>
+                  <li><span class="bullet">›</span> Southeast Asian Regional FinTech Integration</li>
+                  <li><span class="bullet">›</span> Regional Multi-Currency Settlement Coordination</li>
                 </ul>
+                <div class="hud-stat-footer"><span>REGION: SOUTHEAST ASIA</span><span>STATUS: ACTIVE</span></div>
               </div>
             </foreignObject>
           </g>
 
           <!-- 17. HONG KONG & CHINA -->
           <g class="interactive-hub-group" tabindex="0">
-            <circle cx="790" cy="170" r="12" fill="#38bdf8" class="node-ping" opacity="0.25" />
-            <circle cx="790" cy="170" r="5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
-            <text x="802" y="166" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">HONG KONG / CHINA</text>
-            <foreignObject x="700" y="180" width="260" height="140" class="hover-hud-card">
-              <div class="hud-popup-box" xmlns="http://www.w3.org/1999/xhtml">
-                <div class="hud-popup-title"><span>🇭🇰 🇨🇳 HK &amp; CHINA</span><span class="hud-role-pill">TRADE</span></div>
-                <span class="hud-popup-tz">TIME: HKT (UTC+8)</span>
+            <circle cx="790" cy="170" r="13" fill="#38bdf8" class="node-ping" opacity="0.3" />
+            <circle cx="790" cy="170" r="5.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
+            <text x="802" y="166" class="country-label" style="fill:#38bdf8;">HONG KONG / CHINA</text>
+            <foreignObject x="680" y="180" width="380" height="195" class="hover-hud-card">
+              <div class="hud-popup-box-large" xmlns="http://www.w3.org/1999/xhtml">
+                <div class="hud-popup-title"><span>🇭🇰 🇨🇳 HONG KONG &amp; CHINA</span><span class="hud-role-pill">TRADE HUB</span></div>
+                <span class="hud-popup-tz">TIME ZONE: HKT (UTC+8) • HONG KONG &amp; SHENZHEN</span>
                 <ul class="hud-operations-list">
-                  <li><span class="bullet">›</span> Supply Chain Digital Integration &amp; Tracking</li>
-                  <li><span class="bullet">›</span> International Vendor Reconciliation Workflows</li>
-                  <li><span class="bullet">›</span> Cross-Border Commerce Data Protocols</li>
+                  <li><span class="bullet">›</span> Global Supply Chain Digital Tracking &amp; Vendor Management</li>
+                  <li><span class="bullet">›</span> International Trade Reconciliation &amp; Invoicing Protocols</li>
+                  <li><span class="bullet">›</span> Direct Vendor Oversight Eliminating Middleman Markups</li>
                 </ul>
+                <div class="hud-stat-footer"><span>LOGISTICS: ACTIVE CORRIDOR</span><span>STATUS: SYNCHRONIZED</span></div>
               </div>
             </foreignObject>
           </g>
@@ -745,65 +822,71 @@
           <!-- 18. JAPAN -->
           <g class="interactive-hub-group" tabindex="0">
             <circle cx="860" cy="140" r="4.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
-            <text x="872" y="144" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10">JAPAN</text>
-            <foreignObject x="750" y="155" width="240" height="130" class="hover-hud-card">
-              <div class="hud-popup-box" xmlns="http://www.w3.org/1999/xhtml">
-                <div class="hud-popup-title"><span>🇯🇵 JAPAN</span><span class="hud-role-pill">TECH</span></div>
-                <span class="hud-popup-tz">TIME: JST • TOKYO</span>
+            <text x="872" y="144" class="country-label">JAPAN</text>
+            <foreignObject x="720" y="155" width="350" height="175" class="hover-hud-card">
+              <div class="hud-popup-box-large" xmlns="http://www.w3.org/1999/xhtml">
+                <div class="hud-popup-title"><span>🇯🇵 JAPAN</span><span class="hud-role-pill">PRECISION QA</span></div>
+                <span class="hud-popup-tz">TIME ZONE: JST • TOKYO</span>
                 <ul class="hud-operations-list">
-                  <li><span class="bullet">›</span> Precision QA &amp; High-Reliability Software</li>
-                  <li><span class="bullet">›</span> East Asian Market Integration</li>
+                  <li><span class="bullet">›</span> High-Reliability Software Quality Assurance</li>
+                  <li><span class="bullet">›</span> East Asian Market Architecture Standards</li>
                 </ul>
+                <div class="hud-stat-footer"><span>STANDARDS: ISO QUALITY</span><span>STATUS: ACTIVE</span></div>
               </div>
             </foreignObject>
           </g>
 
           <!-- 19. PHILIPPINES -->
           <g class="interactive-hub-group" tabindex="0">
-            <circle cx="800" cy="230" r="12" fill="#38bdf8" class="node-ping" opacity="0.25" />
+            <circle cx="800" cy="230" r="12" fill="#38bdf8" class="node-ping" opacity="0.3" />
             <circle cx="800" cy="230" r="5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
-            <text x="812" y="235" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">PHILIPPINES</text>
-            <foreignObject x="720" y="245" width="250" height="140" class="hover-hud-card">
-              <div class="hud-popup-box" xmlns="http://www.w3.org/1999/xhtml">
+            <text x="812" y="235" class="country-label">PHILIPPINES</text>
+            <foreignObject x="690" y="245" width="370" height="190" class="hover-hud-card">
+              <div class="hud-popup-box-large" xmlns="http://www.w3.org/1999/xhtml">
                 <div class="hud-popup-title"><span>🇵🇭 PHILIPPINES</span><span class="hud-role-pill">24/7 SUPPORT</span></div>
-                <span class="hud-popup-tz">TIME: PHT (UTC+8) • MANILA</span>
+                <span class="hud-popup-tz">TIME ZONE: PHT (UTC+8) • MANILA HUB</span>
                 <ul class="hud-operations-list">
-                  <li><span class="bullet">›</span> 24/7 Live Commercial Execution &amp; Monitoring</li>
-                  <li><span class="bullet">›</span> Multichannel Customer Pipeline Management</li>
-                  <li><span class="bullet">›</span> Continuous Progress Without Western Overtime</li>
+                  <li><span class="bullet">›</span> 24/7 Continuous Execution &amp; Customer Pipeline QA</li>
+                  <li><span class="bullet">›</span> Targeted B2B Contact Research &amp; Database Enrichment</li>
+                  <li><span class="bullet">›</span> Continuous Progress Without Western Overtime Invoices</li>
                 </ul>
+                <div class="hud-stat-footer"><span>UPTIME: 24 HOURS / 365 DAYS</span><span>STATUS: CONNECTED</span></div>
               </div>
             </foreignObject>
           </g>
 
-          <!-- 20. AUSTRALIA -->
+          <!-- 20. AUSTRALIA (PACIFIC HUB) -->
           <g class="interactive-hub-group" tabindex="0">
-            <circle cx="820" cy="380" r="5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
-            <text x="832" y="384" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10">AUSTRALIA</text>
-            <foreignObject x="720" y="260" width="250" height="135" class="hover-hud-card">
-              <div class="hud-popup-box" xmlns="http://www.w3.org/1999/xhtml">
-                <div class="hud-popup-title"><span>🇦🇺 AUSTRALIA</span><span class="hud-role-pill">PACIFIC</span></div>
-                <span class="hud-popup-tz">TIME: AEST • SYDNEY</span>
+            <circle cx="820" cy="380" r="14" fill="#38bdf8" class="node-ping" opacity="0.35" />
+            <circle cx="820" cy="380" r="6" fill="#38bdf8" stroke="#ffffff" stroke-width="2" />
+            <text x="832" y="384" class="country-label" style="font-size:11px; fill:#38bdf8;">AUSTRALIA</text>
+            <foreignObject x="680" y="235" width="380" height="200" class="hover-hud-card">
+              <div class="hud-popup-box-large" xmlns="http://www.w3.org/1999/xhtml">
+                <div class="hud-popup-title"><span>🇦🇺 AUSTRALIA</span><span class="hud-role-pill">PACIFIC HUB</span></div>
+                <span class="hud-popup-tz">TIME ZONE: AEST (UTC+10) • SYDNEY &amp; MELBOURNE</span>
                 <ul class="hud-operations-list">
-                  <li><span class="bullet">›</span> Oceanic Enterprise Client Delivery</li>
-                  <li><span class="bullet">›</span> PayID &amp; AUD Domestic Bank Clearing</li>
+                  <li><span class="bullet">›</span> Oceanic Enterprise Client Growth &amp; Campaign Delivery</li>
+                  <li><span class="bullet">›</span> Direct PayID &amp; Australian Domestic Bank Clearing</li>
+                  <li><span class="bullet">›</span> Seamless Cross-Border Synchronization to NZ, Asia &amp; Gulf</li>
                 </ul>
+                <div class="hud-stat-footer"><span>RAIL: AUD DOMESTIC PAYID</span><span>STATUS: ACTIVE</span></div>
               </div>
             </foreignObject>
           </g>
 
           <!-- 21. NEW ZEALAND -->
           <g class="interactive-hub-group" tabindex="0">
-            <circle cx="890" cy="420" r="4.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
-            <text x="898" y="434" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="10">NZ</text>
-            <foreignObject x="720" y="300" width="240" height="130" class="hover-hud-card">
-              <div class="hud-popup-box" xmlns="http://www.w3.org/1999/xhtml">
+            <circle cx="890" cy="420" r="5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
+            <text x="898" y="434" class="country-label">NEW ZEALAND</text>
+            <foreignObject x="690" y="270" width="360" height="180" class="hover-hud-card">
+              <div class="hud-popup-box-large" xmlns="http://www.w3.org/1999/xhtml">
                 <div class="hud-popup-title"><span>🇳🇿 NEW ZEALAND</span><span class="hud-role-pill">NZD RAIL</span></div>
-                <span class="hud-popup-tz">TIME: NZST • AUCKLAND</span>
+                <span class="hud-popup-tz">TIME ZONE: NZST • AUCKLAND</span>
                 <ul class="hud-operations-list">
-                  <li><span class="bullet">›</span> Domestic NZD Bank Remittance</li>
-                  <li><span class="bullet">›</span> Pacific Rim Commercial Support</li>
+                  <li><span class="bullet">›</span> Domestic NZD Bank Transfer Rails (Zero FX Wire Fees)</li>
+                  <li><span class="bullet">›</span> Pacific Rim Commercial Strategy Support</li>
                 </ul>
+                <div class="hud-stat-footer"><span>RAIL: DOMESTIC NZD</span><span>STATUS: SYNCHRONIZED</span></div>
               </div>
             </foreignObject>
           </g>
@@ -832,7 +915,7 @@
             <tr>
               <td><span class="hub-badge">Europe</span></td>
               <td><strong>Austria, Germany, UK, Switzerland</strong></td>
-              <td>Vienna, Leoben, Frankfurt, London</td>
+              <td>Vienna, Leoben, Frankfurt, London, Zurich</td>
               <td>CET / GMT</td>
               <td>Strategic governance, mathematical modeling, and enterprise compliance</td>
               <td>European scientific rigor applied to unit economics</td>
@@ -844,6 +927,14 @@
               <td>EST / CST / PST</td>
               <td>Primary client engagements, business audits, and market scaling</td>
               <td>Domestic ACH/Wire clearing via Column Bank with zero fee deductions</td>
+            </tr>
+            <tr>
+              <td><span class="hub-badge">South America</span></td>
+              <td><strong>Brazil</strong></td>
+              <td>São Paulo</td>
+              <td>BRT (UTC-3)</td>
+              <td>Latin American commercial entry and multilingual conversion</td>
+              <td>Seamless cross-border Western hemisphere coverage</td>
             </tr>
             <tr>
               <td><span class="hub-badge">Africa</span></td>
@@ -881,7 +972,7 @@
               <td><span class="hub-badge">Southeast Asia &amp; Pacific</span></td>
               <td><strong>Philippines, Singapore, Australia, NZ</strong></td>
               <td>Manila, Singapore, Sydney, Auckland</td>
-              <td>PHT / SGT / AEST</td>
+              <td>PHT / SGT / AEST / NZST</td>
               <td>Around-the-clock operations support, live monitoring, and customer pipelines</td>
               <td>Continuous 24-hour progress without US/EU overtime billing</td>
             </tr>
