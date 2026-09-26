@@ -3,294 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Client Letters of Recommendation & Reviews | MainiTech Strategic Solutions</title>
-  <meta name="description" content="Verified corporate letters of recommendation, authenticated endorsements, and real Google reviews from US and international enterprise clients.">
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <title>Client Testimonials & Corporate Letters | MainiTech</title>
+  <meta name="description" content="Verified corporate recommendation letters and authentic 5-star Google reviews from enterprise clients across the US, Europe, and global remote markets.">
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://nakulmaini.github.io/mainitech/client-letters.html">
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-dark: #070d18;
-      --bg-card: #0b1220;
-      --primary-blue: #0284c7;
-      --accent-cyan: #38bdf8;
-      --accent-green: #10b981;
-      --text-main: #f8fafc;
-      --text-body: #cbd5e1;
-      --text-muted: #94a3b8;
-      --border-color: rgba(255, 255, 255, 0.08);
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-    
-    .site-header {
-      position: sticky;
-      top: 0;
-      background: rgba(7, 13, 24, 0.98);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-color);
-      z-index: 10000;
-    }
-    .nav-container {
-      max-width: 1280px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 24px;
-    }
-    .brand-logo { height: 44px; width: auto; display: block; }
-    .nav-menu { display: flex; align-items: center; gap: 14px; }
-    .nav-link {
-      color: var(--text-main);
-      font-weight: 600;
-      font-size: 14px;
-      text-decoration: none;
-      padding: 8px 10px;
-      transition: color 0.2s;
-    }
-    .nav-link:hover, .nav-link.active-nav { color: var(--accent-cyan); }
-    
-    .btn {
-      display: inline-block;
-      font-weight: 700;
-      font-size: 14px;
-      padding: 10px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      cursor: pointer;
-      border: none;
-      transition: all 0.2s;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, #0284c7, #0369a1);
-      color: #fff;
-    }
-    .btn-outline {
-      border: 1px solid var(--border-color);
-      color: var(--text-main);
-      background: transparent;
-    }
-    .btn-small { padding: 8px 14px; font-size: 12.5px; }
-    .btn-outline:hover { background: rgba(255, 255, 255, 0.05); }
-
-    .hero-section {
-      padding: 70px 0 40px;
-      text-align: center;
-      background: radial-gradient(circle at 50% 15%, rgba(2, 132, 199, 0.16) 0%, transparent 65%);
-    }
-    .hero-badge {
-      display: inline-block;
-      padding: 6px 14px;
-      background: rgba(56, 189, 248, 0.12);
-      color: var(--accent-cyan);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      border-radius: 30px;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-    .hero-title { font-size: 38px; font-weight: 800; margin-bottom: 12px; }
-    .hero-subtitle { font-size: 15.5px; color: var(--text-muted); max-width: 760px; margin: 0 auto; }
-
-    .about-section { padding: 50px 0; border-top: 1px solid var(--border-color); }
-    .section-header h2 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
-    .section-header p { color: var(--text-muted); font-size: 14px; margin-bottom: 30px; }
-    .text-center { text-align: center; }
-
-    .nda-banner {
-      background: rgba(16, 185, 129, 0.08);
-      border: 1px solid rgba(16, 185, 129, 0.25);
-      border-radius: 14px;
-      padding: 22px;
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      max-width: 1000px;
-      margin: 0 auto 36px;
-    }
-    .nda-icon { font-size: 28px; }
-    .nda-text h3 { font-size: 16px; color: var(--accent-green); margin-bottom: 4px; }
-    .nda-text p { font-size: 13px; color: var(--text-muted); margin: 0; }
-
-    /* Letters Grid */
-    .lor-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 22px;
-    }
-    .lor-card {
-      background: var(--bg-card);
-      border: 1px solid #1e293b;
-      padding: 24px;
-      border-radius: 16px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-      transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-    .lor-card:hover { transform: translateY(-3px); border-color: var(--accent-cyan); }
-    .lor-badge {
-      font-size: 11px;
-      color: var(--accent-cyan);
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
-    }
-    .lor-card h4 { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 4px; }
-    .lor-author { font-size: 13px; color: var(--text-muted); margin-bottom: 12px; }
-    .lor-quote { font-size: 13.5px; color: var(--text-body); line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
-
-    /* Google Reviews Component */
-    .reviews-section {
-      background: radial-gradient(circle at 50% 20%, rgba(2, 132, 199, 0.1) 0%, transparent 60%);
-      padding: 60px 0;
-      border-top: 1px solid var(--border-color);
-    }
-    .google-rating-header {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      margin-bottom: 30px;
-    }
-    .google-badge-box {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #0b1220;
-      border: 1px solid #1e293b;
-      padding: 8px 18px;
-      border-radius: 30px;
-    }
-    .google-g-icon { width: 18px !important; height: 18px !important; }
-    .google-stars { color: #f59e0b; font-size: 18px; letter-spacing: 2px; }
-    .reviews-live-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 22px;
-    }
-    .review-live-card {
-      background: #0b1220;
-      border: 1px solid #1e293b;
-      border-radius: 16px;
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    }
-    .reviewer-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
-    .reviewer-avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: #0284c7;
-      color: #fff;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .reviewer-info h4 { font-size: 15px; color: #fff; margin-bottom: 2px; }
-    .reviewer-info span { font-size: 12px; color: var(--text-muted); }
-    .review-text { font-size: 13.5px; color: var(--text-body); line-height: 1.6; margin-bottom: 14px; }
-    .review-card-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      padding-top: 12px;
-      font-size: 12px;
-      color: var(--accent-cyan);
-    }
-
-    /* Fixed Floating Multi-Channel Widget */
-    .multi-channel-contact-bar {
-      position: fixed !important;
-      bottom: 24px !important;
-      right: 24px !important;
-      background: #0b1220 !important;
-      border: 1.5px solid #1e293b !important;
-      border-radius: 50px !important;
-      padding: 6px 12px !important;
-      display: inline-flex !important;
-      align-items: center !important;
-      gap: 10px !important;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(56, 189, 248, 0.2) !important;
-      z-index: 99999 !important;
-      height: 52px !important;
-    }
-    .contact-bar-label {
-      font-size: 12px !important;
-      font-weight: 800 !important;
-      color: var(--accent-cyan) !important;
-      text-transform: uppercase !important;
-      letter-spacing: 1px !important;
-      padding-left: 6px !important;
-      white-space: nowrap !important;
-    }
-    .contact-icons-row { display: inline-flex !important; align-items: center !important; gap: 8px !important; }
-    .contact-action-icon {
-      position: relative !important;
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      width: 38px !important;
-      height: 38px !important;
-      border-radius: 50% !important;
-      text-decoration: none !important;
-      flex-shrink: 0 !important;
-    }
-    .icon-wa { background: #25D366 !important; }
-    .icon-ig { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%) !important; }
-    .icon-fb { background: #1877F2 !important; }
-    .contact-action-icon svg {
-      width: 20px !important;
-      height: 20px !important;
-      fill: #ffffff !important;
-      display: block !important;
-    }
-
-    /* Modal */
-    .modal-backdrop { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); z-index: 20000; justify-content: center; align-items: center; }
-    .modal-dialog { background: var(--bg-card); border: 1px solid var(--border-color); width: 90%; max-width: 900px; height: 85vh; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden; }
-    .modal-header { display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; border-bottom: 1px solid var(--border-color); }
-    .modal-header h4 { font-size: 15px; color: var(--text-main); }
-    .modal-close { background: none; border: none; color: var(--text-muted); font-size: 24px; cursor: pointer; }
-    .modal-body { flex-grow: 1; padding: 16px; display: flex; justify-content: center; align-items: center; }
-    .modal-body iframe, .modal-body img { width: 100%; height: 100%; border: none; object-fit: contain; }
-
-    .site-footer { border-top: 1px solid var(--border-color); padding: 26px 0; font-size: 13px; color: var(--text-muted); margin-top: 60px; }
-    .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; }
-    .footer-links a { color: var(--text-muted); text-decoration: none; margin-left: 14px; }
-    .footer-links a:hover { color: var(--text-main); }
-  </style>
 </head>
 <body>
 
   <!-- Navigation -->
   <header class="site-header">
     <div class="nav-container">
-      <a href="index.html" class="brand"><img src="logo.png" alt="MainiTech Strategic Solutions" class="brand-logo"></a>
+      <a href="index.html" class="brand"><img src="logo.png" alt="MainiTech" class="brand-logo"></a>
       <nav class="nav-menu">
-        <a href="about.html" class="nav-link">About</a>
+        <a href="index.html" class="nav-link">About</a>
         <a href="career-roadmap.html" class="nav-link">Career Roadmap</a>
-        <a href="services.html" class="nav-link">Strategic Services</a>
+        <a href="services.html" class="nav-link">Services</a>
         <a href="cost-advantage.html" class="nav-link">Cost Advantage</a>
-        <a href="client-letters.html" class="nav-link active-nav">Client Letters</a>
+        <a href="client-letters.html" class="nav-link active-nav">Testimonials</a>
         <a href="global-hubs.html" class="nav-link">Global Hubs</a>
         <a href="payments.html" class="nav-link">Payments</a>
         <a href="faq.html" class="nav-link">FAQ</a>
@@ -301,16 +34,63 @@
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- Hero Header -->
   <section class="hero-section">
     <div class="container hero-content">
       <div class="hero-badge">Authenticated Social Proof</div>
-      <h1 class="hero-title">Verified Corporate Proof & Signed Letters</h1>
-      <p class="hero-subtitle">Official endorsements on client letterhead and real-time Google Business Profile reviews confirming strategic leadership and measurable growth.</p>
+      <h1 class="hero-title">Client Testimonials & Signed Letters</h1>
+      <p class="hero-subtitle">Real-time verified Google Business Profile ratings and signed corporate letterheads from enterprise CEOs and founders worldwide.</p>
     </div>
   </section>
 
-  <!-- 8 Corporate Letters -->
+  <!-- Marquee of Live Google Reviews -->
+  <section class="about-section" style="padding-top: 10px;">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>Live Google Business Profile Reviews</h2>
+        <p>Continuous rotating stream of 5.0★ feedback verified directly on Google Maps.</p>
+      </div>
+
+      <div class="marquee-container">
+        <div class="marquee-content">
+          <div class="review-marquee-card">
+            <div class="reviewer-meta">
+              <div class="reviewer-avatar">YT</div>
+              <div class="reviewer-info"><h4>Yuan Turk</h4><span>CEO, Matrix Credit Info</span></div>
+            </div>
+            <p class="review-text">"Nakul has demonstrated strong technical knowledge, problem-solving skills, and a professional approach. He understands the business side of technology."</p>
+            <div class="review-card-footer"><span>Verified Google Review</span><span>★★★★★</span></div>
+          </div>
+          <div class="review-marquee-card">
+            <div class="reviewer-meta">
+              <div class="reviewer-avatar">AA</div>
+              <div class="reviewer-info"><h4>Ardes A.</h4><span>Director, Arts Development Music</span></div>
+            </div>
+            <p class="review-text">"Nakul made valuable contributions in business strategy, process improvement, and operational efficiency. What stood out was his ability to look beyond the immediate problem."</p>
+            <div class="review-card-footer"><span>Verified Google Review</span><span>★★★★★</span></div>
+          </div>
+          <div class="review-marquee-card">
+            <div class="reviewer-meta">
+              <div class="reviewer-avatar">JA</div>
+              <div class="reviewer-info"><h4>James Alcide</h4><span>Owner, Alayjiah Cleaning</span></div>
+            </div>
+            <p class="review-text">"Nakul has a rare ability to break down ambiguous challenges, identify what truly matters, and craft clear actionable roadmaps. He is thorough in research and sound in judgment."</p>
+            <div class="review-card-footer"><span>Verified Google Review</span><span>★★★★★</span></div>
+          </div>
+          <div class="review-marquee-card">
+            <div class="reviewer-meta">
+              <div class="reviewer-avatar">AG</div>
+              <div class="reviewer-info"><h4>Alex Gomez</h4><span>Owner, Audio Clinic Hearing</span></div>
+            </div>
+            <p class="review-text">"My extensive recommendation for Nakul Maini, who gave me great ideas on how to improve my business. Mr. Maini invests time to understand the idea I want to express."</p>
+            <div class="review-card-footer"><span>Verified Google Review</span><span>★★★★★</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signed Corporate Letterheads -->
   <section class="about-section">
     <div class="container">
       <div class="nda-banner">
@@ -326,7 +106,7 @@
           <span class="lor-badge">Letterhead • USA</span>
           <h4>Matrix Credit Info</h4>
           <p class="lor-author"><strong>Yuan Turk</strong>, CEO</p>
-          <p class="lor-quote">"Nakul has demonstrated strong technical knowledge, excellent problem-solving skills, and a professional approach... He understands the business side of technology to find practical solutions that improve efficiency."</p>
+          <p class="lor-quote">"Nakul has demonstrated strong technical knowledge, excellent problem-solving skills, and a professional approach... He understands the business side of technology to find practical solutions."</p>
           <button class="btn btn-outline btn-small" onclick="openPdfModal('recommendations/matrix-credit-info.pdf', 'Matrix Credit Info')">View Official Letter (PDF)</button>
         </div>
 
@@ -334,7 +114,7 @@
           <span class="lor-badge">Letterhead • California, USA</span>
           <h4>Arts Development Music</h4>
           <p class="lor-author"><strong>Ardes A.</strong>, Director</p>
-          <p class="lor-quote">"Nakul made valuable contributions in business strategy, process improvement, and operational efficiency... What stood out was his ability to look beyond the immediate problem and understand the broader objective."</p>
+          <p class="lor-quote">"Nakul made valuable contributions in business strategy, process improvement, and operational efficiency... What stood out was his ability to look beyond the immediate problem."</p>
           <button class="btn btn-outline btn-small" onclick="openPdfModal('recommendations/arts-development-music.pdf', 'Arts Development School of Music')">View Official Letter (PDF)</button>
         </div>
 
@@ -342,7 +122,7 @@
           <span class="lor-badge">Letterhead • New York, USA</span>
           <h4>Alayjiah Cleaning</h4>
           <p class="lor-author"><strong>James Alcide</strong>, Owner</p>
-          <p class="lor-quote">"Nakul has a rare ability to break down ambiguous challenges, identify what truly matters, and craft clear, actionable strategies. He is thorough in research, sound in judgment, and always presents with clarity."</p>
+          <p class="lor-quote">"Nakul has a rare ability to break down ambiguous challenges, identify what truly matters, and craft clear, actionable strategies. He is thorough in research and sound in judgment."</p>
           <button class="btn btn-outline btn-small" onclick="openPdfModal('recommendations/alayjiah-cleaning.pdf', 'Alayjiah Cleaning Services')">View Official Letter (PDF)</button>
         </div>
 
@@ -350,7 +130,7 @@
           <span class="lor-badge">Letterhead • Texas, USA</span>
           <h4>Audio Clinic Hearing</h4>
           <p class="lor-author"><strong>Alex Gomez</strong>, Owner</p>
-          <p class="lor-quote">"My extensive recommendation for Nakul Maini, who gave me great ideas on how to improve my business... Mr. Maini invests time to understand the idea I want to express and suggests real business opportunities."</p>
+          <p class="lor-quote">"My extensive recommendation for Nakul Maini, who gave me great ideas on how to improve my business... Mr. Maini invests time to understand the idea I want to express."</p>
           <button class="btn btn-outline btn-small" onclick="openPdfModal('recommendations/audio-clinic-hearing.pdf', 'Audio Clinic Hearing Aids')">View Official Letter (PDF)</button>
         </div>
 
@@ -389,77 +169,62 @@
     </div>
   </section>
 
-  <!-- Live Google Reviews Integrated Directly Under LORs -->
-  <section class="reviews-section">
-    <div class="container">
+  <!-- 8 Dedicated Testimonial FAQs -->
+  <section class="about-section">
+    <div class="container faq-container">
       <div class="section-header text-center">
-        <h2>Live Google Business Profile Reviews</h2>
-        <p>Verified client ratings and feedback authenticated on Google Maps.</p>
+        <h2>Testimonials & Verification FAQs</h2>
+        <p>Details on how our letters are authenticated, client privacy policies, and non-disclosure guarantees.</p>
       </div>
-
-      <div class="google-rating-header">
-        <div class="google-badge-box">
-          <svg class="google-g-icon" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
-          <strong>5.0 Star Rating</strong>
-        </div>
-        <div class="google-stars">★★★★★</div>
-      </div>
-
-      <div class="reviews-live-grid">
-        <div class="review-live-card">
-          <div>
-            <div class="reviewer-meta">
-              <div class="reviewer-avatar">YT</div>
-              <div class="reviewer-info">
-                <h4>Yuan Turk</h4>
-                <span>CEO, Matrix Credit Info • Verified Client</span>
-              </div>
-            </div>
-            <p class="review-text">"Nakul has demonstrated strong technical knowledge, excellent problem-solving skills, and a professional approach. He understands the commercial side of technology to find practical solutions that improve business efficiency."</p>
-          </div>
-          <div class="review-card-footer">
-            <span>Verified Google Review</span>
-            <span>★★★★★</span>
+      <div class="faq-accordion">
+        <div class="faq-item active">
+          <button class="faq-question">1. How are these recommendation letters authenticated? <span class="faq-icon">−</span></button>
+          <div class="faq-answer">
+            <p>Every letter displayed on this page is an official corporate document signed directly by the business owner, CEO, or director on their legal corporate letterhead. PDF copies can be viewed directly using the modal buttons above.</p>
           </div>
         </div>
-
-        <div class="review-live-card">
-          <div>
-            <div class="reviewer-meta">
-              <div class="reviewer-avatar">AA</div>
-              <div class="reviewer-info">
-                <h4>Ardes A.</h4>
-                <span>Director, Arts Development Music • Verified Client</span>
-              </div>
-            </div>
-            <p class="review-text">"Nakul made valuable contributions in business strategy, process improvement, and operational efficiency. What stood out was his ability to look beyond the immediate problem and architect a broader objective."</p>
-          </div>
-          <div class="review-card-footer">
-            <span>Verified Google Review</span>
-            <span>★★★★★</span>
+        <div class="faq-item">
+          <button class="faq-question">2. Why are client reviews and letters displayed publicly? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>Transparency is the foundation of our strategic advisory. Unlike consultants who hide behind anonymous claims, our enterprise clients have formally authorized their letterheads and public Google reviews to verify our commercial performance.</p>
           </div>
         </div>
-
-        <div class="review-live-card">
-          <div>
-            <div class="reviewer-meta">
-              <div class="reviewer-avatar">JA</div>
-              <div class="reviewer-info">
-                <h4>James Alcide</h4>
-                <span>Owner, Alayjiah Cleaning • Verified Client</span>
-              </div>
-            </div>
-            <p class="review-text">"Nakul has a rare ability to break down ambiguous challenges, identify what truly matters, and craft clear actionable roadmaps. He is thorough in research, sound in judgment, and always delivers with clarity."</p>
-          </div>
-          <div class="review-card-footer">
-            <span>Verified Google Review</span>
-            <span>★★★★★</span>
+        <div class="faq-item">
+          <button class="faq-question">3. How do you protect client confidentiality while publishing testimonials? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>We execute strict Non-Disclosure Agreements with every client. Letters and testimonials are shared only with explicit written consent, and all proprietary customer data, internal financials, and competitive advantages are permanently redacted.</p>
           </div>
         </div>
-      </div>
-
-      <div class="text-center" style="margin-top: 30px;">
-        <a href="https://share.google/JL2wEK9SdCHePlojt" target="_blank" rel="noopener" class="btn btn-outline">Read Live Reviews on Google Maps ↗</a>
+        <div class="faq-item">
+          <button class="faq-question">4. Why shouldn't businesses trust agencies with unverified claims? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>Many digital agencies display fabricated quotes and stock headshots. Working with unverified vendors leads to wasted ad spend, damaged search reputations, and zero accountability. Always demand signed corporate letterheads and verifiable Google Maps reviews.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">5. Can I speak with one of your existing clients as a reference? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>Yes. Upon signing an initial NDA and scoping your project requirements, reference calls with active enterprise partners can be arranged subject to their availability.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">6. What industries do your recommendation letters represent? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>Our signed letters span B2B SaaS, credit reporting agencies, music academies, commercial cleaning enterprises, healthcare clinics, e-commerce, and specialized insurance operations across the United States and Europe.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">7. How does a client submit a review after an engagement? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>Upon completing major strategic milestones, clients are invited to submit verified feedback on our public Google Business Profile and provide an official corporate letter summarizing their operational ROI.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">8. What guarantees do you offer for new client engagements? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>We guarantee complete territorial exclusivity within your market niche, transparent bi-weekly milestone deliverables, and binding NDA protection before any work begins.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -495,17 +260,32 @@
     <div class="container footer-content">
       <div class="footer-left"><p>&copy; 2026 MainiTech Strategic Solutions. All rights reserved.</p></div>
       <div class="footer-links">
-        <a href="about.html">About</a>
+        <a href="index.html">About</a>
         <a href="career-roadmap.html">Roadmap</a>
         <a href="services.html">Services</a>
-        <a href="cost-advantage.html">Advantage</a>
-        <a href="client-letters.html">Client Letters</a>
+        <a href="cost-advantage.html">Cost Advantage</a>
+        <a href="client-letters.html">Testimonials</a>
         <a href="payments.html">Payments</a>
       </div>
     </div>
   </footer>
 
   <script>
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.onclick = function() {
+        const item = this.parentElement;
+        const isOpen = item.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('active');
+          const icon = i.querySelector('.faq-icon');
+          if (icon) icon.innerText = '+';
+        });
+        if (!isOpen) {
+          item.classList.add('active');
+          this.querySelector('.faq-icon').innerText = '−';
+        }
+      };
+    });
     function openPdfModal(fileUrl, title) {
       const modal = document.getElementById('document-modal');
       document.getElementById('modal-title').innerText = title;
