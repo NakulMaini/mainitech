@@ -3,222 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zero-Fee International Settlement Rails | MainiTech Strategic Solutions</title>
-  <meta name="description" content="Settle advisory sprints and strategic retainers natively in your domestic currency with zero international wire deductions via local clearing rails or instant checkout.">
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <title>Accepted Currencies & Payment Methods | MainiTech</title>
+  <meta name="description" content="Settle advisory sprints and strategic retainers natively in your domestic currency with zero international wire deductions. Supported payment rails and methods.">
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://nakulmaini.github.io/mainitech/payments.html">
+  <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-dark: #070d18;
-      --bg-card: #0b1220;
-      --primary-blue: #0284c7;
-      --accent-cyan: #38bdf8;
-      --accent-green: #10b981;
-      --text-main: #f8fafc;
-      --text-body: #cbd5e1;
-      --text-muted: #94a3b8;
-      --border-color: rgba(255, 255, 255, 0.08);
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-    
-    .site-header {
-      position: sticky;
-      top: 0;
-      background: rgba(7, 13, 24, 0.98);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-color);
-      z-index: 10000;
-    }
-    .nav-container {
-      max-width: 1280px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 24px;
-    }
-    .brand-logo { height: 44px; width: auto; display: block; }
-    .nav-menu { display: flex; align-items: center; gap: 14px; }
-    .nav-link {
-      color: var(--text-main);
-      font-weight: 600;
-      font-size: 14px;
-      text-decoration: none;
-      padding: 8px 10px;
-      transition: color 0.2s;
-    }
-    .nav-link:hover, .nav-link.active-nav { color: var(--accent-cyan); }
-    
-    .btn {
-      display: inline-block;
-      font-weight: 700;
-      font-size: 14px;
-      padding: 10px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      cursor: pointer;
-      border: none;
-      transition: all 0.2s;
-    }
-    .btn-primary { background: linear-gradient(135deg, #0284c7, #0369a1); color: #fff; }
-    .btn-large { padding: 14px 28px; font-size: 15px; }
-
-    .hero-section {
-      padding: 70px 0 40px;
-      text-align: center;
-      background: radial-gradient(circle at 50% 15%, rgba(2, 132, 199, 0.16) 0%, transparent 65%);
-    }
-    .hero-badge {
-      display: inline-block;
-      padding: 6px 14px;
-      background: rgba(56, 189, 248, 0.12);
-      color: var(--accent-cyan);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      border-radius: 30px;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-    .hero-title { font-size: 38px; font-weight: 800; margin-bottom: 12px; }
-    .hero-subtitle { font-size: 15.5px; color: var(--text-muted); max-width: 760px; margin: 0 auto; }
-
-    .about-section { padding: 50px 0; border-top: 1px solid var(--border-color); }
-    .section-header h2 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
-    .section-header p { color: var(--text-muted); font-size: 14px; margin-bottom: 30px; }
-    .text-center { text-align: center; }
-
-    /* Security Notice */
-    .security-notice-box {
-      background: rgba(16, 185, 129, 0.08);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      border-radius: 14px;
-      padding: 20px 24px;
-      max-width: 980px;
-      margin: 0 auto 36px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .security-icon { font-size: 24px; flex-shrink: 0; }
-    .security-notice-box p { font-size: 13.5px; color: var(--text-body); margin: 0; }
-
-    /* Rails Grid */
-    .rails-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      max-width: 1040px;
-      margin: 0 auto 40px;
-    }
-    .rail-card {
-      background: var(--bg-card);
-      border: 1px solid #1e293b;
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-    .rail-card:hover { transform: translateY(-3px); border-color: var(--accent-cyan); }
-    .rail-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
-    .rail-flag-wrap { display: flex; align-items: center; gap: 10px; }
-    .rail-flag { font-size: 24px; }
-    .rail-name { font-size: 16px; font-weight: 800; color: #fff; }
-    .rail-tag {
-      font-size: 11px;
-      font-weight: 800;
-      color: var(--accent-green);
-      background: rgba(16, 185, 129, 0.12);
-      padding: 3px 8px;
-      border-radius: 6px;
-      text-transform: uppercase;
-    }
-    .rail-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.5; margin-bottom: 14px; }
-    .rail-specs { list-style: none; padding: 0; margin: 0; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 12px; }
-    .rail-specs li { font-size: 12.5px; color: var(--text-body); display: flex; justify-content: space-between; padding: 4px 0; }
-    .spec-label { color: var(--text-muted); }
-    .spec-val { font-weight: 700; color: #fff; }
-
-    /* Instant Checkout Highlight */
-    .instant-checkout-card {
-      max-width: 1040px;
-      margin: 0 auto;
-      background: radial-gradient(circle at 50% 0%, rgba(255, 196, 57, 0.1) 0%, #0b1220 70%);
-      border: 1.5px solid rgba(255, 196, 57, 0.35);
-      border-radius: 20px;
-      padding: 36px 28px;
-      text-align: center;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.6);
-    }
-    .instant-checkout-card h3 { font-size: 24px; color: #fff; margin-bottom: 8px; }
-    .instant-checkout-card p { font-size: 14.5px; color: var(--text-body); max-width: 680px; margin: 0 auto 24px; }
-    .paypal-btn {
-      background: #ffc439;
-      color: #111;
-      font-weight: 800;
-      font-size: 15px;
-      padding: 15px 36px;
-      border-radius: 50px;
-      text-decoration: none;
-      display: inline-block;
-      transition: all 0.2s;
-    }
-    .paypal-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255, 196, 57, 0.35); }
-
-    .multi-channel-contact-bar {
-      position: fixed !important;
-      bottom: 24px !important;
-      right: 24px !important;
-      background: #0b1220 !important;
-      border: 1.5px solid #1e293b !important;
-      border-radius: 50px !important;
-      padding: 6px 12px !important;
-      display: inline-flex !important;
-      align-items: center !important;
-      gap: 10px !important;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8) !important;
-      z-index: 99999 !important;
-      height: 52px !important;
-    }
-    .contact-bar-label { font-size: 12px; font-weight: 800; color: var(--accent-cyan); text-transform: uppercase; white-space: nowrap; }
-    .contact-icons-row { display: inline-flex; gap: 8px; }
-    .contact-action-icon { width: 38px; height: 38px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; flex-shrink: 0; }
-    .icon-wa { background: #25D366; }
-    .icon-ig { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
-    .icon-fb { background: #1877F2; }
-    .contact-action-icon svg { width: 20px; height: 20px; fill: #fff; display: block; }
-
-    .site-footer { border-top: 1px solid var(--border-color); padding: 26px 0; font-size: 13px; color: var(--text-muted); margin-top: 60px; }
-    .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; }
-    .footer-links a { color: var(--text-muted); text-decoration: none; margin-left: 14px; }
-    .footer-links a:hover { color: var(--text-main); }
-  </style>
 </head>
 <body>
 
   <!-- Navigation -->
   <header class="site-header">
     <div class="nav-container">
-      <a href="index.html" class="brand"><img src="logo.png" alt="MainiTech Strategic Solutions" class="brand-logo"></a>
+      <a href="index.html" class="brand"><img src="logo.png" alt="MainiTech" class="brand-logo"></a>
       <nav class="nav-menu">
-        <a href="about.html" class="nav-link">About</a>
+        <a href="index.html" class="nav-link">About</a>
         <a href="career-roadmap.html" class="nav-link">Career Roadmap</a>
-        <a href="services.html" class="nav-link">Strategic Services</a>
+        <a href="services.html" class="nav-link">Services</a>
         <a href="cost-advantage.html" class="nav-link">Cost Advantage</a>
-        <a href="client-letters.html" class="nav-link">Client Letters</a>
+        <a href="client-letters.html" class="nav-link">Testimonials</a>
         <a href="global-hubs.html" class="nav-link">Global Hubs</a>
         <a href="payments.html" class="nav-link active-nav">Payments</a>
         <a href="faq.html" class="nav-link">FAQ</a>
@@ -229,143 +34,144 @@
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- Hero Header -->
   <section class="hero-section">
     <div class="container hero-content">
-      <div class="hero-badge">Zero International Deduction Rails</div>
-      <h1 class="hero-title">Accepted Currencies & Settlement Rails</h1>
-      <p class="hero-subtitle">Settle retainers and strategic sprint milestones directly through domestic banking clearing systems without international wire fees or foreign exchange markups.</p>
+      <div class="hero-badge">Multi-Currency Domestic Clearing</div>
+      <h1 class="hero-title">Accepted Currencies & Payment Rails</h1>
+      <p class="hero-subtitle">Settle strategy retainers and sprint milestones natively through domestic banking rails without international wire fees or bank exchange deductions.</p>
     </div>
   </section>
 
-  <!-- Enterprise Security Protocol Banner -->
+  <!-- Security Protocol Notice -->
   <section class="about-section" style="padding-top: 10px;">
     <div class="container">
-      <div class="security-notice-box">
-        <div class="security-icon">🔒</div>
-        <p><strong>Enterprise Security & Invoicing Protocol:</strong> To safeguard client accounts from automated scraping and unauthorized direct debits, full domestic clearing numbers and routing instructions are issued exclusively on official contract agreements and PDF invoices upon project authorization.</p>
+      <div class="nda-banner" style="background: rgba(56, 189, 248, 0.08); border-color: rgba(56, 189, 248, 0.3);">
+        <div class="nda-icon">🔒</div>
+        <div class="nda-text">
+          <h3 style="color: var(--accent-cyan);">Enterprise Banking Security Notice</h3>
+          <p>To protect corporate accounts from scraping and unauthorized debits, raw bank routing coordinates and clearing numbers are issued exclusively on official contract letterheads and digital invoices upon agreement execution.</p>
+        </div>
       </div>
 
+      <!-- 3D Rotating Currency Cards -->
       <div class="section-header text-center">
-        <h2>Supported Sovereign Currencies & Clearing Rails</h2>
-        <p>Clients can remit local transfers directly across the following domestic clearing systems:</p>
+        <h2>Supported Sovereign Currencies</h2>
+        <p>Direct domestic settlement supported across major world currencies.</p>
       </div>
 
-      <div class="rails-grid">
-        <!-- USD -->
-        <div class="rail-card">
-          <div>
-            <div class="rail-header">
-              <div class="rail-flag-wrap">
-                <span class="rail-flag">🇺🇸</span>
-                <span class="rail-name">United States Dollar (USD)</span>
-              </div>
-              <span class="rail-tag">Zero Wire Fee</span>
-            </div>
-            <p class="rail-desc">Direct domestic clearing through Column Bank & Wise US Inc. for all corporate clients across the 50 US states.</p>
-          </div>
-          <ul class="rail-specs">
-            <li><span class="spec-label">Accepted Formats:</span> <span class="spec-val">ACH, Fedwire, Direct Deposit</span></li>
-            <li><span class="spec-label">Settlement Time:</span> <span class="spec-val">Instant – Same Day</span></li>
-          </ul>
+      <div class="currency-3d-grid">
+        <div class="currency-3d-card">
+          <div class="currency-symbol-orb">$</div>
+          <div class="currency-name-code">USD</div>
+          <div class="currency-sub">United States Dollar</div>
         </div>
-
-        <!-- EUR -->
-        <div class="rail-card">
-          <div>
-            <div class="rail-header">
-              <div class="rail-flag-wrap">
-                <span class="rail-flag">🇪🇺</span>
-                <span class="rail-name">Eurozone (EUR)</span>
-              </div>
-              <span class="rail-tag">SEPA Instant</span>
-            </div>
-            <p class="rail-desc">Direct European clearing via Wise Europe (Brussels) covering all 27 EU member states, Austria, and Switzerland.</p>
-          </div>
-          <ul class="rail-specs">
-            <li><span class="spec-label">Accepted Formats:</span> <span class="spec-val">SEPA Credit Transfer, SEPA Instant</span></li>
-            <li><span class="spec-label">Settlement Time:</span> <span class="spec-val">Instant (Seconds)</span></li>
-          </ul>
+        <div class="currency-3d-card">
+          <div class="currency-symbol-orb">€</div>
+          <div class="currency-name-code">EUR</div>
+          <div class="currency-sub">Eurozone (SEPA Instant)</div>
         </div>
-
-        <!-- GBP -->
-        <div class="rail-card">
-          <div>
-            <div class="rail-header">
-              <div class="rail-flag-wrap">
-                <span class="rail-flag">🇬🇧</span>
-                <span class="rail-name">British Pound (GBP)</span>
-              </div>
-              <span class="rail-tag">FPS Supported</span>
-            </div>
-            <p class="rail-desc">Direct UK domestic settlement enabling instantaneous sterling transfers for United Kingdom enterprises.</p>
-          </div>
-          <ul class="rail-specs">
-            <li><span class="spec-label">Accepted Formats:</span> <span class="spec-val">Faster Payments System (FPS), BACS</span></li>
-            <li><span class="spec-label">Settlement Time:</span> <span class="spec-val">Instant</span></li>
-          </ul>
+        <div class="currency-3d-card">
+          <div class="currency-symbol-orb">£</div>
+          <div class="currency-name-code">GBP</div>
+          <div class="currency-sub">British Pound (Faster Payments)</div>
         </div>
-
-        <!-- CAD -->
-        <div class="rail-card">
-          <div>
-            <div class="rail-header">
-              <div class="rail-flag-wrap">
-                <span class="rail-flag">🇨🇦</span>
-                <span class="rail-name">Canadian Dollar (CAD)</span>
-              </div>
-              <span class="rail-tag">EFT Direct</span>
-            </div>
-            <p class="rail-desc">Direct Canadian clearing via EFT direct deposit across all major Canadian financial institutions.</p>
-          </div>
-          <ul class="rail-specs">
-            <li><span class="spec-label">Accepted Formats:</span> <span class="spec-val">Electronic Funds Transfer (EFT)</span></li>
-            <li><span class="spec-label">Settlement Time:</span> <span class="spec-val">1 – 2 Business Days</span></li>
-          </ul>
+        <div class="currency-3d-card">
+          <div class="currency-symbol-orb">C$</div>
+          <div class="currency-name-code">CAD</div>
+          <div class="currency-sub">Canadian Dollar (EFT)</div>
         </div>
-
-        <!-- NZD & AUD -->
-        <div class="rail-card">
-          <div>
-            <div class="rail-header">
-              <div class="rail-flag-wrap">
-                <span class="rail-flag">🇳🇿 🇦🇺</span>
-                <span class="rail-name">NZD & Australian Dollar</span>
-              </div>
-              <span class="rail-tag">Domestic Rail</span>
-            </div>
-            <p class="rail-desc">Direct local clearing via Wise Payments NZ and Australian domestic bank rails.</p>
-          </div>
-          <ul class="rail-specs">
-            <li><span class="spec-label">Accepted Formats:</span> <span class="spec-val">Direct Bank Transfer, PayID</span></li>
-            <li><span class="spec-label">Settlement Time:</span> <span class="spec-val">Same Day</span></li>
-          </ul>
+        <div class="currency-3d-card">
+          <div class="currency-symbol-orb">NZ$</div>
+          <div class="currency-name-code">NZD</div>
+          <div class="currency-sub">New Zealand Dollar</div>
         </div>
-
-        <!-- Global Invoicing -->
-        <div class="rail-card">
-          <div>
-            <div class="rail-header">
-              <div class="rail-flag-wrap">
-                <span class="rail-flag">🌐</span>
-                <span class="rail-name">Corporate Invoicing</span>
-              </div>
-              <span class="rail-tag">Formal NDA</span>
-            </div>
-            <p class="rail-desc">Custom retainer billing configured with binding terms, clear project milestones, and designated tax receipts.</p>
-          </div>
-          <ul class="rail-specs">
-            <li><span class="spec-label">Delivery Format:</span> <span class="spec-val">Verified Digital PDF Invoice</span></li>
-            <li><span class="spec-label">Exclusivity:</span> <span class="spec-val">Non-Compete Verified</span></li>
-          </ul>
+        <div class="currency-3d-card">
+          <div class="currency-symbol-orb">A$</div>
+          <div class="currency-name-code">AUD</div>
+          <div class="currency-sub">Australian Dollar (PayID)</div>
         </div>
       </div>
 
-      <!-- Instant Checkout Option -->
-      <div class="instant-checkout-card">
-        <h3>Credit Card, Debit Card & Instant Checkout</h3>
-        <p>For immediate milestone authorizations, audit retainer deposits, or fractional strategic sprints, clients can check out securely online via verified commercial card processing.</p>
-        <a href="https://paypal.me/mainitech" target="_blank" rel="noopener" class="paypal-btn">Pay via Verified Gateway (PayPal.Me/mainitech) ↗</a>
+      <!-- Accepted Payment Methods -->
+      <div class="section-header text-center" style="margin-top: 50px;">
+        <h2>Accepted Payment Formats & Transfer Rails</h2>
+        <p>Multiple flexible transfer options configured for corporate accounting teams.</p>
+      </div>
+
+      <div class="payment-methods-grid">
+        <div class="method-box"><span>🏦</span>Domestic ACH Transfer</div>
+        <div class="method-box"><span>⚡</span>Domestic Wire Transfer</div>
+        <div class="method-box"><span>🇪🇺</span>SEPA / SEPA Instant</div>
+        <div class="method-box"><span>🇬🇧</span>Faster Payments (FPS)</div>
+        <div class="method-box"><span>💳</span>Credit / Debit Cards</div>
+        <div class="method-box"><span>🅿️</span>PayPal Gateway</div>
+        <div class="method-box"><span>📱</span>Venmo Commercial</div>
+        <div class="method-box"><span>📄</span>Corporate Digital Invoicing</div>
+      </div>
+
+      <div class="text-center">
+        <a href="https://calendar.app.google/7iYHbqazTM81eosA7" target="_blank" rel="noopener" class="btn btn-primary btn-large">Schedule a Strategic Discovery Call ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 Dedicated Payment & Invoicing FAQs -->
+  <section class="about-section">
+    <div class="container faq-container">
+      <div class="section-header text-center">
+        <h2>Payments & Invoicing FAQs</h2>
+        <p>Everything you need to know about currency settlement, invoicing formats, and payment terms.</p>
+      </div>
+      <div class="faq-accordion">
+        <div class="faq-item active">
+          <button class="faq-question">1. Why are raw bank account numbers not displayed publicly? <span class="faq-icon">−</span></button>
+          <div class="faq-answer">
+            <p>Displaying domestic routing and account numbers on public websites creates severe exposure to automated scrapers, credential fraud, and unauthorized direct debit (ACH) attempts. In line with enterprise corporate standards, exact domestic clearing coordinates are delivered directly on verified contract letterheads and digital invoices upon agreement signing.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">2. Will my company incur international wire fees? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>No. We operate domestic clearing rails across the United States (Column Bank), Eurozone (Wise Europe), United Kingdom (Faster Payments), Canada, and New Zealand. You transfer funds domestically just like paying a local vendor in your home market.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">3. Can we pay via Credit Card or Corporate Debit Card? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>Yes. We support all major commercial credit and debit cards (Visa, Mastercard, American Express) through secure online card processing for immediate sprint authorizations.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">4. How are formal digital invoices delivered? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>Upon milestone authorization, our finance team issues a formal PDF invoice containing verified corporate letterhead, project milestones, tax identifiers, and designated domestic bank clearing coordinates.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">5. Do you accept payments in cryptocurrencies? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>We prioritize sovereign currencies (USD, EUR, GBP, CAD, AUD, NZD) via domestic banking clearing systems to ensure clean accounting reconciliation, standard corporate tax receipts, and audit transparency.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">6. What are the payment terms for multi-month retainer packages? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>Multi-month compounding retainers (Quarterly, Half-Yearly, Annual) feature dedicated pre-paid incentives (up to 20% savings) settled upfront at the start of the horizon, or can be structured into pre-agreed milestone disbursements.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">7. Can we pay via PayPal or Venmo? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>Yes. Commercial payment requests can be processed securely via PayPal or Venmo upon invoice issuance for clients preferring instant merchant checkout.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">8. What is the process for executing our first engagement invoice? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+            <p>Book a free discovery call to scope your sprint objectives. Once terms are mutually approved, we execute our mutual NDA, issue the initial project agreement, and provide your dedicated domestic settlement invoice.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -390,14 +196,32 @@
     <div class="container footer-content">
       <div class="footer-left"><p>&copy; 2026 MainiTech Strategic Solutions. All rights reserved.</p></div>
       <div class="footer-links">
-        <a href="about.html">About</a>
+        <a href="index.html">About</a>
         <a href="career-roadmap.html">Roadmap</a>
         <a href="services.html">Services</a>
-        <a href="cost-advantage.html">Advantage</a>
-        <a href="client-letters.html">Client Letters</a>
+        <a href="cost-advantage.html">Cost Advantage</a>
+        <a href="client-letters.html">Testimonials</a>
         <a href="payments.html">Payments</a>
       </div>
     </div>
   </footer>
+
+  <script>
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.onclick = function() {
+        const item = this.parentElement;
+        const isOpen = item.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('active');
+          const icon = i.querySelector('.faq-icon');
+          if (icon) icon.innerText = '+';
+        });
+        if (!isOpen) {
+          item.classList.add('active');
+          this.querySelector('.faq-icon').innerText = '−';
+        }
+      };
+    });
+  </script>
 </body>
 </html>
