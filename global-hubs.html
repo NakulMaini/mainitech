@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-dark: #070d18;
@@ -19,6 +19,7 @@
       --accent-cyan: #38bdf8;
       --accent-amber: #fbbf24;
       --accent-green: #10b981;
+      --accent-orange: #f97316;
       --text-main: #f8fafc;
       --text-body: #cbd5e1;
       --text-muted: #94a3b8;
@@ -100,7 +101,9 @@
     .section-header p { color: var(--text-muted); font-size: 14px; margin-bottom: 30px; }
     .text-center { text-align: center; }
 
-    /* Surveillance Command Viewport */
+    /* ===================================================
+       CONTROL-ROOM NEON SURVEILLANCE VIEWPORT WITH HOVER
+       =================================================== */
     .surveillance-viewport {
       max-width: 1160px;
       margin: 10px auto 40px;
@@ -109,7 +112,7 @@
       border-radius: 20px;
       padding: 20px;
       position: relative;
-      overflow: hidden;
+      overflow: visible;
       box-shadow: 0 0 50px rgba(2, 132, 199, 0.25), inset 0 0 40px rgba(7, 13, 24, 0.95);
     }
     .surveillance-header-bar {
@@ -139,7 +142,7 @@
     .surveillance-map-svg {
       width: 100%;
       height: auto;
-      min-height: 420px;
+      min-height: 440px;
       display: block;
       filter: drop-shadow(0 0 16px rgba(56, 189, 248, 0.45));
     }
@@ -170,6 +173,82 @@
     @keyframes radarPing {
       0% { r: 4; opacity: 1; }
       100% { r: 24; opacity: 0; }
+    }
+
+    /* ===================================================
+       INTERACTIVE HOVER HUD LIST CARDS
+       =================================================== */
+    .interactive-hub-group {
+      cursor: pointer;
+    }
+    .interactive-hub-group .hover-hud-card {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: translateY(8px);
+    }
+    .interactive-hub-group:hover .hover-hud-card,
+    .interactive-hub-group:focus-within .hover-hud-card {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .interactive-hub-group:hover .node-ping {
+      animation-duration: 1.2s;
+    }
+
+    /* HTML Tooltip Card Inside SVG foreignObject */
+    .hud-popup-box {
+      background: rgba(11, 18, 32, 0.95);
+      border: 1.5px solid var(--accent-cyan);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9), 0 0 20px rgba(56, 189, 248, 0.4);
+      border-radius: 12px;
+      padding: 12px 14px;
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      backdrop-filter: blur(12px);
+      text-align: left;
+    }
+    .hud-popup-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--accent-cyan);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .hud-popup-tz {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--accent-amber);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .hud-operations-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 6px;
+    }
+    .hud-operations-list li {
+      font-size: 11px;
+      color: var(--text-body);
+      line-height: 1.45;
+      padding: 3px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    .hud-operations-list li span.bullet {
+      color: var(--accent-green);
+      font-weight: 800;
     }
 
     /* Structured Locations Table */
@@ -326,12 +405,12 @@
     </div>
   </section>
 
-  <!-- Surveillance Command Viewport -->
+  <!-- Surveillance Command Viewport with Interactive Hover Tooltips -->
   <section class="about-section" style="padding-top: 10px;">
     <div class="container">
       <div class="surveillance-viewport">
         <div class="surveillance-header-bar">
-          <span class="status-tag"><span class="pulse-dot-green"></span> MAINITECH OPERATIONS HUD // GLOBAL RADAR ACTIVE</span>
+          <span class="status-tag"><span class="pulse-dot-green"></span> MAINITECH OPERATIONS HUD // HOVER NODES TO INSPECT OPERATIONS</span>
           <span>LATENCY: 12ms • CET / GST / IST / PHT / HKT SYNCHRONIZED</span>
         </div>
 
@@ -367,53 +446,144 @@
           <path d="M690,205 Q745,215 800,230" class="neon-trajectory" />
           <path d="M690,205 Q740,180 790,170" class="neon-trajectory" />
 
-          <!-- Holographic Nodes & Labels -->
-          <!-- Austria (HQ) -->
-          <g>
+          <!-- ==============================================
+               INTERACTIVE NODES WITH HOVER LIST FUNCTIONALITY
+               ============================================== -->
+
+          <!-- 1. AUSTRIA [STRATEGIC HQ] -->
+          <g class="interactive-hub-group" tabindex="0">
             <circle cx="510" cy="120" r="16" fill="#fbbf24" class="node-ping" opacity="0.35" />
             <circle cx="510" cy="120" r="6" fill="#fbbf24" stroke="#ffffff" stroke-width="2" />
-            <text x="522" y="116" fill="#fbbf24" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">AUSTRIA [STRATEGIC HQ]</text>
+            <text x="522" y="116" fill="#fbbf24" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">AUSTRIA [HQ]</text>
+            
+            <!-- Hover Card ForeignObject -->
+            <foreignObject x="450" y="135" width="260" height="150" class="hover-hud-card">
+              <div class="hud-popup-box" xmlns="http://www.w3.org/1999/xhtml">
+                <div class="hud-popup-title"><span>🇦🇹 AUSTRIA</span><span>[HQ]</span></div>
+                <span class="hud-popup-tz">TIME: CET (UTC+1)</span>
+                <ul class="hud-operations-list">
+                  <li><span class="bullet">›</span> Mathematical Systems Modeling</li>
+                  <li><span class="bullet">›</span> DiCES Joint MSc Governance</li>
+                  <li><span class="bullet">›</span> Executive Commercial Strategy</li>
+                  <li><span class="bullet">›</span> Sovereign SEPA Clearing Rails</li>
+                </ul>
+              </div>
+            </foreignObject>
           </g>
 
-          <!-- Germany -->
-          <g>
+          <!-- 2. GERMANY -->
+          <g class="interactive-hub-group" tabindex="0">
             <circle cx="485" cy="105" r="4" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
             <text x="420" y="95" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10">GERMANY</text>
+            
+            <foreignObject x="350" y="115" width="240" height="135" class="hover-hud-card">
+              <div class="hud-popup-box" xmlns="http://www.w3.org/1999/xhtml">
+                <div class="hud-popup-title"><span>🇩🇪 GERMANY</span><span>HUB</span></div>
+                <span class="hud-popup-tz">TIME: CET (UTC+1)</span>
+                <ul class="hud-operations-list">
+                  <li><span class="bullet">›</span> Industrial Systems Restructuring</li>
+                  <li><span class="bullet">›</span> B2B Enterprise NDA Compliance</li>
+                  <li><span class="bullet">›</span> European Market Expansion</li>
+                </ul>
+              </div>
+            </foreignObject>
           </g>
 
-          <!-- USA Client Command -->
-          <g>
+          <!-- 3. NORTH AMERICA -->
+          <g class="interactive-hub-group" tabindex="0">
             <circle cx="220" cy="130" r="14" fill="#38bdf8" class="node-ping" opacity="0.3" />
             <circle cx="220" cy="130" r="5" fill="#38bdf8" stroke="#ffffff" stroke-width="2" />
             <text x="140" y="122" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">NORTH AMERICA</text>
+
+            <foreignObject x="110" y="145" width="250" height="145" class="hover-hud-card">
+              <div class="hud-popup-box" xmlns="http://www.w3.org/1999/xhtml">
+                <div class="hud-popup-title"><span>🇺🇸 🇨🇦 NORTH AMERICA</span></div>
+                <span class="hud-popup-tz">TIME: EST / CST / PST</span>
+                <ul class="hud-operations-list">
+                  <li><span class="bullet">›</span> Primary Client Operations & Audits</li>
+                  <li><span class="bullet">›</span> Domestic ACH & Wire (Column Bank)</li>
+                  <li><span class="bullet">›</span> Zero Foreign Exchange Fee Remittance</li>
+                  <li><span class="bullet">›</span> 50-State Exclusivity Protection</li>
+                </ul>
+              </div>
+            </foreignObject>
           </g>
 
-          <!-- Dubai (GCC) -->
-          <g>
+          <!-- 4. DUBAI (GCC) -->
+          <g class="interactive-hub-group" tabindex="0">
             <circle cx="610" cy="190" r="12" fill="#f97316" class="node-ping" opacity="0.3" />
             <circle cx="610" cy="190" r="5" fill="#f97316" stroke="#ffffff" stroke-width="1.5" />
             <text x="590" y="215" fill="#f97316" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">DUBAI (GCC)</text>
+
+            <foreignObject x="540" y="225" width="240" height="135" class="hover-hud-card">
+              <div class="hud-popup-box" xmlns="http://www.w3.org/1999/xhtml">
+                <div class="hud-popup-title"><span>🇦🇪 DUBAI</span><span>GCC HUB</span></div>
+                <span class="hud-popup-tz">TIME: GST (UTC+4)</span>
+                <ul class="hud-operations-list">
+                  <li><span class="bullet">›</span> Middle East Commercial Expansion</li>
+                  <li><span class="bullet">›</span> High-Ticket B2B Lead Generation</li>
+                  <li><span class="bullet">›</span> Cross-Border Capital Structuring</li>
+                </ul>
+              </div>
+            </foreignObject>
           </g>
 
-          <!-- India (Tech Ops) -->
-          <g>
+          <!-- 5. INDIA [CORE TECH OPS] -->
+          <g class="interactive-hub-group" tabindex="0">
             <circle cx="690" cy="205" r="16" fill="#10b981" class="node-ping" opacity="0.35" />
             <circle cx="690" cy="205" r="6" fill="#10b981" stroke="#ffffff" stroke-width="2" />
             <text x="704" y="210" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">INDIA [CORE OPS]</text>
+
+            <foreignObject x="610" y="225" width="260" height="150" class="hover-hud-card">
+              <div class="hud-popup-box" xmlns="http://www.w3.org/1999/xhtml">
+                <div class="hud-popup-title"><span>🇮🇳 INDIA</span><span>[DELIVERY]</span></div>
+                <span class="hud-popup-tz">TIME: IST (UTC+5:30)</span>
+                <ul class="hud-operations-list">
+                  <li><span class="bullet">›</span> Custom Software & App Engineering</li>
+                  <li><span class="bullet">›</span> Technical SEO & AEO Architectures</li>
+                  <li><span class="bullet">›</span> Bookkeeping & SOP Standardization</li>
+                  <li><span class="bullet">›</span> 60–75% Operational Cost Reduction</li>
+                </ul>
+              </div>
+            </foreignObject>
           </g>
 
-          <!-- Hong Kong & China -->
-          <g>
+          <!-- 6. HONG KONG & CHINA -->
+          <g class="interactive-hub-group" tabindex="0">
             <circle cx="790" cy="170" r="12" fill="#38bdf8" class="node-ping" opacity="0.25" />
             <circle cx="790" cy="170" r="5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
             <text x="802" y="166" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">HONG KONG / CHINA</text>
+
+            <foreignObject x="720" y="180" width="250" height="135" class="hover-hud-card">
+              <div class="hud-popup-box" xmlns="http://www.w3.org/1999/xhtml">
+                <div class="hud-popup-title"><span>🇭🇰 🇨🇳 HK &amp; CHINA</span></div>
+                <span class="hud-popup-tz">TIME: HKT (UTC+8)</span>
+                <ul class="hud-operations-list">
+                  <li><span class="bullet">›</span> Supply Chain Digital Integration</li>
+                  <li><span class="bullet">›</span> International Vendor Reconciliation</li>
+                  <li><span class="bullet">›</span> Automated Global Trade Workflows</li>
+                </ul>
+              </div>
+            </foreignObject>
           </g>
 
-          <!-- Philippines -->
-          <g>
+          <!-- 7. PHILIPPINES -->
+          <g class="interactive-hub-group" tabindex="0">
             <circle cx="800" cy="230" r="12" fill="#38bdf8" class="node-ping" opacity="0.25" />
             <circle cx="800" cy="230" r="5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
             <text x="812" y="235" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">PHILIPPINES</text>
+
+            <foreignObject x="730" y="245" width="245" height="135" class="hover-hud-card">
+              <div class="hud-popup-box" xmlns="http://www.w3.org/1999/xhtml">
+                <div class="hud-popup-title"><span>🇵🇭 PHILIPPINES</span></div>
+                <span class="hud-popup-tz">TIME: PHT (UTC+8)</span>
+                <ul class="hud-operations-list">
+                  <li><span class="bullet">›</span> 24/7 Live Commercial Execution</li>
+                  <li><span class="bullet">›</span> Continuous B2B Research Support</li>
+                  <li><span class="bullet">›</span> Multichannel Customer Pipeline QA</li>
+                </ul>
+              </div>
+            </foreignObject>
           </g>
         </svg>
       </div>
@@ -438,28 +608,28 @@
           <tbody>
             <tr>
               <td><span class="hub-badge">Austria (HQ)</span></td>
-              <td><strong>Vienna & Leoben</strong></td>
+              <td><strong>Vienna &amp; Leoben</strong></td>
               <td>CET / UTC+1</td>
               <td>Lead advisory, mathematical data modeling, and commercial governance</td>
               <td>European scientific rigor applied to business unit economics</td>
             </tr>
             <tr>
               <td><span class="hub-badge">Germany</span></td>
-              <td><strong>Munich & Frankfurt</strong></td>
+              <td><strong>Munich &amp; Frankfurt</strong></td>
               <td>CET / UTC+1</td>
               <td>Industrial systems restructuring, enterprise client expansion, and NDA governance</td>
               <td>Sovereign European compliance and high-value B2B alignment</td>
             </tr>
             <tr>
               <td><span class="hub-badge">Middle East</span></td>
-              <td><strong>Dubai (UAE) & GCC</strong></td>
+              <td><strong>Dubai (UAE) &amp; GCC</strong></td>
               <td>GST (UTC+4)</td>
               <td>Commercial expansion, real estate strategies, and cross-border partnerships</td>
               <td>Zero-friction Gulf expansion connecting East and West markets</td>
             </tr>
             <tr>
               <td><span class="hub-badge">India</span></td>
-              <td><strong>Delhi NCR & Tech Corridors</strong></td>
+              <td><strong>Delhi NCR &amp; Tech Corridors</strong></td>
               <td>IST (UTC+5:30)</td>
               <td>Software engineering, SEO/AEO architectures, bookkeeping, and SOP automation</td>
               <td>Direct 60–75% reduction in technical delivery overhead</td>
@@ -473,7 +643,7 @@
             </tr>
             <tr>
               <td><span class="hub-badge">East Asia</span></td>
-              <td><strong>Hong Kong & China</strong></td>
+              <td><strong>Hong Kong &amp; China</strong></td>
               <td>HKT (UTC+8)</td>
               <td>Supply chain digital integration, international vendor management, and commerce workflows</td>
               <td>Direct vendor oversight and streamlined international supply chains</td>
