@@ -1,72 +1,460 @@
-<!-- Surveillance Room Holographic Map Visual -->
-<section class="about-section" style="padding-top: 10px;">
-  <div class="container">
-    <div class="surveillance-viewport" style="position: relative; background: #050b14; border-radius: 20px; overflow: hidden; padding: 0;">
-      
-      <!-- Control Room Status Header -->
-      <div class="surveillance-header-bar" style="padding: 16px 24px; margin-bottom: 0; background: rgba(7, 13, 24, 0.7); backdrop-filter: blur(8px);">
-        <span class="status-tag"><span class="pulse-dot-green"></span> MAINITECH OPERATIONS HUD // GLOBAL RADAR ACTIVE</span>
-        <span>LATENCY: 12ms • CET / GST / IST / PHT / HKT SYNCHRONIZED</span>
-      </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Operations Hubs & Synchronized Network | MainiTech</title>
+  <meta name="description" content="Worldwide surveillance and operations command: Strategic governance anchored in Austria, synchronized with delivery teams across India, Dubai, Germany, the Philippines, China, and Hong Kong.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://nakulmaini.github.io/mainitech/global-hubs.html">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #070d18;
+      --bg-card: #0b1220;
+      --primary-blue: #0284c7;
+      --accent-cyan: #38bdf8;
+      --accent-amber: #fbbf24;
+      --accent-green: #10b981;
+      --text-main: #f8fafc;
+      --text-body: #cbd5e1;
+      --text-muted: #94a3b8;
+      --border-color: rgba(255, 255, 255, 0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+    
+    .site-header {
+      position: sticky;
+      top: 0;
+      background: rgba(7, 13, 24, 0.96);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 10000;
+    }
+    .nav-container {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+    }
+    .brand-logo { height: 44px; width: auto; display: block; }
+    .nav-menu { display: flex; align-items: center; gap: 14px; }
+    .nav-link {
+      color: var(--text-main);
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      padding: 8px 10px;
+      transition: color 0.2s;
+    }
+    .nav-link:hover, .nav-link.active-nav { color: var(--accent-cyan); }
+    
+    .btn {
+      display: inline-block;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+    .btn-primary { background: linear-gradient(135deg, #0284c7, #0369a1); color: #fff; }
 
-      <!-- Container Layering Vector Trajectories over the Real Image -->
-      <div style="position: relative; width: 100%; max-height: 540px; overflow: hidden;">
-        <!-- Real Neon Surveillance Map Image -->
-        <img src="world-map.png" alt="MainiTech Global Control Room Map" style="width: 100%; height: auto; display: block; object-fit: cover; opacity: 0.85;">
+    .hero-section {
+      padding: 70px 0 30px;
+      text-align: center;
+      background: radial-gradient(circle at 50% 15%, rgba(2, 132, 199, 0.2) 0%, transparent 70%);
+    }
+    .hero-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+    }
+    .hero-title { font-size: 40px; font-weight: 800; margin-bottom: 12px; }
+    .hero-subtitle { font-size: 16px; color: var(--text-muted); max-width: 820px; margin: 0 auto; }
 
-        <!-- Overlayed Glowing Connecting Lines and Animated Radar Points -->
-        <svg viewBox="0 0 1000 500" fill="none" xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;">
-          <!-- Inter-Hub Cyber Trajectories -->
-          <path d="M510,120 Q365,110 220,130" class="neon-trajectory" />
-          <path d="M510,120 Q560,155 610,190" class="neon-trajectory" />
-          <path d="M510,120 Q600,160 690,205" class="neon-trajectory" />
-          <path d="M690,205 Q745,215 800,230" class="neon-trajectory" />
-          <path d="M690,205 Q740,180 790,170" class="neon-trajectory" />
+    .about-section { padding: 50px 0; border-top: 1px solid var(--border-color); }
+    .section-header h2 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+    .section-header p { color: var(--text-muted); font-size: 14px; margin-bottom: 30px; }
+    .text-center { text-align: center; }
 
-          <!-- Nodes & Pings -->
-          <!-- Austria (HQ) -->
-          <g>
-            <circle cx="510" cy="120" r="16" fill="#fbbf24" class="node-ping" opacity="0.35" />
-            <circle cx="510" cy="120" r="6" fill="#fbbf24" stroke="#ffffff" stroke-width="2" />
-            <text x="522" y="116" fill="#fbbf24" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">AUSTRIA [STRATEGIC HQ]</text>
-          </g>
-          <!-- Germany -->
-          <g>
-            <circle cx="485" cy="105" r="4" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
-            <text x="420" y="95" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10">GERMANY</text>
-          </g>
-          <!-- North America -->
-          <g>
-            <circle cx="220" cy="130" r="14" fill="#38bdf8" class="node-ping" opacity="0.3" />
-            <circle cx="220" cy="130" r="5" fill="#38bdf8" stroke="#ffffff" stroke-width="2" />
-            <text x="140" y="122" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">NORTH AMERICA</text>
-          </g>
-          <!-- Dubai -->
-          <g>
-            <circle cx="610" cy="190" r="12" fill="#f97316" class="node-ping" opacity="0.3" />
-            <circle cx="610" cy="190" r="5" fill="#f97316" stroke="#ffffff" stroke-width="1.5" />
-            <text x="590" y="215" fill="#f97316" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">DUBAI (GCC)</text>
-          </g>
-          <!-- India -->
-          <g>
-            <circle cx="690" cy="205" r="16" fill="#10b981" class="node-ping" opacity="0.35" />
-            <circle cx="690" cy="205" r="6" fill="#10b981" stroke="#ffffff" stroke-width="2" />
-            <text x="704" y="210" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">INDIA [CORE OPS]</text>
-          </g>
-          <!-- Hong Kong & China -->
-          <g>
-            <circle cx="790" cy="170" r="12" fill="#38bdf8" class="node-ping" opacity="0.25" />
-            <circle cx="790" cy="170" r="5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
-            <text x="802" y="166" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">HONG KONG / CHINA</text>
-          </g>
-          <!-- Philippines -->
-          <g>
-            <circle cx="800" cy="230" r="12" fill="#38bdf8" class="node-ping" opacity="0.25" />
-            <circle cx="800" cy="230" r="5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
-            <text x="812" y="235" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">PHILIPPINES</text>
-          </g>
-        </svg>
+    /* Surveillance Viewport */
+    .surveillance-viewport {
+      max-width: 1160px;
+      margin: 10px auto 40px;
+      background: #050b14;
+      border: 1.5px solid rgba(56, 189, 248, 0.35);
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 50px rgba(2, 132, 199, 0.25), inset 0 0 40px rgba(7, 13, 24, 0.9);
+    }
+    .surveillance-header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 24px;
+      border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+      background: rgba(7, 13, 24, 0.85);
+      backdrop-filter: blur(8px);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--accent-cyan);
+    }
+    .status-tag { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; }
+    .pulse-dot-green {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 10px #10b981;
+      animation: blinkDot 1.5s infinite;
+    }
+    @keyframes blinkDot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    .map-canvas-container {
+      position: relative;
+      width: 100%;
+      min-height: 480px;
+      max-height: 600px;
+      background: #040912;
+      overflow: hidden;
+    }
+    .base-map-img {
+      width: 100%;
+      height: 100%;
+      min-height: 480px;
+      object-fit: cover;
+      display: block;
+      opacity: 0.85;
+      filter: saturate(1.2) contrast(1.1);
+    }
+    .overlay-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    .neon-trajectory {
+      stroke: #38bdf8;
+      stroke-width: 1.5;
+      stroke-dasharray: 6, 6;
+      opacity: 0.8;
+      animation: flowPath 20s linear infinite;
+    }
+    @keyframes flowPath {
+      to { stroke-dashoffset: -100; }
+    }
+    .node-ping {
+      animation: radarPing 2.5s infinite;
+      transform-origin: center;
+    }
+    @keyframes radarPing {
+      0% { r: 4; opacity: 1; }
+      100% { r: 24; opacity: 0; }
+    }
+
+    /* Structured Locations Table */
+    .table-container {
+      max-width: 1160px;
+      margin: 0 auto;
+      background: #0b1220;
+      border: 1px solid #1e293b;
+      border-radius: 18px;
+      overflow-x: auto;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    }
+    .locations-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    .locations-table th {
+      padding: 18px 22px;
+      font-size: 13.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 2px solid #1e293b;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .locations-table td {
+      padding: 18px 22px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-body);
+      font-size: 14px;
+      vertical-align: middle;
+    }
+    .locations-table tr:last-child td { border-bottom: none; }
+    .hub-badge {
+      display: inline-block;
+      font-size: 11.5px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--accent-cyan);
+    }
+
+    /* Multi-Channel Floating Contact Widget */
+    .multi-channel-contact-bar {
+      position: fixed !important;
+      bottom: 24px !important;
+      right: 24px !important;
+      background: #0b1220 !important;
+      border: 1.5px solid #1e293b !important;
+      border-radius: 50px !important;
+      padding: 6px 12px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8) !important;
+      z-index: 99999 !important;
+      height: 52px !important;
+    }
+    .contact-bar-label { font-size: 12px; font-weight: 800; color: var(--accent-cyan); text-transform: uppercase; white-space: nowrap; }
+    .contact-icons-row { display: inline-flex; gap: 8px; }
+    .contact-action-icon { width: 38px; height: 38px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; flex-shrink: 0; }
+    .icon-wa { background: #25D366; }
+    .icon-ig { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+    .icon-fb { background: #1877F2; }
+    .contact-action-icon svg { width: 20px; height: 20px; fill: #fff; display: block; }
+
+    .site-footer { border-top: 1px solid var(--border-color); padding: 26px 0; font-size: 13px; color: var(--text-muted); margin-top: 60px; }
+    .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; }
+    .footer-links a { color: var(--text-muted); text-decoration: none; margin-left: 14px; }
+    .footer-links a:hover { color: var(--text-main); }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand"><img src="logo.png" alt="MainiTech" class="brand-logo"></a>
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">About</a>
+        <a href="career-roadmap.html" class="nav-link">Career Roadmap</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="cost-advantage.html" class="nav-link">Cost Advantage</a>
+        <a href="client-letters.html" class="nav-link">Testimonials</a>
+        <a href="global-hubs.html" class="nav-link active-nav">Global Hubs</a>
+        <a href="payments.html" class="nav-link">Payments</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="https://calendar.app.google/7iYHbqazTM81eosA7" target="_blank" rel="noopener" class="btn btn-primary">Book a Free Consultation</a>
       </div>
     </div>
+  </header>
+
+  <!-- Hero Header -->
+  <section class="hero-section">
+    <div class="container hero-content">
+      <div class="hero-badge">Worldwide Operations Network</div>
+      <h1 class="hero-title">Global Delivery Hubs & International Operations</h1>
+      <p class="hero-subtitle">High-level strategic governance directed from Austria, synchronized with delivery teams in India, the Philippines, Dubai, Germany, China, and Hong Kong to provide around-the-clock commercial execution at minimal operational cost.</p>
+    </div>
+  </section>
+
+  <!-- Surveillance Command Viewport -->
+  <section class="about-section" style="padding-top: 10px;">
+    <div class="container">
+      <div class="surveillance-viewport">
+        <div class="surveillance-header-bar">
+          <span class="status-tag"><span class="pulse-dot-green"></span> MAINITECH OPERATIONS HUD // GLOBAL RADAR ACTIVE</span>
+          <span>LATENCY: 12ms • CET / GST / IST / PHT / HKT SYNCHRONIZED</span>
+        </div>
+
+        <div class="map-canvas-container">
+          <!-- Actual Uploaded Background Image -->
+          <img src="world-map.png" alt="MainiTech Global Control Room Map" class="base-map-img">
+
+          <!-- Overlayed Vector Trajectories and Nodes -->
+          <svg class="overlay-svg" viewBox="0 0 1000 500" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <!-- Inter-Hub Cyber Trajectories -->
+            <path d="M510,120 Q365,110 220,130" class="neon-trajectory" />
+            <path d="M510,120 Q560,155 610,190" class="neon-trajectory" />
+            <path d="M510,120 Q600,160 690,205" class="neon-trajectory" />
+            <path d="M690,205 Q745,215 800,230" class="neon-trajectory" />
+            <path d="M690,205 Q740,180 790,170" class="neon-trajectory" />
+
+            <!-- Austria (HQ) -->
+            <g>
+              <circle cx="510" cy="120" r="16" fill="#fbbf24" class="node-ping" opacity="0.35" />
+              <circle cx="510" cy="120" r="6" fill="#fbbf24" stroke="#ffffff" stroke-width="2" />
+              <text x="522" y="116" fill="#fbbf24" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">AUSTRIA [STRATEGIC HQ]</text>
+            </g>
+
+            <!-- Germany -->
+            <g>
+              <circle cx="485" cy="105" r="4" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
+              <text x="420" y="95" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10">GERMANY</text>
+            </g>
+
+            <!-- USA Client Command -->
+            <g>
+              <circle cx="220" cy="130" r="14" fill="#38bdf8" class="node-ping" opacity="0.3" />
+              <circle cx="220" cy="130" r="5" fill="#38bdf8" stroke="#ffffff" stroke-width="2" />
+              <text x="140" y="122" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">NORTH AMERICA</text>
+            </g>
+
+            <!-- Dubai (GCC) -->
+            <g>
+              <circle cx="610" cy="190" r="12" fill="#f97316" class="node-ping" opacity="0.3" />
+              <circle cx="610" cy="190" r="5" fill="#f97316" stroke="#ffffff" stroke-width="1.5" />
+              <text x="590" y="215" fill="#f97316" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">DUBAI (GCC)</text>
+            </g>
+
+            <!-- India (Tech Ops) -->
+            <g>
+              <circle cx="690" cy="205" r="16" fill="#10b981" class="node-ping" opacity="0.35" />
+              <circle cx="690" cy="205" r="6" fill="#10b981" stroke="#ffffff" stroke-width="2" />
+              <text x="704" y="210" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">INDIA [CORE OPS]</text>
+            </g>
+
+            <!-- Hong Kong & China -->
+            <g>
+              <circle cx="790" cy="170" r="12" fill="#38bdf8" class="node-ping" opacity="0.25" />
+              <circle cx="790" cy="170" r="5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
+              <text x="802" y="166" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">HONG KONG / CHINA</text>
+            </g>
+
+            <!-- Philippines -->
+            <g>
+              <circle cx="800" cy="230" r="12" fill="#38bdf8" class="node-ping" opacity="0.25" />
+              <circle cx="800" cy="230" r="5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
+              <text x="812" y="235" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">PHILIPPINES</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Tabular Global Operations Matrix -->
+      <div class="section-header text-center">
+        <h2>Operating Regions & Capabilities</h2>
+        <p>A structured breakdown of our active operational hubs, local time zones, and native currency settlement.</p>
+      </div>
+
+      <div class="table-container">
+        <table class="locations-table">
+          <thead>
+            <tr>
+              <th>Operating Hub</th>
+              <th>Geographic Location</th>
+              <th>Time Zone</th>
+              <th>Operational Specialization</th>
+              <th>Client Cost Advantage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="hub-badge">Austria (HQ)</span></td>
+              <td><strong>Vienna & Leoben</strong></td>
+              <td>CET / UTC+1</td>
+              <td>Lead advisory, mathematical data modeling, and commercial governance</td>
+              <td>European scientific rigor applied to business unit economics</td>
+            </tr>
+            <tr>
+              <td><span class="hub-badge">Germany</span></td>
+              <td><strong>Munich & Frankfurt</strong></td>
+              <td>CET / UTC+1</td>
+              <td>Industrial systems restructuring, enterprise client expansion, and NDA governance</td>
+              <td>Sovereign European compliance and high-value B2B alignment</td>
+            </tr>
+            <tr>
+              <td><span class="hub-badge">Middle East</span></td>
+              <td><strong>Dubai (UAE) & GCC</strong></td>
+              <td>GST (UTC+4)</td>
+              <td>Commercial expansion, real estate strategies, and cross-border partnerships</td>
+              <td>Zero-friction Gulf expansion connecting East and West markets</td>
+            </tr>
+            <tr>
+              <td><span class="hub-badge">India</span></td>
+              <td><strong>Delhi NCR & Tech Corridors</strong></td>
+              <td>IST (UTC+5:30)</td>
+              <td>Software engineering, SEO/AEO architectures, bookkeeping, and SOP automation</td>
+              <td>Direct 60–75% reduction in technical delivery overhead</td>
+            </tr>
+            <tr>
+              <td><span class="hub-badge">Philippines</span></td>
+              <td><strong>Manila Hub</strong></td>
+              <td>PHT (UTC+8)</td>
+              <td>Around-the-clock operations support, lead generation, and customer journey tracking</td>
+              <td>Continuous 24-hour progress without US/EU overtime billing</td>
+            </tr>
+            <tr>
+              <td><span class="hub-badge">East Asia</span></td>
+              <td><strong>Hong Kong & China</strong></td>
+              <td>HKT (UTC+8)</td>
+              <td>Supply chain digital integration, international vendor management, and commerce workflows</td>
+              <td>Direct vendor oversight and streamlined international supply chains</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="text-center" style="margin-top: 40px;">
+        <a href="https://calendar.app.google/7iYHbqazTM81eosA7" target="_blank" rel="noopener" class="btn btn-primary">Schedule a Consultation Call ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Multi-Channel Floating Contact Widget -->
+  <div class="multi-channel-contact-bar">
+    <span class="contact-bar-label">Contact Us</span>
+    <div class="contact-icons-row">
+      <a href="https://wa.me/919811301467" target="_blank" rel="noopener" class="contact-action-icon icon-wa" aria-label="WhatsApp">
+        <svg viewBox="0 0 32 32"><path d="M16 2a13.9 13.9 0 0 0-12 21L2 30l7.2-1.9A13.9 13.9 0 1 0 16 2zm0 25.4c-2.3 0-4.5-.6-6.4-1.8l-.5-.3-4.3 1.1 1.2-4.2-.3-.5A11.5 11.5 0 1 1 16 27.4zm6.3-8.6c-.3-.2-2-.9-2.3-1-.3-.2-.5-.3-.7.2-.2.4-.8 1-.9 1.2-.2.2-.4.2-.7 0-.3-.2-1.4-.5-2.6-1.6-.9-.8-1.6-1.9-1.8-2.2-.2-.3 0-.5.2-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6s-.7-1.7-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.2-1.2 2.9 1.2 3.4 1.4 3.6c.2.3 2.4 3.7 5.8 5.1.8.3 1.4.6 1.9.7.8.3 1.6.2 2.2.1.7-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.7-.1-.2-.3-.3-.6-.5z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/nkul_maini/" target="_blank" rel="noopener" class="contact-action-icon icon-ig" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+      <a href="https://www.facebook.com/nakul.maini.7" target="_blank" rel="noopener" class="contact-action-icon icon-fb" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+    </div>
   </div>
-</section>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-left"><p>&copy; 2026 MainiTech Strategic Solutions. All rights reserved.</p></div>
+      <div class="footer-links">
+        <a href="index.html">About</a>
+        <a href="career-roadmap.html">Roadmap</a>
+        <a href="services.html">Services</a>
+        <a href="cost-advantage.html">Cost Advantage</a>
+        <a href="client-letters.html">Testimonials</a>
+        <a href="payments.html">Payments</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
