@@ -100,25 +100,25 @@
     .section-header p { color: var(--text-muted); font-size: 14px; margin-bottom: 30px; }
     .text-center { text-align: center; }
 
-    /* Surveillance Viewport */
+    /* Surveillance Command Viewport */
     .surveillance-viewport {
       max-width: 1160px;
       margin: 10px auto 40px;
-      background: #050b14;
-      border: 1.5px solid rgba(56, 189, 248, 0.35);
+      background: radial-gradient(circle at 50% 50%, #0a172a 0%, #030712 100%);
+      border: 1.5px solid rgba(56, 189, 248, 0.4);
       border-radius: 20px;
+      padding: 20px;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 0 50px rgba(2, 132, 199, 0.25), inset 0 0 40px rgba(7, 13, 24, 0.9);
+      box-shadow: 0 0 50px rgba(2, 132, 199, 0.25), inset 0 0 40px rgba(7, 13, 24, 0.95);
     }
     .surveillance-header-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 14px 24px;
+      padding-bottom: 14px;
+      margin-bottom: 12px;
       border-bottom: 1px solid rgba(56, 189, 248, 0.2);
-      background: rgba(7, 13, 24, 0.85);
-      backdrop-filter: blur(8px);
       font-family: 'JetBrains Mono', monospace;
       font-size: 12px;
       color: var(--accent-cyan);
@@ -136,30 +136,22 @@
       0%, 100% { opacity: 1; }
       50% { opacity: 0.3; }
     }
-    .map-canvas-container {
-      position: relative;
+    .surveillance-map-svg {
       width: 100%;
-      min-height: 480px;
-      max-height: 600px;
-      background: #040912;
-      overflow: hidden;
-    }
-    .base-map-img {
-      width: 100%;
-      height: 100%;
-      min-height: 480px;
-      object-fit: cover;
+      height: auto;
+      min-height: 420px;
       display: block;
-      opacity: 0.85;
-      filter: saturate(1.2) contrast(1.1);
+      filter: drop-shadow(0 0 16px rgba(56, 189, 248, 0.45));
     }
-    .overlay-svg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
+    .hud-grid-line {
+      stroke: rgba(56, 189, 248, 0.1);
+      stroke-width: 0.8;
+    }
+    .neon-landmass {
+      fill: rgba(14, 165, 233, 0.12);
+      stroke: #38bdf8;
+      stroke-width: 1.5;
+      filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.7));
     }
     .neon-trajectory {
       stroke: #38bdf8;
@@ -262,7 +254,57 @@
       <nav class="nav-menu">
         <a href="index.html" class="nav-link">About</a>
         <a href="career-roadmap.html" class="nav-link">Career Roadmap</a>
-        <a href="services.html" class="nav-link">Services</a>
+        <div class="nav-item-dropdown">
+          <a href="services.html" class="nav-link dropdown-toggle">Services <span class="chevron">▾</span></a>
+          <ul class="dropdown-primary">
+            <li class="has-flyout">
+              <span class="category-header">Business Strategy & Analysis <span class="chevron">›</span></span>
+              <ul class="dropdown-secondary">
+                <li><a href="services/business-growth-consultation.html">Business Growth Consultation</a></li>
+                <li><a href="services/web-business-profile-audits.html">Web & Business Profile Audits</a></li>
+                <li><a href="services/workflow-restructuring.html">Workflow & Operational Restructuring</a></li>
+                <li><a href="services/operational-cost-reduction.html">Operational Cost Reduction</a></li>
+                <li><a href="services/bookkeeping-account-management.html">Bookkeeping & Account Management</a></li>
+              </ul>
+            </li>
+            <li class="has-flyout">
+              <span class="category-header">Marketing & Acquisition <span class="chevron">›</span></span>
+              <ul class="dropdown-secondary">
+                <li><a href="services/digital-marketing.html">Digital & Performance Marketing</a></li>
+                <li><a href="services/search-engine-optimization.html">Search Engine Optimization (SEO/AEO)</a></li>
+                <li><a href="services/social-media-marketing.html">Social Media Marketing (SMM)</a></li>
+                <li><a href="services/social-media-management.html">Social Media Management & SMO</a></li>
+                <li><a href="services/email-marketing.html">Email Marketing & Management</a></li>
+                <li><a href="services/sms-marketing.html">SMS & Text Marketing</a></li>
+                <li><a href="services/content-marketing.html">Content Marketing Strategy</a></li>
+                <li><a href="services/b2b-lead-generation.html">Targeted B2B Lead Generation</a></li>
+              </ul>
+            </li>
+            <li class="has-flyout">
+              <span class="category-header">Local & Community Authority <span class="chevron">›</span></span>
+              <ul class="dropdown-secondary">
+                <li><a href="services/google-business-profile.html">Google Business Profile (GBP)</a></li>
+                <li><a href="services/yelp-mapquest-optimization.html">Yelp & MapQuest Optimization</a></li>
+                <li><a href="services/forum-authority-growth.html">Forum Growth (Reddit, Quora, Medium)</a></li>
+              </ul>
+            </li>
+            <li class="has-flyout">
+              <span class="category-header">Development Solutions <span class="chevron">›</span></span>
+              <ul class="dropdown-secondary">
+                <li><a href="services/conversion-web-development.html">High-Converting Web Development</a></li>
+                <li><a href="services/mobile-app-development.html">Mobile Application Development</a></li>
+              </ul>
+            </li>
+            <li class="has-flyout">
+              <span class="category-header">Airbnb Growth Strategy <span class="chevron">›</span></span>
+              <ul class="dropdown-secondary">
+                <li><a href="services/airbnb-conversion-enhancement.html">Listing Conversion Rate Enhancement</a></li>
+                <li><a href="services/airbnb-marketing-strategy.html">Airbnb Marketing Strategy</a></li>
+                <li><a href="services/airbnb-management-strategy.html">Turnkey Airbnb Management</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
         <a href="cost-advantage.html" class="nav-link">Cost Advantage</a>
         <a href="client-letters.html" class="nav-link">Testimonials</a>
         <a href="global-hubs.html" class="nav-link active-nav">Global Hubs</a>
@@ -293,68 +335,87 @@
           <span>LATENCY: 12ms • CET / GST / IST / PHT / HKT SYNCHRONIZED</span>
         </div>
 
-        <div class="map-canvas-container">
-          <!-- Actual Uploaded Background Image -->
-          <img src="world-map.png" alt="MainiTech Global Control Room Map" class="base-map-img">
+        <svg class="surveillance-map-svg" viewBox="0 0 1000 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Surveillance Grid Overlay -->
+          <line x1="0" y1="100" x2="1000" y2="100" class="hud-grid-line" />
+          <line x1="0" y1="200" x2="1000" y2="200" class="hud-grid-line" />
+          <line x1="0" y1="300" x2="1000" y2="300" class="hud-grid-line" />
+          <line x1="0" y1="400" x2="1000" y2="400" class="hud-grid-line" />
+          <line x1="200" y1="0" x2="200" y2="500" class="hud-grid-line" />
+          <line x1="400" y1="0" x2="400" y2="500" class="hud-grid-line" />
+          <line x1="600" y1="0" x2="600" y2="500" class="hud-grid-line" />
+          <line x1="800" y1="0" x2="800" y2="500" class="hud-grid-line" />
 
-          <!-- Overlayed Vector Trajectories and Nodes -->
-          <svg class="overlay-svg" viewBox="0 0 1000 500" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-            <!-- Inter-Hub Cyber Trajectories -->
-            <path d="M510,120 Q365,110 220,130" class="neon-trajectory" />
-            <path d="M510,120 Q560,155 610,190" class="neon-trajectory" />
-            <path d="M510,120 Q600,160 690,205" class="neon-trajectory" />
-            <path d="M690,205 Q745,215 800,230" class="neon-trajectory" />
-            <path d="M690,205 Q740,180 790,170" class="neon-trajectory" />
+          <!-- Neon Continents -->
+          <!-- North America -->
+          <path class="neon-landmass" d="M110,75 L180,50 L250,55 L310,95 L300,150 L250,195 L200,185 L165,230 L135,210 L105,135 Z" />
+          <!-- South America -->
+          <path class="neon-landmass" d="M225,240 L285,240 L315,310 L295,400 L245,445 L205,385 L215,300 Z" />
+          <!-- Europe -->
+          <path class="neon-landmass" d="M445,75 L525,55 L575,85 L545,145 L485,155 L455,125 Z" />
+          <!-- Africa -->
+          <path class="neon-landmass" d="M455,175 L545,165 L565,245 L535,355 L475,375 L435,285 L435,205 Z" />
+          <!-- Asia / China / Hong Kong -->
+          <path class="neon-landmass" d="M585,65 L765,45 L875,105 L885,175 L845,245 L775,245 L705,205 L625,155 Z" />
+          <!-- Australia -->
+          <path class="neon-landmass" d="M775,315 L865,305 L895,365 L855,425 L785,415 L755,365 Z" />
 
-            <!-- Austria (HQ) -->
-            <g>
-              <circle cx="510" cy="120" r="16" fill="#fbbf24" class="node-ping" opacity="0.35" />
-              <circle cx="510" cy="120" r="6" fill="#fbbf24" stroke="#ffffff" stroke-width="2" />
-              <text x="522" y="116" fill="#fbbf24" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">AUSTRIA [STRATEGIC HQ]</text>
-            </g>
+          <!-- Inter-Hub Cyber Trajectories -->
+          <path d="M510,120 Q365,110 220,130" class="neon-trajectory" />
+          <path d="M510,120 Q560,155 610,190" class="neon-trajectory" />
+          <path d="M510,120 Q600,160 690,205" class="neon-trajectory" />
+          <path d="M690,205 Q745,215 800,230" class="neon-trajectory" />
+          <path d="M690,205 Q740,180 790,170" class="neon-trajectory" />
 
-            <!-- Germany -->
-            <g>
-              <circle cx="485" cy="105" r="4" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
-              <text x="420" y="95" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10">GERMANY</text>
-            </g>
+          <!-- Holographic Nodes & Labels -->
+          <!-- Austria (HQ) -->
+          <g>
+            <circle cx="510" cy="120" r="16" fill="#fbbf24" class="node-ping" opacity="0.35" />
+            <circle cx="510" cy="120" r="6" fill="#fbbf24" stroke="#ffffff" stroke-width="2" />
+            <text x="522" y="116" fill="#fbbf24" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">AUSTRIA [STRATEGIC HQ]</text>
+          </g>
 
-            <!-- USA Client Command -->
-            <g>
-              <circle cx="220" cy="130" r="14" fill="#38bdf8" class="node-ping" opacity="0.3" />
-              <circle cx="220" cy="130" r="5" fill="#38bdf8" stroke="#ffffff" stroke-width="2" />
-              <text x="140" y="122" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">NORTH AMERICA</text>
-            </g>
+          <!-- Germany -->
+          <g>
+            <circle cx="485" cy="105" r="4" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
+            <text x="420" y="95" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10">GERMANY</text>
+          </g>
 
-            <!-- Dubai (GCC) -->
-            <g>
-              <circle cx="610" cy="190" r="12" fill="#f97316" class="node-ping" opacity="0.3" />
-              <circle cx="610" cy="190" r="5" fill="#f97316" stroke="#ffffff" stroke-width="1.5" />
-              <text x="590" y="215" fill="#f97316" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">DUBAI (GCC)</text>
-            </g>
+          <!-- USA Client Command -->
+          <g>
+            <circle cx="220" cy="130" r="14" fill="#38bdf8" class="node-ping" opacity="0.3" />
+            <circle cx="220" cy="130" r="5" fill="#38bdf8" stroke="#ffffff" stroke-width="2" />
+            <text x="140" y="122" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">NORTH AMERICA</text>
+          </g>
 
-            <!-- India (Tech Ops) -->
-            <g>
-              <circle cx="690" cy="205" r="16" fill="#10b981" class="node-ping" opacity="0.35" />
-              <circle cx="690" cy="205" r="6" fill="#10b981" stroke="#ffffff" stroke-width="2" />
-              <text x="704" y="210" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">INDIA [CORE OPS]</text>
-            </g>
+          <!-- Dubai (GCC) -->
+          <g>
+            <circle cx="610" cy="190" r="12" fill="#f97316" class="node-ping" opacity="0.3" />
+            <circle cx="610" cy="190" r="5" fill="#f97316" stroke="#ffffff" stroke-width="1.5" />
+            <text x="590" y="215" fill="#f97316" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">DUBAI (GCC)</text>
+          </g>
 
-            <!-- Hong Kong & China -->
-            <g>
-              <circle cx="790" cy="170" r="12" fill="#38bdf8" class="node-ping" opacity="0.25" />
-              <circle cx="790" cy="170" r="5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
-              <text x="802" y="166" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">HONG KONG / CHINA</text>
-            </g>
+          <!-- India (Tech Ops) -->
+          <g>
+            <circle cx="690" cy="205" r="16" fill="#10b981" class="node-ping" opacity="0.35" />
+            <circle cx="690" cy="205" r="6" fill="#10b981" stroke="#ffffff" stroke-width="2" />
+            <text x="704" y="210" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">INDIA [CORE OPS]</text>
+          </g>
 
-            <!-- Philippines -->
-            <g>
-              <circle cx="800" cy="230" r="12" fill="#38bdf8" class="node-ping" opacity="0.25" />
-              <circle cx="800" cy="230" r="5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
-              <text x="812" y="235" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">PHILIPPINES</text>
-            </g>
-          </svg>
-        </div>
+          <!-- Hong Kong & China -->
+          <g>
+            <circle cx="790" cy="170" r="12" fill="#38bdf8" class="node-ping" opacity="0.25" />
+            <circle cx="790" cy="170" r="5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
+            <text x="802" y="166" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">HONG KONG / CHINA</text>
+          </g>
+
+          <!-- Philippines -->
+          <g>
+            <circle cx="800" cy="230" r="12" fill="#38bdf8" class="node-ping" opacity="0.25" />
+            <circle cx="800" cy="230" r="5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
+            <text x="812" y="235" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">PHILIPPINES</text>
+          </g>
+        </svg>
       </div>
 
       <!-- Tabular Global Operations Matrix -->
